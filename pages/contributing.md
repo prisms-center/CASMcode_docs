@@ -2,7 +2,7 @@
 layout: default
 ---
 
-[![CASM Logo](/assets/logo.png)](https://prisms-center.github.io/CASMcode_docs/)
+[![CASM Logo]({{ site.baseurl }}/assets/logo.png)](https://prisms-center.github.io/CASMcode_docs/)
 
 ***
 ## Contributing to CASM
@@ -11,4 +11,4 @@ CASM is updated frequently with support for new effective Hamiltonians, new inte
 
 CASM is currently beta software with very active development. Our goal is that the ``casm`` program interface, including file input and output formats, is mostly stable and backwards compatiblity will be taken into account as new features are added (though some breaking changes may occur as we learn from experience). The CASM C++ library is less stable and we expect it will continue to have significant changes in the near future.
 
-[[Up]](/index.html#getting-help)
+[[Up]]({{ site.baseurl }}/index.html#getting-help)

@@ -2,7 +2,7 @@
 layout: default
 ---
 
-[![CASM Logo](/assets/logo.png)](https://prisms-center.github.io/CASMcode_docs/)
+[![CASM Logo]({{ site.baseurl }}/assets/logo.png)](https://prisms-center.github.io/CASMcode_docs/)
 
 ***
 ## Publications citing CASM
@@ -17,4 +17,4 @@ Work in progress... The following is as determined by Google Scholar "cited by" 
 - [[Publications]](https://scholar.google.com/scholar?hl=en&as_sdt=0,23&sciodt=0,23&cites=7354457309147613117&scipsc=&authuser=1&q=) citing B. Puchala, A. Van der Ven, *Thermodynamics of the Zr-O system from first-principles calculations*, *Physical Review B*, **88**, 094108 (2013).
 - [[Publications]](https://scholar.google.com/scholar?hl=en&as_sdt=0,23&sciodt=0,23&cites=7900708037721370107&scipsc=&q=) citing A. Van der Ven, J. C. Thomas, Q. Xu, J. Bhattacharya “Linking the electronic structure of solids to their thermodynamic and kinetic properties”, *Mathematics and Computers in Simulation*, **80**(7) 1393-1410 (2010).
 
-[[Up]](/index.html)
+[[Up]]({{ site.baseurl }}/index.html)

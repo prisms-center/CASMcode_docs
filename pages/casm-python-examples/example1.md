@@ -2,8 +2,8 @@
 layout: default
 ---
 
-[![CASM Logo](/assets/logo.png)](https://prisms-center.github.io/CASMcode_docs/)
+[![CASM Logo]({{ site.baseurl }}/assets/logo.png)](https://prisms-center.github.io/CASMcode_docs/)
 
-## [CASM Python library examples](/pages/casm-python-examples.html) - Example 1
+## [CASM Python library examples]({{ site.baseurl }}/pages/casm-python-examples.html) - Example 1
 
 ... TODO ...
