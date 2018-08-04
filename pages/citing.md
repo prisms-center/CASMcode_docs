@@ -42,4 +42,4 @@ References:
 - [ref12] A. van de Walle, M. Asta, *Modell. Simul. Mater. Sci. Eng.* **10**, 521 (2002).
 - [ref13] C.B. Barber, D.P. Dobkin, and H.T. Huhdanpaa, "The Quickhull algorithm for convex hulls," ACM Trans. on Mathematical Software, 22(4):469-483, Dec 1996, http://www.qhull.org.
 
-[[Up]](/index.html#using-casm)
+[[Up]]({{ site.baseurl }}/index.html#using-casm)
