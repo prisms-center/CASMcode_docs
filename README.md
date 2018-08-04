@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+## CASM Online documentation
 
-You can use the [editor on GitHub](https://github.com/prisms-center/CASMcode_docs/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This repository is used to generate the [CASM online documentation](https://prisms-center.github.io/CASMcode_docs/).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The contents of the tutorials are generated via scripts. To generate the tutorials, first:
 
-### Markdown
+- Set environment variables:
+  - `CASMcode_docs_DIR`: Path to this repository
+  - `CASM_TEST_PROJECTS_DIR`: Path to CASM test projects directory (cloned from Materials Commons)
+- Activate a CASM conda environment
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Then run:
 
-```markdown
-Syntax highlighted code block
+    rm -r CASM_TEST_PROJECTS_DIR/0.3.X/*_tutorial
+    python $CASMcode_docs_DIR/scripts/tutorials.py
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/prisms-center/CASMcode_docs/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+The content in the tutorials is specified via JSON files.  For an example of the format, see the contents of `scripts/tutorials/init` which is used to create the [Project initialization](https://prisms-center.github.io/CASMcode_docs/pages/tutorials/init.html) tutorial.

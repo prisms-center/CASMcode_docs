@@ -1,0 +1,10 @@
+{
+    "title": "Project initialization",
+    "name": "init",
+    "section_names": [
+        "sec1",
+        "sec2",
+        "sec3",
+        "sec4"
+    ]
+}

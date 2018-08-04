@@ -1,0 +1,27 @@
+{
+    "title": "Setting composition axes",
+    "summary": "Set composition axes",
+    "name": "sec4",
+    "steps": [ {
+        "id": "sec4.0",
+        "desc": "{% include tutorials/init/sec4/sec4.0-desc.md %}",
+        "cmd": [
+          "casm composition -d"
+        ]
+    },
+    {
+        "id": "sec4.1",
+        "desc": "To select which composition axes to use do:",
+        "cmd": [
+          "casm composition --select 0"
+        ]
+    },
+    {
+        "id": "sec4.2",
+        "desc": "{% include tutorials/init/sec4/sec4.2-desc.md %}",
+        "cmd": [
+          "casm composition -d"
+        ]
+    }
+  ]
+}

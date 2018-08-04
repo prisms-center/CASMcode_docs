@@ -1,1 +1,9 @@
+title: CASM
+description: First-principles statistical mechanical software for the study of
+    multi-component crystalline solids
 theme: jekyll-theme-minimal
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+github:
+  repository_url: "https://github.com/prisms-center/CASMcode"

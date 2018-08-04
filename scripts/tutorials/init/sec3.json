@@ -1,0 +1,33 @@
+{
+    "title": "Initializing a CASM project",
+    "summary": "Initialize a CASM project",
+    "name": "sec3",
+    "steps": [ {
+        "id": "sec3.0",
+        "desc": "The `` `casm init` `` command intializes a CASM project.",
+        "cmd": [
+          "casm init"
+        ]
+    },
+    {
+        "id": "sec3.1",
+        "desc": "The `` `casm init` `` command generates a default directory structure.",
+        "cmd": [
+          "ls -h -l ."
+        ]
+    },
+    {
+        "id": "sec3.2",
+        "desc": "Prim symmetry can be shown with the `` `casm sym` `` command.",
+        "cmd": [
+          "casm sym"
+        ]
+    },
+    {
+        "id": "sec3.3",
+        "desc": "Now the `` `casm status` `` command shows that a project has been initialized and suggests that the next step is to set composition axes.",
+        "cmd": [
+          "casm status -n"
+        ]
+    } ]
+}

@@ -1,0 +1,40 @@
+{
+    "title": "Getting help",
+    "summary": "Get help",
+    "name": "sec1",
+    "steps": [ {
+        "id": "sec1.0",
+        "desc": "To get basic `` `casm` `` program help, use `` `-h` ``:",
+        "cmd": [
+          "casm -h"
+        ]
+    },
+    {
+        "id": "sec1.1",
+        "desc": "To get a list of `` `casm` `` subcommands, use `` `--desc` ``:",
+        "cmd": [
+          "casm --desc"
+        ]
+    },
+    {
+        "id": "sec1.2",
+        "desc": "To get help for a specific subcommand, for example `` `casm init` ``, use `` `-h` ``:",
+        "cmd": [
+          "casm init -h"
+        ]
+    },
+    {
+        "id": "sec1.3",
+        "desc": "To get a more detailed description of a specific subcommand, for example `` `casm init` ``, use `` `--desc` ``:",
+        "cmd": [
+          "casm init --desc"
+        ]
+    },
+    {
+        "id": "sec1.4",
+        "desc": "The `` `casm status` `` command is very useful for getting information about the current status of a project. The `` `-n` `` option also gives suggestions for the next steps that you might take for the workflow of a typical CASM project. At this point, the command just indicates that no project has been initialized.",
+        "cmd": [
+          "casm status -n"
+        ]
+    } ]
+}
