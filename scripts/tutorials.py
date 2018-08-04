@@ -222,10 +222,10 @@ def generate_tutorial(tutorial, prev_name=None, next_name=None):
     #[Previous](pages/tutorials/<prev>.html) [Up](pages/tutorials.md) [Next](pages/tutorials/<next>.md)
     bottom_nav_txt = ""
     if prev_name is not None:
-        bottom_nav_txt += "[[<< Previous]](/pages/tutorials/" + prev_name + ".html) "
-    bottom_nav_txt += "[[Up]](/pages/tutorials.html)"
+        bottom_nav_txt += "[[<< Previous]]({{ site.baseurl }}/pages/tutorials/" + prev_name + ".html) "
+    bottom_nav_txt += "[[Up]]({{ site.baseurl }}/pages/tutorials.html)"
     if next_name is not None:
-        bottom_nav_txt += "[[Next >>]](/pages/tutorials/" + next_name + ".html)"
+        bottom_nav_txt += "[[Next >>]]({{ site.baseurl }}/pages/tutorials/" + next_name + ".html)"
     filedata = filedata.replace("PUT_BOTTOM_NAV_HERE", bottom_nav_txt)
 
     os.makedirs(os.path.dirname(path), exist_ok=True)

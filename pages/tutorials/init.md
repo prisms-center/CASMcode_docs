@@ -2,10 +2,10 @@
 layout: default
 ---
 
-[![CASM Logo](/assets/logo.png)](https://prisms-center.github.io/CASMcode_docs/)
+[![CASM Logo]({{ site.baseurl }}/assets/logo.png)](https://prisms-center.github.io/CASMcode_docs/)
 
 ***
-## [CASM Tutorials](/pages/tutorials.html) - Project initialization
+## [CASM Tutorials]({{ site.baseurl }}/pages/tutorials.html) - Project initialization
 
 {% include tutorials/summary_init.md %}
 
@@ -51,4 +51,4 @@ layout: default
 
 <small>This tutorial was generated using CASM version 0.3.dev132+g5e2a68 xcode_0</small>
 
-[[Up]](/pages/tutorials.html)
+[[Up]]({{ site.baseurl }}/pages/tutorials.html)
