@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-[![CASM Logo](/assets/logo.png)](https://prisms-center.github.io/CASMcode_docs/)
+[![CASM Logo]({{ site.baseurl }}/assets/logo.png)](https://prisms-center.github.io/CASMcode_docs/)
 
 ***
 ## Overview
@@ -41,23 +41,23 @@ CASM is released under the GNU Lesser General Public License (LGPL).
 
 ***
 ## Using CASM
-- [Installation](/pages/installation.html)
-- [Tutorials](/pages/tutorials.html) {% comment %}
-- [CASM C++ library (TODO)](/pages/casm-cpp-examples.html)
-- [CASM Python package (TODO)](/pages/casm-python-examples.html){% endcomment %}
-- [Citing CASM and algorithms](/pages/citing.html)
+- [Installation]({{ site.baseurl }}/pages/installation.html)
+- [Tutorials]({{ site.baseurl }}/pages/tutorials.html) {% comment %}
+- [CASM C++ library (TODO)]({{ site.baseurl }}/pages/casm-cpp-examples.html)
+- [CASM Python package (TODO)]({{ site.baseurl }}/pages/casm-python-examples.html){% endcomment %}
+- [Citing CASM and algorithms]({{ site.baseurl }}/pages/citing.html)
 
 ***
 ## How CASM Works
-- [Definitions](/pages/definitions.html)
-- [Methods](/pages/methods.html)
+- [Definitions]({{ site.baseurl }}/pages/definitions.html)
+- [Methods]({{ site.baseurl }}/pages/methods.html)
 
 {% comment %}
 ***
 ## CASM Projects
-- [List of CASM projects avilable online](/pages/projects_list.html)
-- [Upload a CASM Project](/pages/upload_a_project.html)
-- [Publications citing CASM](pages/publications.html)
+- [List of CASM projects avilable online]({{ site.baseurl }}/pages/projects_list.html)
+- [Upload a CASM Project]({{ site.baseurl }}/pages/upload_a_project.html)
+- [Publications citing CASM]({{ site.baseurl }}/pages/publications.html)
 {% endcomment %}
 
 ***
@@ -65,10 +65,10 @@ CASM is released under the GNU Lesser General Public License (LGPL).
 - [Email the developers](mailto:casm-developers@lists.engr.ucsb.edu)
 - [Join the announcements mailing list](https://lists.engr.ucsb.edu/mailman/listinfo/casm-users)
 - [Request features or report bugs](https://github.com/prisms-center/CASMcode/issues) {% comment %}
-- [C++ library documentation](docs/cpp/index.html)
-- [Python package documentation](docs/python/index.html)
+- [C++ library documentation]({{ site.baseurl }}/docs/cpp/index.html)
+- [Python package documentation]({{ site.baseurl }}/docs/python/index.html)
 {% endcomment %}
-- [Learn how to contribute](/pages/contributing.html)
+- [Learn how to contribute]({{ site.baseurl }}/pages/contributing.html)
 
 ***
 ## Links
