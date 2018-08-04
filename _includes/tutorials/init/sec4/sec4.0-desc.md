@@ -15,7 +15,7 @@ Each configuration has a composition and there are various ways to measure it:
 
 As an example, in the Zr-O system of HCP-Zr with O/Va disorder on the octahedral interstitial positions, the composition can be defined in terms of the amount of O (x) or the amount of Va (1-y). Here are formation energy vs composition calculations plotted with the two options of axes:
 
-|![x_in_ZrOx](/assets/tutorials/init/x_in_ZrOx.png){:width="300px"}| ![y_in_ZrOy](/assets/tutorials/init/y_in_ZrO1-y.png){:width="300px"}|
+|![x_in_ZrOx]({{ site.baseurl }}/assets/tutorials/init/x_in_ZrOx.png){:width="300px"}| ![y_in_ZrOy]({{ site.baseurl }}/assets/tutorials/init/y_in_ZrO1-y.png){:width="300px"}|
 |(a) Composition axes defined as $x$ in $ZrO_x$|(b) Composition axes defined as $y$ in $ZrO_{1-y}$|
 
 When a project is initialized, CASM automatically generates standard composition axes which maximize/minimize the number of each component at the composition axes end states. The results are stored in the file `` `.casm/composition_axes.json` `` If the standard composition axes are not sufficient for your purposes, additional custom composition axes can be added to the `` `.casm/composition_axes.json` `` file. Use `` `casm format --comp` `` for a description of the `` `composition_axes.json` `` file format.  If anything happens to the file, `` `casm composition --calc` `` can be used to re-calculate the standard composition axes.
