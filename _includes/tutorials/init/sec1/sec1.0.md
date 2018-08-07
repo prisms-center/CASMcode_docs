@@ -6,13 +6,20 @@ $ casm -h
 
 ```
 $ casm -h
+usage: casm [-h] [--desc] [--version] [--path PATH] [<command>] ...
 
-~~~ Error loading casm libraries ~~~
-find_executable('ccasm'): None
-Could not find 'ccasm' executable. CASM is not installed on your PATH.
-Install CASM if it is not installed, or update your PATH, or set LIBCASM to the location of libcasm.
+CASM: First-principles based statistical mechanics
 
-Could not find libcasm. Please check your installation.
+positional arguments:
+  <command>    CASM command to execute
+  ...          CASM command arguments
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --desc       Print command list
+  --version    Print casm version
+  --path PATH  Path to project. Default uses project containing current
+               working directory.
 ```
 </details>
 <br>
