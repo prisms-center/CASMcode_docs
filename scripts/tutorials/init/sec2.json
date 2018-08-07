@@ -4,7 +4,14 @@
     "name": "sec2",
     "steps": [ {
         "id": "sec2.0",
-        "desc": "The prim.json file describes lattice vectors, basis sites, and degrees of freedom.",
+        "desc": "{% include tutorials/init/sec2/sec2.0-desc.md %}",
+        "cmd": [
+          "casm format --prim"
+        ]
+    },
+    {
+        "id": "sec2.1",
+        "desc": "{% include tutorials/init/sec2/sec2.1-desc.md %}",
         "cmd": [
           "mkdir -p $CASM_TEST_PROJECTS_DIR/0.3.X/ZrO_tutorial",
           { "cd": "$CASM_TEST_PROJECTS_DIR/0.3.X/ZrO_tutorial" },

@@ -1,11 +1,11 @@
-{% include tutorials/init/sec2/sec2.0-desc.md %}
+Now the `` `casm status -n` `` command shows that a project has been initialized and composition axes selected. It suggests that the next step is to enumerate supercells. Enumeration of supercells and configurations is the subject of the next tutorial.
 ```
-$ casm format --prim
+$ casm status -n
 ```
 <details><summary markdown="span">See result</summary>
 
 ```
-$ casm format --prim
+$ casm status -n
 
 ~~~ Error loading casm libraries ~~~
 find_executable('ccasm'): None

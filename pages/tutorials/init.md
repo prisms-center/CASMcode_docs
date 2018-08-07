@@ -26,6 +26,8 @@ layout: default
 
 {% include tutorials/init/sec2/sec2.0.md %}
 
+{% include tutorials/init/sec2/sec2.1.md %}
+
 
 ### 3. Initializing a CASM project
 
@@ -46,9 +48,11 @@ layout: default
 
 {% include tutorials/init/sec4/sec4.2.md %}
 
+{% include tutorials/init/sec4/sec4.3.md %}
 
 
 
-<small>This tutorial was generated using CASM version 0.3.dev132+g5e2a68 xcode_0</small>
+
+<small>This tutorial was generated using CASM version </small>
 
 [[Up]]({{ site.baseurl }}/pages/tutorials.html)

@@ -1,4 +1,4 @@
-To get a more detailed description of a specific subcommand, for example `` `casm init` ``, use `` `--desc` ``:
+To get a more detailed description of a specific subcommand use `` `casm <subcommand> --desc` ``. For example:
 ```
 $ casm init --desc
 ```
@@ -7,19 +7,12 @@ $ casm init --desc
 ```
 $ casm init --desc
 
-'casm init' usage:
-  -h [ --help ]         Print help message
-  --desc                Print extended usage description
-  -f [ --force ]        Force using a non-reduced, non-primitive, or 
-                        left-handed PRIM
+~~~ Error loading casm libraries ~~~
+find_executable('ccasm'): None
+Could not find 'ccasm' executable. CASM is not installed on your PATH.
+Install CASM if it is not installed, or update your PATH, or set LIBCASM to the location of libcasm.
 
-DESCRIPTION                                                
-    Initialize a new CASM project in the current directory.
-    - Expects a prim.json file in the current directory    
-    - If not found, looks for a PRIM file in the current   
-      directory and creates prim.json.                     
-
-
+Could not find libcasm. Please check your installation.
 ```
 </details>
 <br>

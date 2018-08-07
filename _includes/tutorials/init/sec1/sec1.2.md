@@ -1,4 +1,4 @@
-To get help for a specific subcommand, for example `` `casm init` ``, use `` `-h` ``:
+To get help for a specific subcommand use `` `casm <subcommand> -h` ``. For example:
 ```
 $ casm init -h
 ```
@@ -7,13 +7,12 @@ $ casm init -h
 ```
 $ casm init -h
 
-'casm init' usage:
-  -h [ --help ]         Print help message
-  --desc                Print extended usage description
-  -f [ --force ]        Force using a non-reduced, non-primitive, or 
-                        left-handed PRIM
+~~~ Error loading casm libraries ~~~
+find_executable('ccasm'): None
+Could not find 'ccasm' executable. CASM is not installed on your PATH.
+Install CASM if it is not installed, or update your PATH, or set LIBCASM to the location of libcasm.
 
-
+Could not find libcasm. Please check your installation.
 ```
 </details>
 <br>

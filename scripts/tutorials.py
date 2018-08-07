@@ -160,7 +160,7 @@ def generate_step(tutorial_name, section_name, step):
     for cmd in step["cmd"]:
         print("\n        cmd:", cmd)
         display_cmd, stdout, stderr, returncode, elapsed_time = eval_cmd(cmd)
-        step_input_txt += display_cmd
+        step_input_txt += display_cmd + "\n"
         step_result_txt += display_cmd + "\n" + stdout
         print("\n        display_cmd:", display_cmd)
         print("\n        stdout:\n", stdout)
@@ -172,8 +172,8 @@ def generate_step(tutorial_name, section_name, step):
     with open(join(docs_dir, ".hide", "step_template.md"), 'r') as file :
         filedata = file.read()
     filedata = filedata.replace("PUT_DESC_HERE", step["desc"])
-    filedata = filedata.replace("PUT_INPUT_HERE", step_input_txt)
-    filedata = filedata.replace("PUT_RESULT_HERE", step_result_txt)
+    filedata = filedata.replace("PUT_INPUT_HERE", step_input_txt.strip())
+    filedata = filedata.replace("PUT_RESULT_HERE", step_result_txt.strip())
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, 'w') as file :
         file.write(filedata)
@@ -239,11 +239,16 @@ def generate_index(tutorials):
     print("generating pages/tutorials.md")
     return
 
+# Read tutorial specs
 tutorials = []
-tutorial_i = 0
 for tutorial_name in tutorial_names:
     tutorial = read_tutorial_info(tutorial_name)
     tutorial["sections"] = [ read_section(tutorial_name, section_name) for section_name in tutorial["section_names"] ]
+    tutorials.append(tutorial)
+
+# Execute tutorials and generate pages
+tutorial_i = 0
+for tutorial in tutorials:
     if tutorial_i > 0:
         prev_name = tutorial_names[tutorial_i-1]
     else:
@@ -253,7 +258,6 @@ for tutorial_name in tutorial_names:
     else:
         next_name = None
     generate_tutorial(tutorial, prev_name, next_name)
-    tutorials.append(tutorial)
     tutorial_i += 1
 
 print(json.dumps(tutorials, indent=2))

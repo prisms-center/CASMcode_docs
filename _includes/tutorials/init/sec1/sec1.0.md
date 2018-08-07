@@ -1,4 +1,4 @@
-To get basic `` `casm` `` program help, use `` `-h` ``:
+To get basic `` `casm` `` program help, use `` `casm -h` ``:
 ```
 $ casm -h
 ```
@@ -6,21 +6,13 @@ $ casm -h
 
 ```
 $ casm -h
-usage: casm [-h] [--desc] [--version] [--path PATH] [<command>] ...
 
-CASM: First-principles based statistical mechanics
+~~~ Error loading casm libraries ~~~
+find_executable('ccasm'): None
+Could not find 'ccasm' executable. CASM is not installed on your PATH.
+Install CASM if it is not installed, or update your PATH, or set LIBCASM to the location of libcasm.
 
-positional arguments:
-  <command>    CASM command to execute
-  ...          CASM command arguments
-
-optional arguments:
-  -h, --help   show this help message and exit
-  --desc       Print command list
-  --version    Print casm version
-  --path PATH  Path to project. Default uses project containing current
-               working directory.
-
+Could not find libcasm. Please check your installation.
 ```
 </details>
 <br>

@@ -1,0 +1,10 @@
+{
+    "title": "Enumerate supercells and configurations",
+    "name": "enum",
+    "dirs": [
+      "$CASM_TEST_PROJECTS_DIR/0.3.X/ZrO_tutorial"
+    ],
+    "section_names": [
+        "sec1"
+    ]
+}

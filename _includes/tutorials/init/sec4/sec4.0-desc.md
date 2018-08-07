@@ -21,6 +21,6 @@ As an example, in the Zr-O system of HCP-Zr with O/Va disorder on the octahedral
 When a project is initialized, CASM automatically generates standard composition axes which maximize/minimize the number of each component at the composition axes end states. The results are stored in the file `` `.casm/composition_axes.json` `` If the standard composition axes are not sufficient for your purposes, additional custom composition axes can be added to the `` `.casm/composition_axes.json` `` file. Use `` `casm format --comp` `` for a description of the `` `composition_axes.json` `` file format.  If anything happens to the file, `` `casm composition --calc` `` can be used to re-calculate the standard composition axes.
 
 The complete list of standard and custom composition axes can be displayed with `` `casm composition -d` ``. Note in the output:
-- Each choice composition axes is given a "KEY"
-- Each choice of composition axes is specified via a formula, and the set of end states (named `ORIGIN`, `a`, `b`, etc.)
+- Each choice composition axes is given a "KEY".
+- Each choice of composition axes is specified via a formula, and the set of end states (named `ORIGIN`, `a`, `b`, etc.).
 - The sum of components at each end member, and also the sum of components in the formula, is equal to the number of basis sites in the primitive cell, not 1.0.

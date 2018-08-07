@@ -4,28 +4,33 @@
     "name": "sec3",
     "steps": [ {
         "id": "sec3.0",
-        "desc": "The `` `casm init` `` command intializes a CASM project.",
+        "desc": "{% include tutorials/init/sec3/sec3.0-desc.md %}",
         "cmd": [
+          "ls -h -l -a .",
           "casm init"
         ]
     },
     {
         "id": "sec3.1",
-        "desc": "The `` `casm init` `` command generates a default directory structure.",
+        "desc": "{% include tutorials/init/sec3/sec3.1-desc.md %}",
         "cmd": [
-          "ls -h -l ."
+          "ls -h -l -a ."
         ]
     },
     {
         "id": "sec3.2",
-        "desc": "Prim symmetry can be shown with the `` `casm sym` `` command.",
+        "desc": "{% include tutorials/init/sec3/sec3.2-desc.md %}",
         "cmd": [
-          "casm sym"
+          "casm sym -h",
+          "casm sym",
+          "casm sym --factor-group",
+          "casm sym --lattice-point-group",
+          "casm sym --crystal-point-group"
         ]
     },
     {
         "id": "sec3.3",
-        "desc": "Now the `` `casm status` `` command shows that a project has been initialized and suggests that the next step is to set composition axes.",
+        "desc": "Now the `` `casm status -n` `` command shows that a project has been initialized and suggests that the next step is to set composition axes.",
         "cmd": [
           "casm status -n"
         ]

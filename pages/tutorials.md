@@ -10,10 +10,11 @@ layout: default
 These tutorials will take you step-by-step through the process for generating a first-principles based
 binary phase diagram. They assume you have [installed CASM and downloaded the test projects]({{ site.baseurl }}/pages/installation.html).
 
+0. [(temporaray) PRISMS Workshop cheatsheet]({{ site.baseurl }}/pages/tutorials/cheatsheet.html)
 1. [Project initialization]({{ site.baseurl }}/pages/tutorials/init.html)
+2. [Enumerate supercells and configurations]({{ site.baseurl }}/pages/tutorials/enum.html)
 
 {::comment}
-2. [Enumerate supercells and configurations]({{ site.baseurl }}/pages/tutorials/enum.html)
 3. [Perform electronic structure calculations]({{ site.baseurl }}/pages/tutorials/calc.html)
 4. [Effective Hamiltonian specification]({{ site.baseurl }}/pages/tutorials/bset.html)
 5. [Cluster expansion fitting]({{ site.baseurl }}/pages/tutorials/learn.html)

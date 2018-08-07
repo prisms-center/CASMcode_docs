@@ -1,4 +1,4 @@
-To get a list of `` `casm` `` subcommands, use `` `--desc` ``:
+To get a list of `` `casm` `` subcommands, use `` `casm --desc` ``:
 ```
 $ casm --desc
 ```
@@ -6,55 +6,13 @@ $ casm --desc
 
 ```
 $ casm --desc
-usage: casm [-h] [--desc] [--version] [--path PATH] [<command>] ...
 
-CASM: First-principles based statistical mechanics
+~~~ Error loading casm libraries ~~~
+find_executable('ccasm'): None
+Could not find 'ccasm' executable. CASM is not installed on your PATH.
+Install CASM if it is not installed, or update your PATH, or set LIBCASM to the location of libcasm.
 
-positional arguments:
-  <command>    CASM command to execute
-  ...          CASM command arguments
-
-optional arguments:
-  -h, --help   show this help message and exit
-  --desc       Print command list
-  --version    Print casm version
-  --path PATH  Path to project. Default uses project containing current
-               working directory.
-
-available commands:
-  bset
-  calc
-  composition
-  enum
-  exec
-  files
-  format
-  help
-  import
-  init
-  learn
-  monte
-  perturb
-  plot
-  query
-  ref
-  rm
-  run
-  select
-  settings
-  shell
-  status
-  super
-  sym
-  update
-  version
-  view
-
-For help using a command: 'casm <command> --help'
-
-For step by step help use: 'casm status -n'
-
-
+Could not find libcasm. Please check your installation.
 ```
 </details>
 <br>
