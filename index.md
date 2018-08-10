@@ -16,7 +16,7 @@ The public version of CASM supports:
   - [Quantum Espresso](https://www.quantum-espresso.org/)
   - [SeqQuest](https://dft.sandia.gov/Quest/SeqQ_Home.html)
 - Monte Carlo calculations using:
-  - Semi-Grand canonical ensemble
+  - Semi-grand canonical ensemble
   - Canonical ensemble
 
 ### Acknowledgements
@@ -42,8 +42,8 @@ CASM is released under the GNU Lesser General Public License (LGPL).
 ***
 ## Using CASM
 - [Installation]({{ site.baseurl }}/pages/installation.html)
-- [Tutorials]({{ site.baseurl }}/pages/tutorials.html) {% comment %}
-- [CASM C++ library (TODO)]({{ site.baseurl }}/pages/casm-cpp-examples.html)
+- [Tutorials]({{ site.baseurl }}/pages/tutorials.html)
+- [CASM C++ library examples]({{ site.baseurl }}/pages/casm-cpp-examples.html) {% comment %}
 - [CASM Python package (TODO)]({{ site.baseurl }}/pages/casm-python-examples.html){% endcomment %}
 - [Citing CASM and algorithms]({{ site.baseurl }}/pages/citing.html)
 
@@ -64,10 +64,9 @@ CASM is released under the GNU Lesser General Public License (LGPL).
 ## Getting Help
 - [Email the developers](mailto:casm-developers@lists.engr.ucsb.edu)
 - [Join the announcements mailing list](https://lists.engr.ucsb.edu/mailman/listinfo/casm-users)
-- [Request features or report bugs](https://github.com/prisms-center/CASMcode/issues) {% comment %}
-- [C++ library documentation]({{ site.baseurl }}/docs/cpp/index.html)
-- [Python package documentation]({{ site.baseurl }}/docs/python/index.html)
-{% endcomment %}
+- [Request features or report bugs](https://github.com/prisms-center/CASMcode/issues)
+- [C++ library documentation](https://prisms-center.github.io/CASMcode_cppdocs/latest/modules.html)
+- [Python package documentation](https://prisms-center.github.io/CASMcode_pydocs/latest/)
 - [Learn how to contribute]({{ site.baseurl }}/pages/contributing.html)
 
 ***
