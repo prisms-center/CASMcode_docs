@@ -12,7 +12,7 @@ The recommended method for obtaining CASM is to install the ``casm`` conda packa
 It can be installed using:
 
 ```
-$ conda create -n casm --override-channels -c prisms-center -c defaults -c conda-forge casm
+$ conda create -n casm --override-channels -c bpuchala/label/dev -c prisms-center -c defaults -c conda-forge casm
 ```
 
 This will install:
