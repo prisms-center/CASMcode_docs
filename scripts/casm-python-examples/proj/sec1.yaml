@@ -1,0 +1,64 @@
+title: Initialize and construct CASM Projects
+name: sec1
+summary: Initialize and construct CASM Projects
+steps:
+  - desc: Initialize a new CASM project
+    id: sec1.0
+    code: |
+      from casm.project import Project
+      import os
+      from os.path import join
+      from shutil import copyfile
+
+      # construct a CASM project directory with a ZrO 'prim.json' file
+      test_dir = os.environ["CASM_TEST_PROJECTS_DIR"]
+      ZrO_dir = join(test_dir, "0.3.X", "ZrO.0")
+      pyex_proj_dir = join(test_dir, "0.3.X", "ZrO" + "_pyex_proj")
+      os.makedirs(pyex_proj_dir)
+      copyfile(join(ZrO_dir, "prim.json"), join(pyex_proj_dir, "prim.json"))
+
+      # list directory contents before 'casm init'
+      print("Project directory before 'init'")
+      for file_or_dir in sorted(os.listdir(pyex_proj_dir)):
+          print("- " + file_or_dir)
+
+      # initialize a new Project
+      proj = Project.init(pyex_proj_dir)
+
+      # list directory contents after 'casm init'
+      print("Project directory after 'init'")
+      for file_or_dir in sorted(os.listdir(pyex_proj_dir)):
+          print("- " + file_or_dir)
+
+  - desc: Construct a Project instance and get primitive crystal structure info.
+    id: sec1.1
+    code: |
+      from casm.project import Project
+      import os
+      from os.path import join
+
+      # construct a CASM project directory with a ZrO 'prim.json' file
+      root = join(os.environ["CASM_TEST_PROJECTS_DIR"], "0.3.X", "ZrO" + "_pyex_proj")
+
+      # construct a Project
+      proj = Project(root)
+
+      # a casm.project.Prim instance gives info on the primitive crystal structure
+      prim = proj.prim
+      print("Lattice (as a column vector matrix):\n", prim.lattice_matrix, "\n")
+      print("Lattice parameters:\n", prim.lattice_parameters, "\n")
+      print("Basis coordinate mode:", prim.coordinate_mode, "\n")
+      print("Basis:")
+      for b in prim.basis:
+          print("-", b)
+      print("\n")
+      print("Lattice point group (Schoenflies notation):", prim.lattice_symmetry_s, "\n")
+      print("Lattice point group (Hermann-Mauguin notation):", prim.lattice_symmetry_hm, "\n")
+      print("Lattice system name:", prim.lattice_system, "\n")
+      print("Crystal point group (Schoenflies notation):", prim.crystal_symmetry_s, "\n")
+      print("Crystal point group (Hermann-Mauguin notation):", prim.crystal_symmetry_hm, "\n")
+      print("Range of possible space group number:", prim.space_group_number, "\n")
+      print("Occupational components:", prim.components, "\n")
+      print("Elements:", prim.elements, "\n")
+      print("Number of independent compositions:", prim.n_independent_compositions, "\n")
+      print("Degrees of freedom:", prim.degrees_of_freedom, "\n")

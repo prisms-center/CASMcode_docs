@@ -1,0 +1,13 @@
+title: Project initialization
+name: init
+dir:
+  - "$CASM_TEST_PROJECTS_DIR/0.3.X/ZrO_tutorial"
+section_names:
+  - sec_casm_help
+  - sec_format
+  - sec_status
+  - sec_prim
+  - sec_init
+  - sec_sym
+  - sec_composition
+  - sec_log

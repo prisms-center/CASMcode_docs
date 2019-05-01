@@ -7,7 +7,7 @@ layout: default
 ***
 ## CASM C++ library examples
 
-These examples demonstrate using the CASM C++ library.  See Doxygen [docs]({{ site.baseurl }}/assets/docs/cpp/index.html) for complete usage information.
+These examples demonstrate using the CASM C++ library.  See Doxygen [docs](https://prisms-center.github.io/CASMcode_cppdocs/latest/modules.html) for complete usage information.
 
 1. [Construct a lattice and generate its point group]({{ site.baseurl }}/pages/casm-cpp-examples/lattice-pg.html)
 

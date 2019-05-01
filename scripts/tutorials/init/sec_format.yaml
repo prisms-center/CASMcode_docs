@@ -1,0 +1,14 @@
+title: CASM input file and project directory structure
+name: sec_format
+summary: CASM input file and project directory structure
+steps:
+  - id: sec_format.0
+    desc: >
+      The `` `casm format` `` command provides a description of CASM input files and the CASM project directory structure. For a list of all options, use `` `casm format -h` ``:
+    cmd:
+      - "casm format -h"
+  - id: sec_format.1
+    desc: >
+      For a description of the overall CASM project directory structure, use `` `casm format --dir` ``
+    cmd:
+      - "casm format --dir"

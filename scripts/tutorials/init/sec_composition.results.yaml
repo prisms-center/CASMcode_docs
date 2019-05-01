@@ -1,0 +1,113 @@
+name: sec_composition
+steps:
+- cmd:
+  - casm status -n
+  desc: Now the `` `casm status -n` `` command shows that a project has been initialized
+    and suggests that the next step is to set composition axes.
+  display_cmd:
+  - $ casm status -n
+  elapsed_time:
+  - 1.7132437229156494
+  id: sec_composition.0
+  stdout:
+  - "\n#################################\n\nCASM status:\n\n-- Construct: CASM Project\
+    \ -- \nfrom: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial\"\n\
+    \n-- Load project data -- \nread: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial/.casm/composition_axes.json\"\
+    \n\n1) Project initialized: TRUE\n\n- Project name: ZrO\n- Project location: /Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial\n\
+    - Lattice point group size: 24\n- Lattice point group is D6h\n- Factor group size:\
+    \ 24\n- Crystal point group is: D6h\n\n\n2) Composition axes \n- Composition axes\
+    \ selected: FALSE\n\n\n#################################\n\nNEXT STEPS:\n\nSelect\
+    \ composition axes\n- Execute: 'casm composition -d' to display standard composition\
+    \ axes.    \n- Then execute 'casm composition -s <#>' to select one of the listed\
+    \ axes.\n- If no standard composition axis is satisfactory, edit the file    \
+    \      \n  'composition_axes.json' to add your own custom composition axes to\
+    \ the  \n  'custom_axes' JSON object.\n- See 'casm format --comp' for description\
+    \ and the location of  \n   the 'composition_axes.json' file.\n\n"
+- cmd:
+  - casm composition -d
+  desc: '{% include tutorials/init/sec_composition/sec_composition.1-desc.md %}'
+  display_cmd:
+  - $ casm composition -d
+  elapsed_time:
+  - 1.7908499240875244
+  id: sec_composition.1
+  stdout:
+  - "-- Construct: CASM Project -- \nfrom: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial\"\
+    \n\n-- Load project data -- \nread: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial/.casm/composition_axes.json\"\
+    \n\n\n***************************\n\nStandard composition axes:\n\n       KEY\
+    \     ORIGIN          a     GENERAL FORMULA\n       ---        ---        ---\
+    \     ---\n         0 Zr(2)Va(2)  Zr(2)O(2)     Zr(2)Va(2-2a)O(2a)\n         1\
+    \  Zr(2)O(2) Zr(2)Va(2)     Zr(2)Va(2a)O(2-2a)\n\n\n\nPlease use 'casm composition\
+    \ --select' to choose your composition axes.\n\n"
+- cmd:
+  - casm composition --select 0
+  desc: 'To select which composition axes to use do `` `casm composition --select
+    <KEY>` ``:'
+  display_cmd:
+  - $ casm composition --select 0
+  elapsed_time:
+  - 1.764962911605835
+  id: sec_composition.2
+  stdout:
+  - "-- Construct: CASM Project -- \nfrom: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial\"\
+    \n\n-- Load project data -- \nread: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial/.casm/composition_axes.json\"\
+    \n\n\n***************************\n\nStandard composition axes:\n\n       KEY\
+    \     ORIGIN          a     GENERAL FORMULA\n       ---        ---        ---\
+    \     ---\n         0 Zr(2)Va(2)  Zr(2)O(2)     Zr(2)Va(2-2a)O(2a)\n         1\
+    \  Zr(2)O(2) Zr(2)Va(2)     Zr(2)Va(2a)O(2-2a)\n\nCurrently selected composition\
+    \ axes: 0\n\nParametric composition:\n  comp(a) = -0.25*(comp_n(Va) - 2)  + 0.25*comp_n(O)\
+    \ \n\nComposition:\n  comp_n(Zr) = 2\n  comp_n(Va) = 2 - 2*comp(a) \n  comp_n(O)\
+    \ = 2*comp(a) \n\nParametric chemical potentials:\n  param_chem_pot(a) = 2*chem_pot(O)\
+    \ \n\n\nWrote: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial/.casm/composition_axes.json\"\
+    \n\n"
+- cmd:
+  - casm composition -d
+  desc: '{% include tutorials/init/sec_composition/sec_composition.3-desc.md %}'
+  display_cmd:
+  - $ casm composition -d
+  elapsed_time:
+  - 1.7312309741973877
+  id: sec_composition.3
+  stdout:
+  - "-- Construct: CASM Project -- \nfrom: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial\"\
+    \n\n-- Load project data -- \nread: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial/.casm/composition_axes.json\"\
+    \n\n\n***************************\n\nStandard composition axes:\n\n       KEY\
+    \     ORIGIN          a     GENERAL FORMULA\n       ---        ---        ---\
+    \     ---\n         0 Zr(2)Va(2)  Zr(2)O(2)     Zr(2)Va(2-2a)O(2a)\n         1\
+    \  Zr(2)O(2) Zr(2)Va(2)     Zr(2)Va(2a)O(2-2a)\n\nCurrently selected composition\
+    \ axes: 0\n\nParametric composition:\n  comp(a) = -0.25*(comp_n(Va) - 2)  + 0.25*comp_n(O)\
+    \ \n\nComposition:\n  comp_n(Zr) = 2\n  comp_n(Va) = 2 - 2*comp(a) \n  comp_n(O)\
+    \ = 2*comp(a) \n\nParametric chemical potentials:\n  param_chem_pot(a) = 2*chem_pot(O)\
+    \ \n\n\n"
+- cmd:
+  - casm status -n
+  desc: 'Now the `` `casm status -n` `` command shows that a project has been initialized
+    and composition axes selected. It suggests that the next step is to enumerate
+    supercells. Enumeration of supercells and configurations is the subject of the
+    next tutorial.
+
+    '
+  display_cmd:
+  - $ casm status -n
+  elapsed_time:
+  - 1.6744937896728516
+  id: sec_composition.4
+  stdout:
+  - "\n#################################\n\nCASM status:\n\n-- Construct: CASM Project\
+    \ -- \nfrom: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial\"\n\
+    \n-- Load project data -- \nread: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial/.casm/composition_axes.json\"\
+    \n\n1) Project initialized: TRUE\n\n- Project name: ZrO\n- Project location: /Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial\n\
+    - Lattice point group size: 24\n- Lattice point group is D6h\n- Factor group size:\
+    \ 24\n- Crystal point group is: D6h\n\n\n2) Composition axes \n- Composition axes\
+    \ selected: TRUE\n\n\n\n3) Generate configurations \n- Number of supercells generated:\
+    \ 0\n- Number of configurations generated: 0\n- Number of configurations currently\
+    \ selected: 0\n\n#################################\n\nNEXT STEPS:\n\nEnumerate\
+    \ supercells\n- Execute: 'casm enum --method ScelEnum --max V' to enumerate supercells\
+    \ up to \n  volume V (units: number of primitive cells).                     \
+    \       \n- Supercells are listed in the SCEL file.\n- See 'casm enum --desc ScelEnum'\
+    \ for extended help documentation on how to use the\n  '--matrix' and '--lattice-directions'\
+    \ options to perform restricted     \n  supercell enumeration (i.e. 2d, 1d, multiples\
+    \ of other supercells).     \n- See 'casm format' for a description and location\
+    \ of the  \n   'SCEL' file.\n\n"
+summary: Setting composition axes
+title: Setting composition axes

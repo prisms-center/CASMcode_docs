@@ -1,0 +1,7 @@
+title: Working with projects
+name: proj
+dir:
+  - "$CASM_TEST_PROJECTS_DIR/0.3.X/ZrO_pyex_proj"
+section_names:
+  - sec1
+  - sec2

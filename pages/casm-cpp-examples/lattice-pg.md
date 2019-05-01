@@ -29,6 +29,6 @@ layout: default
 
 
 
-<small>This tutorial was generated using CASM version 0.3.dev132+g5e2a68 xcode_0</small>
+<small>This tutorial was generated using CASM version 0.3.dev269+gd07b42 xcode_0</small>
 
 [[Up]]({{ site.baseurl }}/pages/casm-cpp-examples.html)

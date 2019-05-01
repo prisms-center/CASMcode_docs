@@ -31,8 +31,21 @@ This will install:
   - ``casm.plot.<type>`` programs to generate ``bokeh`` plots
 
 ***
+## Downloading demonstration projects
+
+CASM demonstration projects can be found in the [CASMcode_demo](https://github.com/prisms-center/CASMcode_demo) GitHub repo.
+
+To use a demonstration project you can clone the demonstration project repository:
+
+    git clone git@github.com:prisms-center/CASMcode_demo.git
+
+Or you can download a single project using ``svn export <repo>/trunk/<folder>``, for example:
+
+    svn export https://github.com/prisms-center/CASMcode_demo/trunk/TMS_ICME_PRISMS_workshop_May_2017
+
+***
 ## Installing the test projects
 
-Coming soon...
+CASM projects used for testing and tutorial documentation purposes are stored at [Materials Commons](https://materialscommons.org).
 
 [[Up]]({{ site.baseurl }}/index.html#using-casm)

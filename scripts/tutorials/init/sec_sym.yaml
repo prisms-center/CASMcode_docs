@@ -1,0 +1,12 @@
+title: Checking primitive crystal structure symmetry
+name: sec_sym
+summary: Checking primitive crystal structure symmetry
+steps:
+  - id: sec_sym.0
+    desc: "{% include tutorials/init/sec_sym/sec_sym.0-desc.md %}"
+    cmd:
+      - "casm sym -h"
+      - "casm sym"
+      - "casm sym --factor-group"
+      - "casm sym --lattice-point-group"
+      - "casm sym --crystal-point-group"

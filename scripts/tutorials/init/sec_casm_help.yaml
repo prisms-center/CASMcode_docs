@@ -1,0 +1,20 @@
+title: "`` `casm` `` program help"
+name: sec_casm_help
+summary: "`` `casm` `` program help"
+steps:
+  - id: sec_casm_help.0
+    desc: "To get basic `` `casm` `` program help, use `` `casm -h` ``:"
+    cmd:
+      - "casm -h"
+  - id: sec_casm_help.1
+    desc: "To get a list of `` `casm` `` subcommands, use `` `casm --desc` ``:"
+    cmd:
+      - "casm --desc"
+  - id: sec_casm_help.2
+    desc: "To get help for a specific subcommand use `` `casm <subcommand> -h` ``. For example:"
+    cmd:
+      - "casm init -h"
+  - id: sec_casm_help.3
+    desc: "To get a more detailed description of a specific subcommand use `` `casm <subcommand> --desc` ``. For example:"
+    cmd:
+      - "casm init --desc"

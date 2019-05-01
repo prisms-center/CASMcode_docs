@@ -1,13 +1,28 @@
-""" Execute the CASM C++ examples step-by-step and generate example .md files from the output """
+"""
+Execute the CASM C++ examples step-by-step and generate example .md files from the output
+
+Notes:
+- There may be multiple examples, which should be included in global var 'cpp_examples_names'
+- Defining examples:
+  - Each example is composed of 1 or more sections, and each section of 1 or more steps
+  - Each example is summarized in: scripts/casm-cpp-examples/<example-name>/info.yaml
+  - Each section is defined in: scripts/casm-cpp-examples/<example-name>/<section-name>.yaml
+- After running successfully:
+  - Each example creates a page: pages/casm-cpp-examples/<example-name>.md
+  - A summary page is created: pages/casm-cpp-examples.md
+
+"""
 from __future__ import (absolute_import, division, print_function, unicode_literals)
 from builtins import *
 
-import yaml
 import os
+import shutil
 import subprocess
 import sys
 import time
+import yaml
 from os.path import join
+
 
 # OSX compile:
 #  g++ -std=c++11 -I$CONDA_PREFIX/include -o example1-lattice-pg.0 example1-lattice-pg.0.cpp -L$CONDA_PREFIX/lib -rpath $CONDA_PREFIX/lib -lboost_system -lcasm && ./example1-lattice-pg.0
@@ -110,13 +125,15 @@ test_dir = os.environ["CASM_TEST_PROJECTS_DIR"]
 casm_cpp_examples_dir = join(docs_dir, "scripts", "casm-cpp-examples")
 skip_eval = False
 cmd_prefix = "$ "
-cwd = os.getcwd()
+cwd = "tmp"
+if not os.path.exists(cwd):
+    os.mkdir(cwd)
 env = os.environ.copy()
 casm_version=' '.join(run("$CONDA_EXE list | grep 'casm '", env=env, shell=True, executable="/bin/bash")[0].strip().split()[1:3])
 
 def read_yaml(path):
     with open(path, 'r') as f:
-        data = yaml.load(f)
+        data = yaml.safe_load(f)
     #print(path + ":\n")
     #print(yaml.dumps(data, indent=2))
     return data
@@ -153,7 +170,11 @@ def eval_cmd(cmd):
         return (display_cmd, "stdout", "stderr", 0, 0.)
 
     start = time.time()
-    stdout, stderr, returncode = run(cmd, env=env, shell=True, executable="/bin/bash")
+    stdout, stderr, returncode = run(cmd, cwd=cwd, env=env, shell=True, executable="/bin/bash")
+    if returncode != 0:
+        print("STDOUT:\n", stdout)
+        print("STDERR:\n", stderr)
+        raise Exception("Command failed:\n" + cmd)
     end = time.time()
     elapsed_time = (end - start)
     return (display_cmd, stdout, stderr, returncode, elapsed_time)
@@ -170,7 +191,7 @@ def generate_step(example_name, section_name, step):
     includes = step.get("includes", None)
     libs = step.get("libs", None)
 
-    with open(name+".cpp", 'w') as f:
+    with open(join(cwd, name+".cpp"), 'w') as f:
         f.write(step["code"])
 
     cmd = compile_and_run_cmd(name, cxxflags=cxxflags, lddflags=lddflags, includes=includes, libs=libs)
@@ -266,6 +287,15 @@ for example_name in cpp_examples_names:
     example = read_example_info(example_name)
     example["sections"] = [ read_section(example_name, section_name) for section_name in example["section_names"] ]
     examples.append(example)
+
+# Clear existing any data
+# - with a check that target is a grandchild of "CASM_test_projects" before we rmtree
+for example in examples:
+    if "dir" in example:
+        for dir in example["dir"]:
+            target = os.path.normpath(os.path.expandvars(dir))
+            if os.path.exists(target) and target.split(os.sep)[-3] == "CASM_test_projects":
+                shutil.rmtree(target)
 
 # Execute examples and generate pages
 example_i = 0

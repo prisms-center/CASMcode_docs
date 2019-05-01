@@ -43,8 +43,8 @@ CASM is released under the GNU Lesser General Public License (LGPL).
 ## Using CASM
 - [Installation]({{ site.baseurl }}/pages/installation.html)
 - [Tutorials]({{ site.baseurl }}/pages/tutorials.html)
-- [CASM C++ library examples]({{ site.baseurl }}/pages/casm-cpp-examples.html) {% comment %}
-- [CASM Python package (TODO)]({{ site.baseurl }}/pages/casm-python-examples.html){% endcomment %}
+- [CASM C++ library examples]({{ site.baseurl }}/pages/casm-cpp-examples.html)
+- [CASM Python package examples]({{ site.baseurl }}/pages/casm-python-examples.html)
 - [Citing CASM and algorithms]({{ site.baseurl }}/pages/citing.html)
 
 ***
@@ -66,7 +66,8 @@ CASM is released under the GNU Lesser General Public License (LGPL).
 - [Join the announcements mailing list](https://lists.engr.ucsb.edu/mailman/listinfo/casm-users)
 - [Request features or report bugs](https://github.com/prisms-center/CASMcode/issues)
 - [C++ library documentation](https://prisms-center.github.io/CASMcode_cppdocs/latest/modules.html)
-- [Python package documentation](https://prisms-center.github.io/CASMcode_pydocs/latest/)
+- [Python package documentation external](https://prisms-center.github.io/CASMcode_pydocs/latest/)
+- [Python package documentation]({{ site.baseurl }}/pages/contributing.html)
 - [Learn how to contribute]({{ site.baseurl }}/pages/contributing.html)
 
 ***

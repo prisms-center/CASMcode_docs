@@ -9,50 +9,68 @@ layout: default
 
 {% include tutorials/summary_init.md %}
 
-### 1. Getting help
+### 1. `` `casm` `` program help
 
-{% include tutorials/init/sec1/sec1.0.md %}
+{% include tutorials/init/sec_casm_help/sec_casm_help.0.md %}
 
-{% include tutorials/init/sec1/sec1.1.md %}
+{% include tutorials/init/sec_casm_help/sec_casm_help.1.md %}
 
-{% include tutorials/init/sec1/sec1.2.md %}
+{% include tutorials/init/sec_casm_help/sec_casm_help.2.md %}
 
-{% include tutorials/init/sec1/sec1.3.md %}
-
-{% include tutorials/init/sec1/sec1.4.md %}
+{% include tutorials/init/sec_casm_help/sec_casm_help.3.md %}
 
 
-### 2. Creating prim.json
+### 2. CASM input file and project directory structure
 
-{% include tutorials/init/sec2/sec2.0.md %}
+{% include tutorials/init/sec_format/sec_format.0.md %}
 
-{% include tutorials/init/sec2/sec2.1.md %}
-
-
-### 3. Initializing a CASM project
-
-{% include tutorials/init/sec3/sec3.0.md %}
-
-{% include tutorials/init/sec3/sec3.1.md %}
-
-{% include tutorials/init/sec3/sec3.2.md %}
-
-{% include tutorials/init/sec3/sec3.3.md %}
+{% include tutorials/init/sec_format/sec_format.1.md %}
 
 
-### 4. Setting composition axes
+### 3. CASM project status
 
-{% include tutorials/init/sec4/sec4.0.md %}
-
-{% include tutorials/init/sec4/sec4.1.md %}
-
-{% include tutorials/init/sec4/sec4.2.md %}
-
-{% include tutorials/init/sec4/sec4.3.md %}
+{% include tutorials/init/sec_status/sec_status.0.md %}
 
 
+### 4. The primitive crystal structure definition file `` `prim.json` ``
+
+{% include tutorials/init/sec_prim/sec_prim.0.md %}
+
+{% include tutorials/init/sec_prim/sec_prim.1.md %}
 
 
-<small>This tutorial was generated using CASM version </small>
+### 5. Initializing a CASM project
 
-[[Up]]({{ site.baseurl }}/pages/tutorials.html)
+{% include tutorials/init/sec_init/sec_init.0.md %}
+
+{% include tutorials/init/sec_init/sec_init.1.md %}
+
+
+### 6. Checking primitive crystal structure symmetry
+
+{% include tutorials/init/sec_sym/sec_sym.0.md %}
+
+
+### 7. Setting composition axes
+
+{% include tutorials/init/sec_composition/sec_composition.0.md %}
+
+{% include tutorials/init/sec_composition/sec_composition.1.md %}
+
+{% include tutorials/init/sec_composition/sec_composition.2.md %}
+
+{% include tutorials/init/sec_composition/sec_composition.3.md %}
+
+{% include tutorials/init/sec_composition/sec_composition.4.md %}
+
+
+### 8. The `` `LOG` `` file
+
+{% include tutorials/init/sec_log/sec_log.0.md %}
+
+
+
+
+<small>This tutorial was generated using CASM version 0.3.dev269+gd07b42 xcode_0</small>
+
+[[Up]]({{ site.baseurl }}/pages/tutorials.html)[[Next >>]]({{ site.baseurl }}/pages/tutorials/enum.html)

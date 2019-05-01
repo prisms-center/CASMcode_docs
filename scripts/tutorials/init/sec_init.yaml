@@ -1,0 +1,14 @@
+title: Initializing a CASM project
+name: sec_init
+summary: Initializing a CASM project
+steps:
+  - id: sec_init.0
+    desc: "{% include tutorials/init/sec_init/sec_init.0-desc.md %}"
+    cmd:
+      - "ls -h -l -a ."
+      - "casm init"
+  - id: sec_init.1
+    desc: "{% include tutorials/init/sec_init/sec_init.1-desc.md %}"
+    cmd:
+      - "ls -h -l -a ."
+      - "casm init"

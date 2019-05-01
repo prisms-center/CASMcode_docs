@@ -1,0 +1,58 @@
+name: sec_status
+steps:
+- cmd:
+  - casm status -n
+  desc: 'The `` `casm status` `` command is very useful for getting information about
+    the current status of a project. The `` `-n` `` option also gives suggestions
+    for the next steps that you might take for the workflow of a typical CASM project.
+    At this point, the command just indicates that no project has been initialized.
+
+    '
+  display_cmd:
+  - $ casm status -n
+  elapsed_time:
+  - 1.7210791110992432
+  id: sec_status.0
+  stdout:
+  - "\n#################################\n\nCASM status:\n\n1) Project initialized:\
+    \ FALSE\n\n\n#################################\n\nNEXT STEPS:\n\nInitialize a\
+    \ CASM project\n- Create and cd to the directory where you want the project to\
+    \ be located.\n  This will be called the 'project root directory' or project's\
+    \ 'location'.\n- Add a 'prim.json' file to the directory describing the primitive\
+    \ cell.  \n  See 'casm format --prim' for the format of the 'prim.json' file.\
+    \        \n- Execute: 'casm init'                                            \
+    \        \n- Several directories are created: 'symmetry', 'basis_sets',      \
+    \        \n  'training_data', and 'cluster_expansions'  \n- If necessary, set\
+    \ configuration options for runtime compilation and     \n  linking by using the\
+    \ 'casm settings' command or by setting environment  \n  variables. \n       \
+    \                                                                   \n    'cxx':\
+    \ \n      Specifies compiler to use. In order of priority: \n        1) User specified\
+    \ by 'casm settings --set-cxx' (use '' to clear) \n        2) $CASM_CXX \n   \
+    \     3) $CXX \n        4) \"g++\" \n\n    'cxxflags': \n      Compiler flags.\
+    \ In order of priority: \n        1) User specified by 'casm settings --set-cxxflags'\
+    \ \n        2) $CASM_CXXFLAGS \n        3) \"-O3 -Wall -fPIC --std=c++11\" \n\n\
+    \    'soflags': \n      Shared object construction flags. In order of priority:\
+    \ \n        1) User specified by 'casm settings --set-soflags' \n        2) $CASM_SOFLAGS\
+    \ \n        3) \"-shared -lboost_system\" \n\n    'casm headers and libraries':\
+    \ \n      CASM header files and shared libraries are expected in the following\n\
+    \      locations.                                                          \n\
+    \      In order of priority: \n        1) User specified by 'casm settings --set-casm-includedir'\
+    \ and \n           'casm settings --set-casm-libdir' \n        2) $CASM_INCLUDEDIR\
+    \ and $CASM_LIBDIR \n        3) $CASM_PREFIX/include and $CASM_PREFIX/lib \n \
+    \       3) (default search paths) \n\n    Note: For the 'casm' Python package,\
+    \ $LIBCASM and $LIBCCASM, have \n    highest priority for locating libcasm and\
+    \ libccasm, respectively. \n\n    'boost headers and libraries': \n      The boost\
+    \ libraries are expected in the following locations.        \n      In order of\
+    \ priority: \n        1) User specified by 'casm settings --set-boost-includedir'\
+    \ and \n           'casm settings --set-boost-libdir' and \n        2) $CASM_BOOST_INCLUDEDIR\
+    \ and $CASM_BOOST_LIBDIR \n        3) $CASM_BOOST_PREFIX/include $CASM_BOOST_PREFIX/lib\
+    \ \n        4) (default search paths) \n\n    Note: If shared libraries are installed\
+    \ in non-standard locations, you \n    may need to set: \n      (Linux) export\
+    \ LD_LIBRARY_PATH=$CASM_PREFIX/lib:$CASM_BOOST_PREFIX/lib:$LD_LIBRARY_PATH \n\
+    \      (Mac)   export DYLD_FALLBACK_LIBRARY_PATH=$CASM_PREFIX/lib:$CASM_BOOST_PREFIX/lib:$DYLD_FALLBACK_LIBRARY_PATH\
+    \ \n\n- Subsequently, work on the CASM project can be done by executing 'casm'\
+    \  \n  from the project's root directory or any subdirectory.                \
+    \  \n- See 'casm format --prim' for description and location of the 'prim.json'\
+    \ file.\n"
+summary: CASM project status
+title: CASM project status

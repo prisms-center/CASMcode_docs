@@ -1,0 +1,90 @@
+name: sec_enum_scel
+steps:
+- cmd:
+  - casm enum -h
+  desc: "In CASM, crystal states consistent with the primitive crystal structure are\
+    \ called \"configurations\". Each configuration can be represented by specifying:\n\
+    \n- supercell vectors used to repeat a unit cell into the infinite crystal\n-\
+    \ the value of local degrees of freedom at each site in the unit cell, including:\n\
+    \  - discrete site DoF (atom or molecule site occupant)\n  - continuous site DoF\
+    \ (ex: displacement vector)\n- the value of global degrees of freedom (ex: strain)\n\
+    \nEach CASM project contains a database of enumerated supercells and configurations,\
+    \ which may have been generated in a variety of different ways. The primary approach\
+    \ is to enumerate them directly using methods accessed via the `` `casm enum`\
+    \ `` subcommand.\n\nFrom within a CASM project, the list of enumeration methods\
+    \ can be printed using `` `casm enum -h` ``.\n"
+  display_cmd:
+  - $ casm enum -h
+  elapsed_time:
+  - 1.728675127029419
+  id: sec_enum_scel.0
+  stdout:
+  - "-- Construct: CASM Project -- \nfrom: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial\"\
+    \n\n-- Load project data -- \nread: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial/.casm/composition_axes.json\"\
+    \n\n\n'casm enum' usage:\n  -h [ --help ]                 Print help message.\n\
+    \  --desc arg                    Print extended usage description. Use '--desc\
+    \ \n                                MethodName [MethodName2...]' for detailed\
+    \ \n                                option description. Partial matches of method\
+    \ \n                                names will be included.\n  -m [ --method ]\
+    \ arg           Method to use: Can use number shortcuts in this\n            \
+    \                    option.\n  --min arg (=1)                Min volume\n  --max\
+    \ arg                     Max volume\n  --filter <query>              Filter configuration\
+    \ enumeration so that only \n                                configurations matching\
+    \ a 'casm query'-type \n                                expression are recorded\n\
+    \  -a [ --all ]                  Enumerate configurations for all existing \n\
+    \                                supercells\n  --verbosity arg (=standard)   Verbosity\
+    \ of output. Options are 'none', \n                                'quiet', 'standard',\
+    \ 'verbose', 'debug', or an \n                                integer 0-100 (0:\
+    \ none, 100: all).\n  -s [ --settings ] <path>      Settings input file specifying\
+    \ which parameters\n                                should be used. See 'casm\
+    \ format --enum'.\n  -i [ --input ] arg            String specifying input settings.\
+    \ See 'casm \n                                format --enum'.\n  --scelnames <supercell>\
+    \       One or more supercells to use casm enum with, \n                     \
+    \           such as 'SCEL4_2_2_1_0_0_0'\n  --confignames <configuration> One or\
+    \ more configurations to use casm enum \n                                with,\
+    \ such as 'SCEL4_2_2_1_0_0_0/3'\n\nThe enumeration methods are:\n\n  0) ConfigEnumAllOccupations\n\
+    \  1) ConfigEnumRandomOccupations\n  2) ScelEnum\n  3) SuperConfigEnum\n\nFor\
+    \ complete options description, use 'casm enum --desc MethodName'.\n\n"
+- cmd:
+  - casm enum -h
+  desc: "A common approach is to first enumerate symmetrically unique supercells and\
+    \ then enumerate configurations within a supercell.\n\nA supercell can be represented\
+    \ by a transformation matrix, `T`:\n\n  `S = P * T `,\n\nwhere `S` is a 3x3 column\
+    \ vector matrix containing the supercell lattice vectors, and `P` is a 3x3 column\
+    \ vector matrix containting the primitive cell lattice vectors.\n\n|![scel_transf_mat]({{\
+    \ site.baseurl }}/assets/tutorials/enum/scel_enum.0.png){:width=\"650px\"}|\n\
+    |The supercell transformation matrix.|\n"
+  display_cmd:
+  - $ casm enum -h
+  elapsed_time:
+  - 1.7156059741973877
+  id: sec_enum_scel.1
+  stdout:
+  - "-- Construct: CASM Project -- \nfrom: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial\"\
+    \n\n-- Load project data -- \nread: \"/Users/bpuchala/mcproj/CASM_test_projects/0.3.X/ZrO_tutorial/.casm/composition_axes.json\"\
+    \n\n\n'casm enum' usage:\n  -h [ --help ]                 Print help message.\n\
+    \  --desc arg                    Print extended usage description. Use '--desc\
+    \ \n                                MethodName [MethodName2...]' for detailed\
+    \ \n                                option description. Partial matches of method\
+    \ \n                                names will be included.\n  -m [ --method ]\
+    \ arg           Method to use: Can use number shortcuts in this\n            \
+    \                    option.\n  --min arg (=1)                Min volume\n  --max\
+    \ arg                     Max volume\n  --filter <query>              Filter configuration\
+    \ enumeration so that only \n                                configurations matching\
+    \ a 'casm query'-type \n                                expression are recorded\n\
+    \  -a [ --all ]                  Enumerate configurations for all existing \n\
+    \                                supercells\n  --verbosity arg (=standard)   Verbosity\
+    \ of output. Options are 'none', \n                                'quiet', 'standard',\
+    \ 'verbose', 'debug', or an \n                                integer 0-100 (0:\
+    \ none, 100: all).\n  -s [ --settings ] <path>      Settings input file specifying\
+    \ which parameters\n                                should be used. See 'casm\
+    \ format --enum'.\n  -i [ --input ] arg            String specifying input settings.\
+    \ See 'casm \n                                format --enum'.\n  --scelnames <supercell>\
+    \       One or more supercells to use casm enum with, \n                     \
+    \           such as 'SCEL4_2_2_1_0_0_0'\n  --confignames <configuration> One or\
+    \ more configurations to use casm enum \n                                with,\
+    \ such as 'SCEL4_2_2_1_0_0_0/3'\n\nThe enumeration methods are:\n\n  0) ConfigEnumAllOccupations\n\
+    \  1) ConfigEnumRandomOccupations\n  2) ScelEnum\n  3) SuperConfigEnum\n\nFor\
+    \ complete options description, use 'casm enum --desc MethodName'.\n\n"
+summary: Enumerate supercells
+title: Enumerating supercells
