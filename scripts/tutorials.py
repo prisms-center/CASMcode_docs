@@ -2,11 +2,12 @@
 from __future__ import (absolute_import, division, print_function, unicode_literals)
 from builtins import *
 
-import json
 import os
+import shutil
 import subprocess
 import sys
 import time
+import yaml
 from os.path import join
 
 def _set_encoding(encoding=None):
@@ -68,7 +69,8 @@ def run(cmd, input=None, stdin=None, encoding=None, cwd=None, env=None, shell=Fa
 # global vars
 
 tutorial_names = [
-    "init"
+    "init",
+    "enum"
 ]
 
 # "enum"
@@ -87,18 +89,28 @@ cwd = os.getcwd()
 env = os.environ.copy()
 casm_version=' '.join(run("$CONDA_EXE list | grep 'casm '", env=env, shell=True, executable="/bin/bash")[0].strip().split()[1:3])
 
-def read_json(path):
+def read_yaml(path):
     with open(path, 'r') as f:
-        data = json.load(f)
+        data = yaml.safe_load(f)
     #print(path + ":\n")
-    #print(json.dumps(data, indent=2))
+    #print(yaml.dump(data))
     return data
 
+def write_yaml(path, data):
+    with open(path, 'w') as f:
+        f.write(yaml.safe_dump(data))
+
 def read_tutorial_info(tutorial_name):
-    return read_json(join(docs_dir, "scripts", "tutorials", tutorial_name, "info.json"))
+    return read_yaml(join(docs_dir, "scripts", "tutorials", tutorial_name, "info.yaml"))
 
 def read_section(tutorial_name, section_name):
-    return read_json(join(docs_dir, "scripts", "tutorials", tutorial_name, section_name + ".json"))
+    return read_yaml(join(docs_dir, "scripts", "tutorials", tutorial_name, section_name + ".yaml"))
+
+def read_section_results(tutorial_name, section_name):
+    return read_yaml(join(docs_dir, "scripts", "tutorials", tutorial_name, section_name + ".results.yaml"))
+
+def write_section_results(tutorial_name, section_name, section):
+    write_yaml(join(docs_dir, "scripts", "tutorials", tutorial_name, section_name + ".results.yaml"), section)
 
 def eval_cmd(cmd):
     global cwd
@@ -146,20 +158,38 @@ def eval_cmd(cmd):
 
     start = time.time()
     stdout, stderr, returncode = run(cmd, env=env, shell=True, executable="/bin/bash")
+    if returncode != 0:
+        print("STDOUT:\n", stdout)
+        print("STDERR:\n", stderr)
+        raise Exception("Command failed:\n" + cmd)
     end = time.time()
     elapsed_time = (end - start)
     return (display_cmd, stdout, stderr, returncode, elapsed_time)
 
 
-def generate_step(tutorial_name, section_name, step):
+def generate_step(tutorial_name, section_name, step, reuse_results=False):
     """ Generate _include/tutorials/<tutorial_name>/<section_name>/<step_id>.md"""
     print("    Begin step:", step["id"])
     print("      desc:", step["desc"])
+    print("step:\n", step)
     step_input_txt = ""
     step_result_txt = ""
-    for cmd in step["cmd"]:
+    if reuse_results == False:
+        step["display_cmd"] = []
+        step["stdout"] = []
+        step["elapsed_time"] = []
+    for i in range(len(step["cmd"])):
+        cmd = step["cmd"][i]
         print("\n        cmd:", cmd)
-        display_cmd, stdout, stderr, returncode, elapsed_time = eval_cmd(cmd)
+        if reuse_results == False:
+            display_cmd, stdout, stderr, returncode, elapsed_time = eval_cmd(cmd)
+            step["display_cmd"].append(display_cmd)
+            step["stdout"].append(stdout)
+            step["elapsed_time"].append(elapsed_time)
+        else:
+            display_cmd = step["display_cmd"][i]
+            stdout = step["stdout"][i]
+            elapsed_time = step["elapsed_time"][i]
         step_input_txt += display_cmd + "\n"
         step_result_txt += display_cmd + "\n" + stdout
         print("\n        display_cmd:", display_cmd)
@@ -179,24 +209,26 @@ def generate_step(tutorial_name, section_name, step):
         file.write(filedata)
     return
 
-def generate_section(tutorial_name, section):
+def generate_section(tutorial_name, section, reuse_results=False):
     """ Execute and generate one section of a tutorial"""
     print("  Begin section:", section["title"])
     section_txt = ""
     for step in section["steps"]:
-        generate_step(tutorial_name, section["name"], step)
+        generate_step(tutorial_name, section["name"], step, reuse_results=reuse_results)
         # {% include tutorials/tutorial_name/section_name/<step_id>.md %}
         section_txt += "{% include " + join("tutorials", tutorial_name, section["name"], step["id"]+".md") + " %}\n\n"
+    if not reuse_results:
+        write_section_results(tutorial_name, section["name"], section)
     return section_txt
 
-def generate_tutorial(tutorial, prev_name=None, next_name=None):
+def generate_tutorial(tutorial, prev_name=None, next_name=None, reuse_results=False):
     """ Execuate tutorial and generate pages/tutorials/<tutorial_name>.md, the individual tutorial page"""
     print("Begin tutorial:", tutorial["name"])
-    tutorial_summary = "This tutorial will show you how to:\n"
+    tutorial_summary = "This tutorial demonstrates:\n"
     tutorial_txt = ""
     section_i = 1
     for section in tutorial["sections"]:
-        section_txt = generate_section(tutorial["name"], section)
+        section_txt = generate_section(tutorial["name"], section, reuse_results=reuse_results)
         # "### 1. Getting help\n"
         tutorial_txt += "### " + str(section_i) + ". " + section["title"] + "\n\n" + section_txt + "\n"
         tutorial_summary += str(section_i) + ". " + section["summary"] + "\n"
@@ -239,12 +271,46 @@ def generate_index(tutorials):
     print("generating pages/tutorials.md")
     return
 
-# Read tutorial specs
+# Read tutorial specs:
+#
+# tutorials: list of dict
+# tutorials[i]: dict of <tutorial_name>/info.yaml file contents
+#   "title" str, "name" str, "dir" str, "section_names" list of str, "sections": list of dict
+# tutorials[i]["sections"][j]: dict of <tutorial_name>/<section_name>.yaml file contents
+#   "title" str, "name" str, "summary" str, "steps": list of dict:
+# tutorials[i]["sections"][j]["steps"][k]: list of dict:
+#   "id": str, "desc": str, "cmd": list of str or dict
+# tutorials[i]["sections"][j]["steps"][k]["cmd"]:
+#   - if str: execute as command
+#   - if dict:
+#      - change working directory if: {"cd":"<path>"}
+#      - export an environment variable if: {"export":"VARIABLE_NAME", "value":"VALUE"}
+
+reuse_results = True
+
 tutorials = []
 for tutorial_name in tutorial_names:
     tutorial = read_tutorial_info(tutorial_name)
     tutorial["sections"] = [ read_section(tutorial_name, section_name) for section_name in tutorial["section_names"] ]
+    if reuse_results:
+        for i in range(len(tutorial["sections"])):
+            section = tutorial["sections"][i]
+            section_name = tutorial["section_names"][i]
+            results = read_section_results(tutorial_name, section_name)
+            for j in range(len(results["steps"])):
+                section["steps"][j]["display_cmd"] = results["steps"][j]["display_cmd"]
+                section["steps"][j]["stdout"] = results["steps"][j]["stdout"]
+                section["steps"][j]["elapsed_time"] = results["steps"][j]["elapsed_time"]
     tutorials.append(tutorial)
+
+# Clear existing any data
+# - with a check that target is a grandchild of "CASM_test_projects" before we rmtree
+for tutorial in tutorials:
+    if "dir" in tutorial:
+        for dir in tutorial["dir"]:
+            target = os.path.normpath(os.path.expandvars(dir))
+            if os.path.exists(target) and target.split(os.sep)[-3] == "CASM_test_projects":
+                shutil.rmtree(target)
 
 # Execute tutorials and generate pages
 tutorial_i = 0
@@ -257,8 +323,8 @@ for tutorial in tutorials:
         next_name = tutorial_names[tutorial_i+1]
     else:
         next_name = None
-    generate_tutorial(tutorial, prev_name, next_name)
+    generate_tutorial(tutorial, prev_name, next_name, reuse_results=reuse_results)
     tutorial_i += 1
 
-print(json.dumps(tutorials, indent=2))
+print(yaml.dump(tutorials))
 generate_index(tutorials)
