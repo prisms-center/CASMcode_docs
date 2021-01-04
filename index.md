@@ -11,11 +11,11 @@ The public version of CASM supports:
 
 - Constructing, fitting, and evaluating cluster expansion effective Hamiltonians with:
   - Occupational degrees of freedom
+  - Strain degrees of freedom
 - High-throughput calculations using:
   - [VASP](https://www.vasp.at)  
   - [Quantum Espresso](https://www.quantum-espresso.org/)
-  - [SeqQuest](https://dft.sandia.gov/Quest/SeqQ_Home.html)
-- Monte Carlo calculations using:
+- Occupantional cluster expansion Monte Carlo calculations using:
   - Semi-grand canonical ensemble
   - Canonical ensemble
 
@@ -25,40 +25,29 @@ CASM is developed by the [Van der Ven group](https://labs.materials.ucsb.edu/van
 
 - **Lead developers**:  John C. Thomas and Brian Puchala
 - **Developers**:  John Goiri and Anirudh Natarajan
-- **Other contributors**: Min-Hua Chen, Jonathon Bechtel, Max Radin, Elizabeth Decolvenaere, Anna Belak, Liang Tian, Naga Sri Harsha Gunda, Julija Vinckeviciute, Sanjeev Kolli
+- **Other contributors**: Min-Hua Chen, Jonathon Bechtel, Max Radin, Elizabeth Decolvenaere, Anna Belak, Liang Tian, Naga Sri Harsha Gunda, Julija Vinckeviciute, Sanjeev Kolli, and Sesha Sai Behara.
 
 The development of CASM was made possible with support from:
 - The U.S. Department of Energy, Office of Basic Energy Sciences, Division of Materials Sciences and Engineering under Award #DE-SC0008637 that funds the PRedictive Integrated Structural Materials Science (PRISMS) Center at University of Michigan.
-- The National Science Foundation under Awards DMR-1410242, DMR-1105672 and DMR-1436154.
+- The National Science Foundation under Awards DMR-1410242, DMR-1105672, DMR-1436154, and OAC-1642433.
 
 ### License
 
 CASM is released under the GNU Lesser General Public License (LGPL).
 
+{::comment}
 ***
 ## Announcements
-- 7/27/2018: PRISMS Center will be holding its annual PRISMS Center workshop (August 6-10, 2018). PRISMS Software Training is August 6-8. [Details](http://prisms-center.org/#/community)
+- 1/1/2021: No current announcements
+{:/comment}
 
 ***
 ## Using CASM
 - [Installation]({{ site.baseurl }}/pages/installation.html)
 - [Tutorials]({{ site.baseurl }}/pages/tutorials.html)
-- [CASM C++ library examples]({{ site.baseurl }}/pages/casm-cpp-examples.html)
-- [CASM Python package examples]({{ site.baseurl }}/pages/casm-python-examples.html)
-- [Citing CASM and algorithms]({{ site.baseurl }}/pages/citing.html)
-
-***
-## How CASM Works
-- [Definitions]({{ site.baseurl }}/pages/definitions.html)
 - [Methods]({{ site.baseurl }}/pages/methods.html)
-
-{% comment %}
-***
-## CASM Projects
-- [List of CASM projects avilable online]({{ site.baseurl }}/pages/projects_list.html)
-- [Upload a CASM Project]({{ site.baseurl }}/pages/upload_a_project.html)
-- [Publications citing CASM]({{ site.baseurl }}/pages/publications.html)
-{% endcomment %}
+- [Definitions]({{ site.baseurl }}/pages/definitions.html)
+- [Citing CASM and algorithms]({{ site.baseurl }}/pages/citing.html)
 
 ***
 ## Getting Help
@@ -66,8 +55,7 @@ CASM is released under the GNU Lesser General Public License (LGPL).
 - [Join the announcements mailing list](https://lists.engr.ucsb.edu/mailman/listinfo/casm-users)
 - [Request features or report bugs](https://github.com/prisms-center/CASMcode/issues)
 - [C++ library documentation](https://prisms-center.github.io/CASMcode_cppdocs/latest/modules.html)
-- [Python package documentation external](https://prisms-center.github.io/CASMcode_pydocs/latest/)
-- [Python package documentation]({{ site.baseurl }}/pages/contributing.html)
+- [Python package documentation](https://prisms-center.github.io/CASMcode_pydocs/latest/)
 - [Learn how to contribute]({{ site.baseurl }}/pages/contributing.html)
 
 ***
