@@ -1,9 +1,0 @@
-title: CASM project status
-name: sec_status
-summary: CASM project status
-steps:
-  - id: sec_status.0
-    desc: >
-      The `` `casm status` `` command is very useful for getting information about the current status of a project. The `` `-n` `` option also gives suggestions for the next steps that you might take for the workflow of a typical CASM project. At this point, the command just indicates that no project has been initialized.
-    cmd:
-      - "casm status -n"

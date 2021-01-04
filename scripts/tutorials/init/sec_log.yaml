@@ -1,9 +1,0 @@
-title: The `` `LOG` `` file
-name: sec_log
-summary: The `` `LOG` `` file
-steps:
-  - id: sec_log.0
-    desc: >
-      CASM generates a `` `LOG` `` file which records the steps performed while working on your project. The `` `LOG` `` file is not a 100% complete record. It is limited to logging particular subcommands and does not include other subcommands, such as `` `casm calc` `` or `` `casm learn` ``. Also, it does not record the values of input files at the time they were used. Despite being an incomplete record, it can still be a useful tool to remember actions taken in the CASM project.
-    cmd:
-      - "grep casm LOG"

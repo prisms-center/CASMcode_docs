@@ -1,6 +1,0 @@
-title: Enumerate supercells and configurations
-name: enum
-dir:
-  - "$CASM_TEST_PROJECTS_DIR/0.3.X/ZrO_tutorial"
-section_names:
-  - sec_enum_scel
