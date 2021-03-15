@@ -7,3 +7,5 @@ kramdown:
   parse_block_html: true
 github:
   repository_url: "https://github.com/prisms-center/CASMcode"
+plugins:
+  - jekyll-relative-links
