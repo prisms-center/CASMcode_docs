@@ -23,7 +23,9 @@ The ``casm-python`` Python package is a collection of python packages that provi
     cd CASMpython/casm
     pip install .
 
- A PyPI package and quantumespresso wrapper updated for CASM 1.0.X will be available in the near future.
+This will install the `casm-python` package and the `casm` command line program.
+
+A PyPI package and updated quantumespresso wrapper  for CASM 1.0.X will be available in the near future.
 
 
 [[Using CASM]](../index.md#using-casm)
