@@ -5,6 +5,8 @@ theme: jekyll-theme-minimal
 markdown: kramdown
 kramdown:
   parse_block_html: true
+logo: assets/logo.png
+favicon: assets/favicon.ico
 github:
   repository_url: "https://github.com/prisms-center/CASMcode"
 plugins:

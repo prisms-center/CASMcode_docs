@@ -8,7 +8,7 @@ The recommended method for obtaining CASM is to install the ``casm-cpp`` conda p
 It can be installed using:
 
 ```
-$ conda create -n casm --override-channels -c prisms-center -c defaults -c conda-forge casm-cpp
+$ conda create -n casm --override-channels -c prisms-center -c defaults -c conda-forge python=3 casm-cpp
 ```
 
 This will install:
@@ -25,7 +25,7 @@ The ``casm-python`` Python package is a collection of python packages that provi
 
 This will install the `casm-python` package and the `casm` command line program.
 
-A PyPI package and updated quantumespresso wrapper  for CASM 1.0.X will be available in the near future.
+A PyPI package and updated quantumespresso wrapper  for CASM 1.X will be available in the near future.
 
 
 [[Using CASM]](../index.md#using-casm)

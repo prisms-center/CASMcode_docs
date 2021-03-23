@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{site.favicon | relative_url}}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +17,8 @@
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
-        {% if site.logo %}
-          <img src="{{site.logo | relative_url}}" alt="Logo" />
+        {% if site.small_logo %}
+          <img src="{{site.small_logo | relative_url}}" alt="Logo" />
         {% endif %}
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
@@ -41,7 +41,7 @@
       </header>
       <section>
 
-      <p><a href="https://prisms-center.github.io/CASMcode_docs/"><img src="/CASMcode_docs/assets/logo.png" alt="CASM Logo" /></a></p>
+      <p><a href="https://prisms-center.github.io/CASMcode_docs/"><img src="{{site.logo | relative_url}}" alt="CASM Logo" /></a></p>
       <hr />
 
       {{ content }}

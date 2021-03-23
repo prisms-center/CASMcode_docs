@@ -8,6 +8,7 @@ The public version of CASM supports:
 - Constructing, fitting, and evaluating cluster expansion effective Hamiltonians with:
   - Occupational degrees of freedom
   - Strain degrees of freedom
+  - Displacement degrees of freedom
 - High-throughput calculations using:
   - [VASP](https://www.vasp.at)  
   - [Quantum Espresso](https://www.quantum-espresso.org/)
@@ -33,7 +34,7 @@ CASM is released under the GNU Lesser General Public License (LGPL).
 
 ***
 ## Announcements
-- 3/8/2021: CASM 1.0.0 is available from the prisms-center conda channel
+- 3/23/2021: CASM 1.1.0 is available from the prisms-center conda channel
 
 ***
 ## Using CASM
@@ -47,12 +48,13 @@ CASM is released under the GNU Lesser General Public License (LGPL).
 - [Email the developers](mailto:casm-developers@lists.engr.ucsb.edu)
 - [Join the announcements mailing list](https://lists.engr.ucsb.edu/mailman/listinfo/casm-users)
 - [Request features or report bugs](https://github.com/prisms-center/CASMcode/issues)
-- [C++ library documentation](https://prisms-center.github.io/CASMcode_cppdocs/latest/modules.html)
-- [Python package documentation](https://prisms-center.github.io/CASMcode_pydocs/latest/)
+- C++ library documentation [v1.X update in progress...] [[v0.3]](https://prisms-center.github.io/CASMcode_cppdocs/latest/modules.html)
+- Python package documentation [[v1.X]](https://prisms-center.github.io/CASMcode_pydocs/latest/index.html) [[v0.3]](https://prisms-center.github.io/CASMcode_pydocs/0.3/index.html)
 - [Learn how to contribute](pages/contributing.md)
 
 ***
 ## Links
 - [PRISMS Center homepage](http://www.prisms-center.org/#/home)
 - [Code repository](https://github.com/prisms-center/CASMcode)
-- [Demonstrations repository](https://github.com/prisms-center/CASMcode_demo)
+- [casm-python repository](https://github.com/prisms-center/CASMpython)
+- [Demonstrations repository (0.3)](https://github.com/prisms-center/CASMcode_demo)
