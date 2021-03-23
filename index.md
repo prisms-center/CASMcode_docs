@@ -48,7 +48,7 @@ CASM is released under the GNU Lesser General Public License (LGPL).
 - [Email the developers](mailto:casm-developers@lists.engr.ucsb.edu)
 - [Join the announcements mailing list](https://lists.engr.ucsb.edu/mailman/listinfo/casm-users)
 - [Request features or report bugs](https://github.com/prisms-center/CASMcode/issues)
-- C++ library documentation [v1.X update in progress...] [[v0.3]](https://prisms-center.github.io/CASMcode_cppdocs/latest/modules.html)
+- C++ library documentation [[v1.X]](https://prisms-center.github.io/CASMcode_cppdocs/latest/modules.html) [[v0.3]](https://prisms-center.github.io/CASMcode_cppdocs/0.3/modules.html)
 - Python package documentation [[v1.X]](https://prisms-center.github.io/CASMcode_pydocs/latest/index.html) [[v0.3]](https://prisms-center.github.io/CASMcode_pydocs/0.3/index.html)
 - [Learn how to contribute](pages/contributing.md)
 
