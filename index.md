@@ -40,6 +40,7 @@ CASM is released under the GNU Lesser General Public License (LGPL).
 ## Using CASM
 - [Overview](pages/overview.md)
 - [Installation](pages/installation.md)
+- [Tutorials](pages/tutorials.md)
 - [Formats reference](pages/formats.md)
 - [Citing CASM and algorithms](pages/citing.md)
 
