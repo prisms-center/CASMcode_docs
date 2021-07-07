@@ -1,0 +1,77 @@
+# navbar
+main:
+  - title: "Overview"
+    url: /pages/overview/
+  - title: "Installation"
+    url: /pages/installation/
+  - title: "Tutorials"
+    url: /pages/tutorials/
+  - title: "Reference"
+    url: /pages/reference/
+  - title: "About"
+    url: /pages/about/
+
+# sidebar
+using:
+  - title: Overview
+    url: /pages/overview/
+  - title: Installation
+    url: /pages/installation/
+    children:
+      - title: "Install using conda"
+        url: /pages/installation#install-using-conda
+      - title: "Install from source"
+        url: /pages/installation#install-from-source
+  - title: Tutorials
+    url: /pages/tutorials/
+    children:
+      - title: "Defining the \"prim\""
+        url: /pages/tutorials/#defining-the-prim
+      - title: "Symmetry analysis"
+        url: /pages/tutorials/#symmetry-analysis
+      - title: "Basis set construction"
+        url: /pages/tutorials/#basis-set-construction
+      - title: "Enumerating configurations"
+        url: /pages/tutorials/#basis-set-construction
+      - title: "Defining order parameters"
+        url: /pages/tutorials/#defining-order-parameters
+      - title: "Calculating properties"
+        url: /pages/tutorials/#calculating-properties
+      - title: "Mapping structures to configurations"
+        url: /pages/tutorials/#mapping-structures-to-configurations
+      - title: "Fitting basis function coefficients"
+        url: /pages/tutorials/#fitting-basis-function-coefficients
+      - title: "Evaluating effective Hamiltonians"
+        url: /pages/tutorials/#evaluating-effective-hamiltonians
+      - title: "Monte Carlo calculations"
+        url: /pages/tutorials/#monte-carlo-calculations
+  - title: Reference
+    url: /pages/reference/
+    children:
+      - title: "CASM project file formats"
+        url: /pages/reference/#casm-project-file-formats
+      - title: "CLI methods"
+        url: /pages/reference/#cli-methods
+      - title: "Data and code documentation links"
+        url: /pages/reference/#code-documentation
+  - title: About
+    url: /pages/about/
+    children:
+      - title: "Acknowledgements"
+        url: /pages/about/#acknowledgements
+      - title: "License"
+        url: /pages/about/#license
+      - title: "Getting help"
+        url: /pages/about/#getting-help
+      - title: "Contributing"
+        url: /pages/about/#contributing
+      - title: "Citing CASM"
+        url: /pages/about/#citing-casm
+      - title: "Citing algorithms"
+        url: /pages/about/#citing-algorithms
+
+
+# sidebar
+desc:
+  - title: "CASM"
+    text: "First-principles statistical mechanical software for the study of multi-component crystalline solids"

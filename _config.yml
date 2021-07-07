@@ -1,13 +1,90 @@
 title: CASM
 description: First-principles statistical mechanical software for the study of
     multi-component crystalline solids
-theme: jekyll-theme-minimal
+url: https://prisms-center.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+baseurl: "/CASMcode_docs" # the subpath of your site, e.g. "/blog"
+repository: "prisms-center/CASMcode"
+
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "default"
 markdown: kramdown
 kramdown:
   parse_block_html: true
-logo: assets/logo.png
+teaser: /assets/images/logo.png
+logo: /assets/images/small_logo.png
 favicon: assets/favicon.ico
 github:
   repository_url: "https://github.com/prisms-center/CASMcode"
 plugins:
   - jekyll-relative-links
+
+include:
+  - _pages
+  - _formats
+  - _tutorials
+
+collections:
+  using:
+    output: true
+    permalink: /:collection/:path/
+    order:
+      - installation.md
+      - tutorials.md
+      - reference.md
+
+defaults:
+  # pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      read_time: false
+      author_profile: true
+      share: false
+      comments: false
+      toc: true
+      toc_sticky: true
+      author: CASM
+      sidebar:
+        nav: "using"
+  # using
+  - scope:
+      path: ""
+      type: using
+    values:
+      layout: single
+      read_time: false
+      author_profile: true
+      share: false
+      comments: false
+      toc: true
+      toc_sticky: true
+      author: CASM
+      sidebar:
+        nav: "using"
+  # tutorials
+  - scope:
+      path: "_tutorials"
+      type: pages
+    values:
+      layout: splash
+      read_time: false
+      author_profile: true
+      share: false
+      comments: false
+      toc: false
+      author: CASM
+  # formats
+  - scope:
+      path: "_formats"
+      type: pages
+    values:
+      layout: single
+      read_time: false
+      author_profile: true
+      share: false
+      comments: false
+      toc: true
+      toc_sticky: true
+      author: CASM
