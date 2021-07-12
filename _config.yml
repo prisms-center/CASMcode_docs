@@ -5,18 +5,21 @@ url: https://prisms-center.github.io # the base hostname & protocol for your sit
 baseurl: "/CASMcode_docs" # the subpath of your site, e.g. "/blog"
 repository: "prisms-center/CASMcode"
 
-remote_theme: "mmistakes/minimal-mistakes@4.23.0"
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 minimal_mistakes_skin: "default"
 markdown: kramdown
 kramdown:
   parse_block_html: true
 teaser: /assets/images/logo.png
 logo: /assets/images/small_logo.png
-favicon: assets/favicon.ico
-github:
-  repository_url: "https://github.com/prisms-center/CASMcode"
+favicon: /assets/favicon.ico
+
 plugins:
   - jekyll-relative-links
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
   - jekyll-include-cache
 
 include:
