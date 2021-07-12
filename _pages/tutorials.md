@@ -41,7 +41,7 @@ Given an initialized CASM project, an effective Hamiltonian basis set can be con
 These tutorials provide an introduction to supercells and configurations and demonstrate several methods to enumerate them, depending on the type of DoF.
 
 ### Introduction to configurations and supercells, including supercell enumeration
-- CLI: [view online]({{ "/tutorials/Supercell_Enumeration_bash.html" | relative_url}}), [download]({{ "/tutorials/Supercell_Enumeration_bash.ipynb" | relative_url}})
+- CLI: [view online]({{ "/_tutorials/Supercell_Enumeration_bash.html" | relative_url}}), [download]({{ "/_tutorials/Supercell_Enumeration_bash.ipynb" | relative_url}})
 
 ### Occupation configuration enumeration
 - [... coming soon ...]
