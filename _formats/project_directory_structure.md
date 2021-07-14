@@ -95,7 +95,7 @@ Contents:
 
 | Name | Description | Format |
 |-|-|-|
-| `basis.json` | Basis function orbit information | |
+| `basis.json` | Basis function orbit information | [ClexBasis] |
 | `bspecs.json` | Basis set specifications (input file) | [ClexBasisSpecs] |
 | `clust.json` | Cluster orbit information | |
 | `<title>_Clexulator.cc` | Generated source code for evaluating basis functions  | |
@@ -112,7 +112,7 @@ Contents:
 
 | Name | Description | Format |
 |-|-|-|
-| `eci.json` | Basis function orbit information, with effective cluster interaction (ECI) values included | |
+| `eci.json` | Basis function orbit information, with effective cluster interaction (ECI) values included | [ClexBasis] |
 
 ---
 
@@ -209,5 +209,19 @@ Contents:
 | `properties.calc.json` | CASM SimpleStructure JSON file containing the calculated lattice, coordinates, and any properties for configuration `<configname>`. This file is read by `casm update` to update the calculated properties |  |
 | ... others ... | Calculation type dependent input and output files. See casm.wrapper documentation. |  |
 
+---
+
+#### Chemical reference directories <a name="chemical-reference-dir"></a>
+
+Location: `<root>/training_data/<configname>/<calctype>/<ref>/`
+
+Contents:
+
+| Name | Description | Format |
+|-|-|-|
+| `chemical_reference.json` | Chemical reference states |  |
+
+
+[ClexBasis]: {{ "/formats/casm/clex/ClexBasis/" | relative_url }}
 [ClexBasisSpecs]: {{ "/formats/casm/clex/ClexBasisSpecs" | relative_url }}
 [BasicStructure]: {{ "/formats/casm/crystallography/BasicStructure" | relative_url }}

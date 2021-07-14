@@ -1,25 +1,36 @@
 ---
-title: "ClexBasisSpecs (\"bspecs.json\")"
+title: "ClexBasisSpecs (`bspecs.json`)"
 permalink: /formats/casm/clex/ClexBasisSpecs/
 ---
 
-ClexBasisSpecs specifies how to construct a cluster expansion basis set. It has two components, one specifying basis function type and order, and one for specifying cluster orbits. In a CASM project it is read from `"bspecs.json"` files.
+### Description
 
-### JSON Attributes
+A cluster expansion basis set is specified by two components, one specifying basis function type and order, and one specifying cluster orbits. In a CASM project it is read from `bspecs.json` files. It is represented by CASM internally using the ClexBasisSpecs class.
 
-  - `"basis_function_specs"`: [BasisFunctionSpecs]
-
-    Specifies the type and order of basis functions. See the [BasisFunctionSpecs] JSON input format.
-
-  - `"cluster_specs"`:  [ClusterSpecs]
-
-    Specifies the cluster orbits on which basis functions are generated. See the [ClusterSpecs] JSON input format.
-
-For use in a CASM project, ClexBasisSpecs is stored in a `bspecs.json` file at
+For use in a CASM project, the `bspecs.json` file is stored at
 ```
 <root>/basis_sets/<bset>/bspecs.json
 ```
 where `<bset>` is a directory with name such as `bset.default`, `bset.occupation`, `bset.chebychev`, etc.
+
+### JSON Attributes List
+
+ClexBasisSpecs attributes:
+
+| Name | Description | Format |
+|-|-|-|
+| [`basis_function_specs`](#basis-function-specs) | Basis function specifications | [BasisFunctionSpecs] |
+| [`cluster_specs`](#cluster-specs) | Cluster orbit specifications | [ClusterSpecs] |
+
+### JSON Attributes Description
+
+  - {: #basis-function-specs } `basis_function_specs`: [BasisFunctionSpecs] (required)
+
+    Specifies the type and order of basis functions. See the [BasisFunctionSpecs] JSON input format.
+
+  - {: #cluster-specs } `cluster_specs`:  [ClusterSpecs] (required)
+
+    Specifies the cluster orbits on which basis functions are generated. See the [ClusterSpecs] JSON input format.
 
 
 ### Examples

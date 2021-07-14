@@ -53,7 +53,7 @@ using:
       - title: "CLI methods"
         url: /pages/reference/#cli-methods
       - title: "Data and code documentation links"
-        url: /pages/reference/#code-documentation
+        url: /pages/reference/#data-and-code-documentation-links
   - title: About
     url: /pages/about/
     children:

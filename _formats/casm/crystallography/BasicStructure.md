@@ -1,18 +1,118 @@
 ---
-title: "BasicStructure (\"prim.json\")"
+title: "BasicStructure (`prim.json`)"
 permalink: /formats/casm/crystallography/BasicStructure/
 ---
 
-A primitive crystal structure and allowed degrees of freedom (DoF), or "prim",  specifies lattice vectors, crystal basis sites, discrete site DoF (occupation DoF), continuous site DoF, and continuous global DoF. A "prim" is represented by CASM internally using the BasicStructure class.
+### Description
+
+A primitive crystal structure and allowed degrees of freedom (DoF), or "prim",  specifies lattice vectors, crystal basis sites, discrete site DoF (occupation DoF), continuous site DoF, and continuous global DoF. In a CASM project it is read from a `prim.json` file. A "prim" is represented by CASM internally using the BasicStructure class.
+
+A user-generated `prim.json` file is used to initialize a CASM project. When the project is initialized, CASM writes a standardized `prim.json` file to:
+```
+<root>/.casm/prim.json
+```
+where `<root>` is the CASM project root directory. For subsequent project actions, CASM will read the prim structure from `<root>/.casm/prim.json`. It is not recommended to modify the CASM-generated `prim.json` file because that may cause inconsistencies in the project.
+
+### JSON Attributes List
+
+BasicStructure attributes:
+
+| Name | Description | Format |
+|-|-|-|
+| [`basis`](#basis) | Basis site descriptions | array of [Site](#site-json-object) |
+| [`coordinate_mode`](#coordinate-mode) | Basis site coordinate type | string |
+| [`description`](#description) | Project description | string |
+| [`dofs`](#global-dofs) | Continuous global DoFs  | dict of [DoF](#degrees-of-freedom-dof-json-object) |
+| [`lattice_vectors`](#lattice-vectors) | Lattice vectors | 2d array of number |
+| [`species`](#species) | Fixed atom attributes and molecule definitions | dict of [Molecule](#molecule-json-object) |
+| [`title`](#title) | Project title | string |
+
+---
+
+Site attributes:
+
+| [`coordinate`](#site-coordinate) | Site coordinate | array of number |
+| [`occupants`](#site-occupants) | Site allowed occupants | array of string |
+| [`dofs`](#site-dofs) | Continuous site DoFs | dict of [DoF](#degrees-of-freedom-dof-json-object)  |
+
+---
+
+DoF attributes:
+
+| Name | Description | Format |
+|-|-|-|
+| [`axis_names`](#dof-axis-names) | User defined axes names | array of string |
+| [`basis`](#dof-basis) | User defined DoF basis | 2d array of number |
+
+---
+
+Molecule attributes:
+
+| Name | Description | Format |
+|-|-|-|
+| [`atoms`](#molecule-atoms) | List of atoms that comprise a molecule | array of [Atom Component](#atom-component-json-object) |
+| [`attributes`](#molecular-attributes) | Fixed molecular attributes | dict of [Species Attribute](#species-attribute-json-object)  |
+| [`name`](#molecule-chemical-name) | Chemical name | string |
+
+---
+
+Atom Component attributes:
+
+| [`name`](#atom-name) | Atom name | string |
+| [`coordinate`](#atom-coordinate) | Atom coordinate, relative to site location | array of number |
+| [`attributes`](#atomic-attributes) | Fixed atomic attributes | dict of [Species Attribute](#species-attribute-json-object) |
+
+---
+
+Species Attribute attributes:
+
+| [`value`](#species-attribute-value) | Species attribute value |
 
 
-### JSON Attributes
+### JSON Attributes Description
 
-- `title`: string
+#### BasicStructure JSON object
 
-  A title for the project. Must consist of alphanumeric characters and underscores only. The first character may not be a number.   
+- {: #basis } `basis`: array of [Site](#site-json-object) (required, `shape=(n_sublattice,)`)
 
-- `lattice_vectors`: 3x3 array of numbers
+  An array of [Site](#site-json-object) objects that specifies the coordinate, allowed occupants, and allowed continuous site DoF for each sublattice of the crystal. The size of the `basis` array defines the number of sublattices in the crystal (`n_sublattice`). Elsewhere, the variables `sublattice_index` or `b` (in the "integral site coordinate" convention), are used to indicate a particular sublattice.
+
+  Example:
+
+- {: #coordinate-mode } `coordinate_mode`: string (required)
+
+  Coordinate mode for basis sites. One of:                         
+  - "Fractional" or "Direct",                                  
+  - "Cartesian"                                                  
+
+- {: #description } `description`: string (optional)
+
+  An extended description for the project. Included by convention in most example `prim.json` files, this attribute is not read by CASM.
+
+- {: #global-dofs } `dofs`: dict (optional, `default={}`)
+
+  A dictionary specifying the types of continuous global DoF and their basis. For more details on the allowed global DoF types and specifiying the standard or user-specified basis, see [DoF](#degrees-of-freedom-dof-json-object).
+
+  Example: Strain DoF, using the Hencky strain metric, with standard basis:
+
+      "dofs": {
+        "Hstrain" : {}
+      }
+
+  Example: Strain DoF, using the Hencky strain metric, with user-specified basis:
+
+      "dofs": {
+        "Hstrain" : {
+          "axis_names": ["e_1", "e_2", "e_3"],
+          "basis" : [
+            [1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 1.0, 0.0, 0.0, 0.0]
+          ]
+        }
+      }
+
+- {: #lattice-vectors } `lattice_vectors`: 2d array of number, `shape=(3,3)` (required)
 
   Lattice vectors (as row vectors) for the primitive structure, in Angstroms.
 
@@ -24,48 +124,149 @@ A primitive crystal structure and allowed degrees of freedom (DoF), or "prim",  
         [ 0.0, 0.0, 4.0], // lattice vector 3
       ]
 
-- `coordinate_mode`: string
+- {: #species } `species`: dict (optional, `default={}`)
 
-  Coordinate mode for basis sites. One of:                         
-  - "Fractional" or "Direct",                                  
-  - "Cartesian"                                                  
+  A dictionary used to define fixed attributes of any species listed as an allowed occupant in `"basis/<sublattice_index>/occupants"` that is not a single isotropic atom. Allows for specifying fixed attributes of an atom, such as magnetic spin, charge state, or selective dynamics flags, defining molecules, and specifying allowed molecular orientations and fixed molecular attributes. See ["Molecule JSON object" format](#molecule-json-object).
 
-- `dofs`: JSON dictionary of DoF JSON objects (optional)
+  Example: Specifying selective dynamics by species type
 
-  For each allowed type of continuous global DoF (typically strain), an object specifying how it is defined. See ["DoF JSON object" format](#dof-json-object).
+      "species" : {
+        "H": {
+          "attributes": {
+            "selectivedynamics": {
+              "value": [1, 1, 1]
+            }
+          }
+        },
+        "Zr": {
+          "attributes": {
+            "selectivedynamics": {
+              "value": [0, 0, 0]
+            }
+          }
+        }
+      }
 
-- `basis`: array of objects                            
+- {: #title } `title`: string (required)
 
-  - `coordinate`: size 3 array of numbers                       
-
-    Coordinate of the basis site with units as specified by the `coordinate_mode` parameter. The default tolerance for checking symmetry is 1e-5, so basis site coordinates should include 6 significant digits or more.                          
-
-  - `occupants`: array of string
-
-    A list of the possible occupant species that may reside at each site. The names are case sensitive, and "Va" is reserved for vacancies.                                                     
-
-  - `dofs`: JSON object (optional):   
-
-    For each allowed type of site DoF (e.g., displacement, magnetic spin, etc.) an object specifying how it is defined. See ["DoF JSON object" format](#dof-json-object).
-
-- `species`: object (optional)
-
-  A dictionary used to define extended attributes of any species listed as an allowed occupant in `"basis"/"occupants"`. See ["Molecule JSON object" format](#molecule-json-object).
+  A title for the project. Must consist of alphanumeric characters and underscores only. The first character may not be a number.   
 
 
-#### DoF JSON object
+#### Site JSON object
 
-DoFs are continuous vectors having a standard basis that is related to the fixed reference frame of the crystal. The DoF object encodes a user-specified basis in terms of the standard basis. User-specified basis may fully span the standard basis or only a subspace. Within a `"dofs"` object, each DoF is given by the key/object pair `"<dofname>" : {...}` where `<dofname>` is the name specifier of a particular DoF type and the associated object specifies non-default options.
+- {: #site-coordinate } `coordinate`: array of number, `shape=(3,)` (required)
 
-- `axis_names`: array of string
+  Coordinate of the basis site with units as specified by the `coordinate_mode` parameter. The default tolerance for checking symmetry is 1e-5, so basis site coordinates should include 6 significant digits or more.
 
-  Provides names for individual DoF when printing basis function formulas. Must match the number of rows in `basis`.
+- {: #site-occupants } `occupants`: array of string (optional, `default=["UNKNOWN"]`)
 
-- `basis`: dim x standard_dim array of numbers
+  A list of the possible occupant species that may reside at each site. The names are case sensitive, and "Va" is reserved for vacancies. If not specified, an `"UNKNOWN"` occupant species is created.
 
-  A row-vector matrix defining the user-specified "prim basis" for a site or global DoF in terms of the "standard basis".
+- {: #site-dofs } `dofs`: dict (optional, `default={}`):   
 
-Example: Site displacement DoF:
+  A dictionary specifying the types of continuous site DoF allowed on this site and their basis. For more details on the allowed site DoF types and specifiying the standard or user-specified basis, see [DoF](#degrees-of-freedom-dof-json-object).
+
+  Example: Atomic displacement, using standard basis
+
+      "dofs": {
+        "disp" : {}
+      }
+
+  Example: Atomic displacement DoF, with user-specified basis:
+
+      "dofs": {
+        "disp": {
+          "axis_names": ["d1", "d2"],
+          "basis": [
+            [0.70710678, 0.70710678, 0.],
+            [-0.70710678, 0.70710678, 0.]
+          ]
+        }
+      }
+
+
+#### Degrees of freedom (DoF) JSON object
+
+Degrees of freedom (DoF) are continuous-valued vectors having a standard basis that is related to the fixed reference frame of the crystal. CASM supports both site DoF, which are associated with a particular prim basis site, and global DoF, which are associated with the infinite crystal. Standard DoF types are implemented in CASM and a traits system allows developers to extend CASM to include additional types of DoF.
+
+##### DoF List
+
+Standard DoF types included in CASM:
+
+| Name | Description | Type | Standard basis |
+|-|-|-|
+| [`"disp"`](#dof-disp) | Atomic displacement | Site | $[d_x, d_y, d_z]$ |
+| [`"Cmagspin"`](#dof-Cmagspin) | Collinear magnetic spin | Site | $[m]$ |
+| [`"Cunitmagspin"`](#dof-Cunitmagspin) | Collinear magnetic spin, constrained to unit length | Site | $[m]$ |
+| [`"NCmagspin"`](#dof-NCmagspin) | Non-collinear magnetic spin, without spin-orbit coupling | Site |  $[s_x, s_y, s_z]$ |
+| [`"NCunitmagspin"`](#dof-NCunitmagspin) | Non-collinear magnetic spin, without spin-orbit coupling, constrained to unit length | Site | $[s_x, s_y, s_z]$ |
+| [`"SOmagspin"`](#dof-SOmagspin) | Non-collinear magnetic spin, with spin-orbit coupling | Site | $[s_x, s_y, s_z]$ |
+| [`"SOunitmagspin"`](#dof-SOunitmagspin) | Non-collinear magnetic spin, with spin-orbit coupling, constrained to unit length | Site | $[s_x, s_y, s_z]$ |
+| [`"EAstrain"`](#dof-EAstrain) | Euler-Almansi strain metric, $\frac{1}{2}(I-(F F^{T})^{-1})$ | Global | $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$ |
+| [`"GLstrain"`](#dof-GLstrain) | Grenn-Lagrange strain metric, $\frac{1}{2}(C-I)$ | Global | $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$ |
+| [`"Hstrain"`](#dof-Hstrain) | Hencky strain metric, $\frac{1}{2}ln(C)$ | Global | $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$ |
+
+
+##### Site DoF Description
+
+- {: #dof-disp } `"disp"`: Atomic displacement
+  - Standard basis axis names: `["dx", "dy", "dz"]`.
+
+  Example: Atomic displacement DoF with standard basis:
+
+      "disp" : {}
+
+
+- Magnetic spin, using one of the following flavors:
+
+  - {: #dof-Cmagspin } `"Cmagspin"`: Collinear magnetic spin
+    - Standard basis axis names: `["m"]`
+  - {: #dof-Cunitmagspin } `"Cunitmagspin"`: Collinear magnetic spin, constrained to unit length
+    - Standard basis axis names: `["m"]`
+  - {: #dof-NCmagspin } `"NCmagspin"`: Non-collinear magnetic spin, without spin-orbit coupling
+    - Standard basis axis names: `["sx", "sy", "sz"]`
+  - {: #dof-NCunitmagspin } `"NCunitmagspin"`: Non-collinear magnetic spin, without spin-orbit coupling, constrained to unit length
+    - Standard basis axis names: `["sx", "sy", "sz"]`
+  - {: #dof-SOmagspin } `"SOmagspin"`: Non-collinear magnetic spin, with spin-orbit coupling
+    - Standard basis axis names: `["sx", "sy", "sz"]`
+  - {: #dof-SOunitmagspin } `"SOunitmagspin"`: Non-collinear magnetic spin, with spin-orbit coupling, constrained to unit length
+    - Standard basis axis names: `["sx", "sy", "sz"]`
+
+  Example: Collinear magnetic spin with standard basis:
+
+      "Cmagspin" : {}
+
+##### Global DoF Description
+
+- Strain, using one of the following metrics:
+
+  - {: #dof-EAstrain } `"EAstrain"`: Euler-Almansi strain metric, $\frac{1}{2}(I-(F F^{T})^{-1})$
+  - {: #dof-GLstrain } `"GLstrain"`: Grenn-Lagrange strain metric, $\frac{1}{2}(C-I)$
+  - {: #dof-HStrain } `"Hstrain"`: Hencky strain metric, $\frac{1}{2}ln(C)$
+
+  The strain metrics are defined in terms of the deformation gradient tensor, $F$, and Green's deformation tensor, $C$. The deformation gradient tensor relates the strained and unstrained lattices through $L^{strained} = F * L^{ideal}$, where $L$ is a column-vector matrix of the lattice vectors. The deformation matrix tensor can be decomposed, via $F = R * U$, into a rotation tensor, $R$, and stretch tensor, $U$. Green's deformation tensor, $C = F^{T}*F$, excludes rigid rotations.
+
+  For all strain metrics, the standard basis is $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$, and the default axis names are `["e_1", "e_2", "e_3", "e_4", "e_5", "e_6"]`.
+
+For complete documentation of implemented DoF types see the C++ documentation of the [AnisoValTraits] class.
+
+Example: Strain DoF, using the Hencky strain metric, with standard basis:
+
+    "Hstrain" : {}
+
+#### User-defined DoF basis
+
+In many cases, the standard basis is the appropriate choice, but CASM also allows for a user-specified basis in terms of the standard basis. A user-specified basis may fully span the standard basis or only a subspace. Within a `"dofs"` dict, each DoF is given by the key/object pair `"<dofname>" : {...}` where `<dofname>` is the name specifier of a particular DoF type and the associated object specifies non-default options.
+
+- {: #dof-axis-names } `axis_names`: array of string, `shape=(dim,)` (required if `basis` present)
+
+  Provides names for individual DoF when printing basis function formulas. If `basis` is present, then the size of `axis_names` must match the number of rows in `basis`. The default value is the standard basis, as defined by CASM for each DoF type.
+
+- {: #dof-basis } `basis`: 2d array of number, `shape=(dim, standard_dim)` (optional, default is the standard basis)
+
+  A row-vector matrix defining the user-specified "prim basis" for a site or global DoF in terms of the "standard basis". The default value of `basis` is the "standard basis", which is the identity matrix of shape `(standard_dim, standard_dim)`.
+
+Example: Atomic displacement DoF with user-specified basis:
 
     "disp" : {
       "axis_names" : ["d1", "d2"],
@@ -75,26 +276,16 @@ Example: Site displacement DoF:
       ]
     }
 
-Allowed site DoF include:
+Example: Strain DoF, using the Hencky strain metric, with user-specified basis:
 
-- "disp": atomic displacement
-  - standard basis: ["dx", "dy", "dz"]
-
-Allowed global DoF include:
-
-- Strain, using one of the following metrics:
-
-  - "GLstrain": Grenn-Lagrange strain metric, $\frac{1}{2}(C-I)$
-  - "Hstrain": Hencky strain metric, $\frac{1}{2}ln(C)$
-  - "Bstrain": Biot strain metric, $(U-I)$
-  - "Ustrain": Stretch tensor, $U$
-  - "EAstrain": Euler-Almansi strain metric, $\frac{1}{2}(I-(F F^{T})^{-1})$
-
-  The strain metrics are defined in terms of the deformation gradient tensor, $F$, and Green's deformation tensor, $C$. The deformation gradient tensor relates the strained and unstrained lattices through $L^{strained} = F * L^{ideal}$, where $L$ is a column-vector matrix of the lattice vectors. The deformation matrix tensor can be decomposed, via $F = R * U$, into a rotation tensor, $R$, and stretch tensor, $U$. Green's deformation tensor, $C = F^{T}*F$, excludes rigid rotations.
-
-  For all strain metrics, the standard basis is $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$, and the default axis names are ["e_1", "e_2", "e_3", "e_4", "e_5", "e_6"].
-
-For complete documentation of implemented DoF types see the C++ documentation of the [AnisoValTraits] class.
+    "Hstrain" : {
+      "axis_names": ["e_1", "e_2", "e_3"],
+      "basis" : [
+        [1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        [0.0, 1.0, 0.0, 0.0, 0.0, 0.0],
+        [0.0, 0.0, 1.0, 0.0, 0.0, 0.0]
+      ]
+    }
 
 #### Molecule JSON object
 
@@ -104,46 +295,41 @@ charge state.
 
 Allowed fields:
 
-- `name`: string (optional)
+- {: #molecule-atoms } `atoms`: array of [Atom Component](#atom-component-json-object) (optional)
 
-  Chemical name of the species, used to override its name in the enclosing dictionary. This name is used for chemical comparisons of molecules. Crystallographic and spatial comparisons are not dependent on molecule names.
+  Defines each atomic component of a multiple atom occupant. May be excluded for single-atom molecules. Each object in the array has the following properties:
 
-- `atoms`: array of object (optional)
+- {: #molecular-attributes } `attributes`: dict of SpeciesAttribute (optional)
 
-  Defines each atomic component of a multiple atom occupant. May be excluded if the species is atomic. Each atom object in the array has the following properties:
+  Additonal fixed attributes of the molecule as a whole, such as magnetic spin, charge state, or selective dynamics flags. The name of each attribute must be a CASM-supported [AnisoValTraits] type. See ["SpeciesAttribute JSON object" format](#speciesattribute-json-object).
 
-  - `name`: string
-    Name of atomic species.
+- {: #molecule-chemical-name } `name`: string (optional)
 
-  - `coordinate`: size 3 array of number
+  Chemical name of the species, used to override its name in the enclosing `species` dictionary. This name is used for chemical comparisons of molecules. Crystallographic and spatial comparisons are not dependent on molecule names.
 
-    Position of the atom, relative to the basis site at which it
-    is placed. Coordinate mode is same as rest of `prim.json`.
 
-  - `attributes`: object of SpeciesAttribute (optional)
+#### Atom Component JSON object:
 
-    Additonal fixed attributes of the atom, such as magnetic moment,
-    charge state, or selective dynamics flags. The name of each
-    attribute must correspond to a CASM-supported [AnisoValTraits] object type.
+- {: #atom-coordinate } `coordinate`: size 3 array of number
 
-- `attributes`: object of SpeciesAttribute (optional)
+  Position of the atom, relative to the basis site at which it is placed. Coordinate mode is same as rest of `prim.json`.
 
-  Additonal fixed attributes of the molecule as a whole, such as
-  magnetic spin, charge state, or selective dynamics flags. The
-  name of each attribute must correspond to a CASM-supported
-  [AnisoValTraits] object type.
+- {: #atomic-attributes } `attributes`: dict of SpeciesAttribute (optional)
 
+  Additonal fixed attributes of the atom, such as magnetic moment, charge state, or selective dynamics flags. The name of each attribute must correspond to a CASM-supported [AnisoValTraits] object type. See ["SpeciesAttribute JSON object" format](#speciesattribute-json-object).
+
+- {: #atom-name } `name`: string
+  Name of atomic species.
 
 #### SpeciesAttribute JSON object:
 
-Associates the discrete value of a vector property to an Atom or Moleule.
+Associates the discrete value of a vector property to an atom or moleule.
 
 Allowed fields:
 
-- `value`: array of number
+- {: #species-attribute-value } `value`: array of number
 
-  Dimension of array must match the dimension of the specified
-  SpeciesAttribute. See [Example 6](#example-6).
+  The dimension of the array must match the dimension of the [AnisoValTraits] type of the vector property. See [Example 6](#example-6).
 
 
 ### Examples
