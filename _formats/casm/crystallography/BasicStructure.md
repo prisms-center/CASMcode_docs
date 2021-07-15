@@ -154,6 +154,8 @@ Species Attribute attributes:
 
 #### Site JSON object
 
+Used to specify the coordinate, allowed occupants, and allowed continuous site DoF for a sublattice of the prim.
+
 - {: #site-coordinate } `coordinate`: array of number, `shape=(3,)` (required)
 
   Coordinate of the basis site with units as specified by the `coordinate_mode` parameter. The default tolerance for checking symmetry is 1e-5, so basis site coordinates should include 6 significant digits or more.
@@ -234,11 +236,9 @@ Used to define species that are comprised of multiple atoms, off-centered
 atoms, or species with attributes such as a magnetic spin or or
 charge state.
 
-Allowed fields:
-
 - {: #molecule-atoms } `atoms`: array of [Atom Component](#atom-component-json-object) (optional)
 
-  Defines each atomic component of a multiple atom occupant. May be excluded for single-atom molecules. Each object in the array has the following properties:
+  Defines each atomic component of a multiple atom occupant. May be excluded for single-atom molecules.
 
 - {: #molecular-attributes } `attributes`: dict of SpeciesAttribute (optional)
 
@@ -250,6 +250,8 @@ Allowed fields:
 
 
 #### Atom Component JSON object:
+
+Used to define an atom that is a component of a molecule.
 
 - {: #atom-coordinate } `coordinate`: size 3 array of number
 
