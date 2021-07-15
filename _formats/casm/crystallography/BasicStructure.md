@@ -268,8 +268,6 @@ Used to define an atom that is a component of a molecule.
 
 Associates the discrete value of a vector property to an atom or moleule.
 
-Allowed fields:
-
 - {: #species-attribute-value } `value`: array of number
 
   The dimension of the array must match the dimension of the [AnisoValTraits] type of the vector property. See [Example 6](#example-6).
