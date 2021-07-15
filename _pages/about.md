@@ -55,9 +55,9 @@ For a particular major version number, the ``ccasm`` program interface, includin
 CASM can be cited using the following four references:
 
 - [ref1] CASM, v1.1.1 (2021). Available from https://github.com/prisms-center/CASMcode.
-- [ref2] J. C. Thomas, A. Van der Ven, *Finite-temperature properties of strongly anharmonic and mechanically unstable crystal phases from first principles*, *Physical Review B*, **88**, 214111 (2013).
-- [ref3] B. Puchala, A. Van der Ven, *Thermodynamics of the Zr-O system from first-principles calculations*, *Physical Review B*, **88**, 094108 (2013).
-- [ref4] A. Van der Ven, J. C. Thomas, Q. Xu, J. Bhattacharya “Linking the electronic structure of solids to their thermodynamic and kinetic properties”, *Mathematics and Computers in Simulation*, **80**(7) 1393-1410 (2010).
+- [ref2] J. C. Thomas, A. Van der Ven, "Finite-temperature properties of strongly anharmonic and mechanically unstable crystal phases from first principles", *Physical Review B*, **88**, 214111 (2013).
+- [ref3] B. Puchala, A. Van der Ven, "Thermodynamics of the Zr-O system from first-principles calculations", *Physical Review B*, **88**, 094108 (2013).
+- [ref4] A. Van der Ven, J. C. Thomas, B. Puchala, A. R. Natarajan, “First-Principles Statistical Mechanics of Multicomponent Crystals”, *Annual Review of Materials Research*, **48** 27-45 (2018).
 
 As an example, CASM can be acknowledged in a publication with:
 
