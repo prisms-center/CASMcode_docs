@@ -61,7 +61,7 @@ Thus, whenever a particular property name is encountered, the property type can 
 - instance name: `"relaxed_energy"` -> type name: `"energy"`
 - instance name: `"formation_energy"` -> type name: `"energy"`
 - instance name: `"relaxedenergy"` -> Error (because there is no underscore)
-- instance name: `"Ustrain"` -> AnisoValTraits type name:  `"Ustrain"`
+- instance name: `"Ustrain"` -> type name:  `"Ustrain"`
 - instance name: `"strain"` ->  Error (because there no strain metric)
 </div>
 {: .notice--info}

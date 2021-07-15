@@ -126,7 +126,7 @@ Species Attribute attributes:
 
 - {: #species } `species`: dict (optional, `default={}`)
 
-  A dictionary used to define fixed attributes of any species listed as an allowed occupant in `"basis/<sublattice_index>/occupants"` that is not a single isotropic atom. Allows for specifying fixed attributes of an atom, such as magnetic spin, charge state, or selective dynamics flags, defining molecules, and specifying allowed molecular orientations and fixed molecular attributes. See ["Molecule JSON object" format](#molecule-json-object).
+  A dictionary used to define fixed attributes of any species listed as an allowed occupant in `"basis/<sublattice_index>/occupants"` that is not a single isotropic atom. Allows for specifying fixed attributes of an atom, such as magnetic spin, or selective dynamics flags, defining molecules, and specifying allowed molecular orientations and fixed molecular attributes. See ["Molecule JSON object" format](#molecule-json-object).
 
   Example: Specifying selective dynamics by species type
 
@@ -233,16 +233,23 @@ Example: Strain DoF, using the Hencky strain metric, with user-specified basis:
 #### Molecule JSON object
 
 Used to define species that are comprised of multiple atoms, off-centered
-atoms, or species with attributes such as a magnetic spin or or
-charge state.
+atoms, or species with attributes such as a magnetic spin or selective dynamics flags.
 
 - {: #molecule-atoms } `atoms`: array of [Atom Component](#atom-component-json-object) (optional)
 
   Defines each atomic component of a multiple atom occupant. May be excluded for single-atom molecules.
 
-- {: #molecular-attributes } `attributes`: dict of SpeciesAttribute (optional)
+- {: #molecular-attributes } `attributes`: dict of [Species Attribute](#species-attribute-json-object) (optional)
 
-  Additonal fixed attributes of the molecule as a whole, such as magnetic spin, charge state, or selective dynamics flags. The name of each attribute must be a CASM-supported [AnisoValTraits] type. See ["SpeciesAttribute JSON object" format](#speciesattribute-json-object).
+  Additonal fixed attributes of the molecule as a whole, such as magnetic spin or selective dynamics flags. The name of each attribute must be a CASM-supported [property] type. The dimension of the `value` array must match the standard dimension of the [property] type.
+
+  Example:
+
+      "attributes": {
+        "selectivedynamics": {
+          "value": [1, 1, 1]
+        }
+      }
 
 - {: #molecule-chemical-name } `name`: string (optional)
 
@@ -257,9 +264,17 @@ Used to define an atom that is a component of a molecule.
 
   Position of the atom, relative to the basis site at which it is placed. Coordinate mode is same as rest of `prim.json`.
 
-- {: #atomic-attributes } `attributes`: dict of SpeciesAttribute (optional)
+- {: #atomic-attributes } `attributes`: dict of [Species Attribute](#species-attribute-json-object) (optional)
 
-  Additonal fixed attributes of the atom, such as magnetic moment, charge state, or selective dynamics flags. The name of each attribute must correspond to a CASM-supported [AnisoValTraits] object type. See ["SpeciesAttribute JSON object" format](#speciesattribute-json-object).
+  Additonal fixed attributes of the atom, such as magnetic moment or selective dynamics flags. The name of each attribute must be a CASM-supported [property] type. The dimension of the `value` array must match the standard dimension of the [property] type.
+
+  Example:
+
+      "attributes": {
+        "selectivedynamics": {
+          "value": [1, 1, 1]
+        }
+      }
 
 - {: #atom-name } `name`: string
   Name of atomic species.
@@ -270,7 +285,7 @@ Associates the discrete value of a vector property to an atom or moleule.
 
 - {: #species-attribute-value } `value`: array of number
 
-  The dimension of the array must match the dimension of the [AnisoValTraits] type of the vector property. See [Example 6](#example-6).
+  The dimension of the `value` array must match the standard dimension of the CASM-supported [property] type whose name is the key for this object. See [Example 6](#example-6).
 
 
 ### Examples
@@ -456,4 +471,4 @@ Associates the discrete value of a vector property to an atom or moleule.
 }
 ```
 
-[AnisoValTraits]: https://prisms-center.github.io/CASMcode_cppdocs/latest/class_c_a_s_m_1_1_aniso_val_traits.html
+[property]: {{ "/formats/dof_and_properties#properties-list" |  relative_url }}
