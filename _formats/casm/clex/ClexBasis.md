@@ -50,7 +50,7 @@ Prototype Cluster attributes:
 | [`invariant_group_descriptions`](#invariant-group-descriptions) | Prototype cluster invariant group operation descriptions | array of string |
 | [`max_length`](#max-length) | Maximum distance between sites in the cluster. | number |
 | [`min_length`](#min-length) | Minimum distance between sites in the cluster. | number |
-| [`sites`](#sites) | Cluster site coordinates | number |
+| [`sites`](#sites) | Cluster site coordinates | array of integral site coordinates |
 
 ---
 

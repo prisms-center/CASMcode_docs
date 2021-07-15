@@ -50,7 +50,7 @@ using:
     children:
       - title: "CASM project file formats"
         url: /pages/reference/#casm-project-file-formats
-      - title: "CLI methods"
+      - title: "CASM methods"
         url: /pages/reference/#cli-methods
       - title: "Data and code documentation links"
         url: /pages/reference/#data-and-code-documentation-links

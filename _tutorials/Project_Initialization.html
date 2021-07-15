@@ -14991,7 +14991,7 @@ volume: &lt;class &#39;float&#39;&gt;
 <p>The basis provides the user-specified basis vectors in terms of the standard basis. The number of rows is the dimension of user-specified basis. The number of columns must equal the number of dimensions in the standard basis (i.e. 3 for displacement, 6 for strain).</p>
 </li>
 </ul>
-<p>Example: Strain DoF, using the Grenn-Lagrange strain metric with custom user basis excluding shear strain:</p>
+<p>Example: Strain DoF, using the Green-Lagrange strain metric with custom user basis excluding shear strain:</p>
 
 <pre><code>"dofs" : {
   "GLstrain" : {
@@ -15008,7 +15008,7 @@ volume: &lt;class &#39;float&#39;&gt;
 </code></pre>
 <p>Allowed global DoF include:</p>
 <ul>
-<li>"GLstrain": Grenn-Lagrange strain metric, $\frac{1}{2}(C-I)$</li>
+<li>"GLstrain": Green-Lagrange strain metric, $\frac{1}{2}(C-I)$</li>
 <li>"Hstrain": Hencky strain metric, $\frac{1}{2}ln(C)$</li>
 <li>"Bstrain": Biot strain metric, $(U-I)$ </li>
 <li>"Ustrain": Stretch tensor, $U$</li>

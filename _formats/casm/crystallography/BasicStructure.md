@@ -5,7 +5,7 @@ permalink: /formats/casm/crystallography/BasicStructure/
 
 ### Description
 
-A primitive crystal structure and allowed degrees of freedom (DoF), or "prim",  specifies lattice vectors, crystal basis sites, discrete site DoF (occupation DoF), continuous site DoF, and continuous global DoF. In a CASM project it is read from a `prim.json` file. A "prim" is represented by CASM internally using the BasicStructure class.
+A primitive crystal structure and allowed degrees of freedom (DoF) (the "prim") specifies lattice vectors, crystal basis sites, occupation DoF, continuous site DoF, and continuous global DoF. In a CASM project it is read from a `prim.json` file. A prim is represented by CASM internally using the BasicStructure class.
 
 A user-generated `prim.json` file is used to initialize a CASM project. When the project is initialized, CASM writes a standardized `prim.json` file to:
 ```
@@ -22,7 +22,7 @@ BasicStructure attributes:
 | [`basis`](#basis) | Basis site descriptions | array of [Site](#site-json-object) |
 | [`coordinate_mode`](#coordinate-mode) | Basis site coordinate type | string |
 | [`description`](#description) | Project description | string |
-| [`dofs`](#global-dofs) | Continuous global DoFs  | dict of [DoF](#degrees-of-freedom-dof-json-object) |
+| [`dofs`](#global-dofs) | Continuous global DoF  | dict of [DoF](#degrees-of-freedom-dof-json-object) |
 | [`lattice_vectors`](#lattice-vectors) | Lattice vectors | 2d array of number |
 | [`species`](#species) | Fixed atom attributes and molecule definitions | dict of [Molecule](#molecule-json-object) |
 | [`title`](#title) | Project title | string |
@@ -33,7 +33,7 @@ Site attributes:
 
 | [`coordinate`](#site-coordinate) | Site coordinate | array of number |
 | [`occupants`](#site-occupants) | Site allowed occupants | array of string |
-| [`dofs`](#site-dofs) | Continuous site DoFs | dict of [DoF](#degrees-of-freedom-dof-json-object)  |
+| [`dofs`](#site-dofs) | Continuous site DoF | dict of [DoF](#degrees-of-freedom-dof-json-object)  |
 
 ---
 
@@ -41,7 +41,7 @@ DoF attributes:
 
 | Name | Description | Format |
 |-|-|-|
-| [`axis_names`](#dof-axis-names) | User defined axes names | array of string |
+| [`axis_names`](#dof-axis-names) | User defined axis names | array of string |
 | [`basis`](#dof-basis) | User defined DoF basis | 2d array of number |
 
 ---
@@ -193,68 +193,9 @@ Degrees of freedom (DoF) are continuous-valued vectors having a standard basis t
 
 Standard DoF types included in CASM:
 
-| Name | Description | Type | Standard basis |
-|-|-|-|
-| [`"disp"`](#dof-disp) | Atomic displacement | Site | $[d_x, d_y, d_z]$ |
-| [`"Cmagspin"`](#dof-Cmagspin) | Collinear magnetic spin | Site | $[m]$ |
-| [`"Cunitmagspin"`](#dof-Cunitmagspin) | Collinear magnetic spin, constrained to unit length | Site | $[m]$ |
-| [`"NCmagspin"`](#dof-NCmagspin) | Non-collinear magnetic spin, without spin-orbit coupling | Site |  $[s_x, s_y, s_z]$ |
-| [`"NCunitmagspin"`](#dof-NCunitmagspin) | Non-collinear magnetic spin, without spin-orbit coupling, constrained to unit length | Site | $[s_x, s_y, s_z]$ |
-| [`"SOmagspin"`](#dof-SOmagspin) | Non-collinear magnetic spin, with spin-orbit coupling | Site | $[s_x, s_y, s_z]$ |
-| [`"SOunitmagspin"`](#dof-SOunitmagspin) | Non-collinear magnetic spin, with spin-orbit coupling, constrained to unit length | Site | $[s_x, s_y, s_z]$ |
-| [`"EAstrain"`](#dof-EAstrain) | Euler-Almansi strain metric, $\frac{1}{2}(I-(F F^{T})^{-1})$ | Global | $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$ |
-| [`"GLstrain"`](#dof-GLstrain) | Grenn-Lagrange strain metric, $\frac{1}{2}(C-I)$ | Global | $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$ |
-| [`"Hstrain"`](#dof-Hstrain) | Hencky strain metric, $\frac{1}{2}ln(C)$ | Global | $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$ |
+{% include dof_list.md %}
 
-
-##### Site DoF Description
-
-- {: #dof-disp } `"disp"`: Atomic displacement
-  - Standard basis axis names: `["dx", "dy", "dz"]`.
-
-  Example: Atomic displacement DoF with standard basis:
-
-      "disp" : {}
-
-
-- Magnetic spin, using one of the following flavors:
-
-  - {: #dof-Cmagspin } `"Cmagspin"`: Collinear magnetic spin
-    - Standard basis axis names: `["m"]`
-  - {: #dof-Cunitmagspin } `"Cunitmagspin"`: Collinear magnetic spin, constrained to unit length
-    - Standard basis axis names: `["m"]`
-  - {: #dof-NCmagspin } `"NCmagspin"`: Non-collinear magnetic spin, without spin-orbit coupling
-    - Standard basis axis names: `["sx", "sy", "sz"]`
-  - {: #dof-NCunitmagspin } `"NCunitmagspin"`: Non-collinear magnetic spin, without spin-orbit coupling, constrained to unit length
-    - Standard basis axis names: `["sx", "sy", "sz"]`
-  - {: #dof-SOmagspin } `"SOmagspin"`: Non-collinear magnetic spin, with spin-orbit coupling
-    - Standard basis axis names: `["sx", "sy", "sz"]`
-  - {: #dof-SOunitmagspin } `"SOunitmagspin"`: Non-collinear magnetic spin, with spin-orbit coupling, constrained to unit length
-    - Standard basis axis names: `["sx", "sy", "sz"]`
-
-  Example: Collinear magnetic spin with standard basis:
-
-      "Cmagspin" : {}
-
-##### Global DoF Description
-
-- Strain, using one of the following metrics:
-
-  - {: #dof-EAstrain } `"EAstrain"`: Euler-Almansi strain metric, $\frac{1}{2}(I-(F F^{T})^{-1})$
-  - {: #dof-GLstrain } `"GLstrain"`: Grenn-Lagrange strain metric, $\frac{1}{2}(C-I)$
-  - {: #dof-HStrain } `"Hstrain"`: Hencky strain metric, $\frac{1}{2}ln(C)$
-
-  The strain metrics are defined in terms of the deformation gradient tensor, $F$, and Green's deformation tensor, $C$. The deformation gradient tensor relates the strained and unstrained lattices through $L^{strained} = F * L^{ideal}$, where $L$ is a column-vector matrix of the lattice vectors. The deformation matrix tensor can be decomposed, via $F = R * U$, into a rotation tensor, $R$, and stretch tensor, $U$. Green's deformation tensor, $C = F^{T}*F$, excludes rigid rotations.
-
-  For all strain metrics, the standard basis is $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$, and the default axis names are `["e_1", "e_2", "e_3", "e_4", "e_5", "e_6"]`.
-
-For complete documentation of implemented DoF types see the C++ documentation of the [AnisoValTraits] class.
-
-Example: Strain DoF, using the Hencky strain metric, with standard basis:
-
-    "Hstrain" : {}
-
-#### User-defined DoF basis
+##### User-defined DoF basis
 
 In many cases, the standard basis is the appropriate choice, but CASM also allows for a user-specified basis in terms of the standard basis. A user-specified basis may fully span the standard basis or only a subspace. Within a `"dofs"` dict, each DoF is given by the key/object pair `"<dofname>" : {...}` where `<dofname>` is the name specifier of a particular DoF type and the associated object specifies non-default options.
 
@@ -373,7 +314,7 @@ Allowed fields:
     [ 0.000000000000, 2.000000000000, 2.000000000000 ],
     [ 2.000000000000, 0.000000000000, 2.000000000000 ]
   ],
-  "title" : "AB_with_Strain"
+  "title" : "AB_with_GLstrain"
 }
 ```
 
