@@ -6,25 +6,44 @@ toc_sticky: true
 sidebar: false
 ---
 
-The CASM project directory structure standardizes the location of various files used by multiple CASM methods. In the descriptions that follow some paths include codes of the form `<variable>` to indicate that there may be multiple directories with varying names. This is used to i) store data for different configurations by supercell name (`<supercellname>`) or configuration name (`<configname>`) or ii) organize parallel sets of data in parallel directories to make it easy to compare and use different parameters. In particular, a CASM project tracks:
+### Description
+
+The CASM project directory structure standardizes the location of various files used by multiple CASM methods.
+
+### Path variable convention
+
+In the descriptions that follow, some paths include codes of the form `<variable>` to indicate that there are multiple files or directory paths with varying names but following the same pattern.
+
+This is used to (i) store data for different configurations by supercell name (`<supercellname>`) or configuration name (`<configname>`) or (ii) organize  data in parallel directories so users can work on different tasks or compare the results of using different parameters.
+
+In particular, a CASM project allows storing multiple choices of:
 - `<property>`: the property being expanded
 - `<bset>`: the choice of basis set
 - `<calctype>`: the choice of property calculation method and parameters
 - `<ref>`: the choice of reference states (for formation energy calculations)
 - `<eci>`: the choice of fitting coefficients (effective cluster interactions)
 
-When a CASM project is initialized with `casm init`, default directories are created with names such as `bset.default`, `calctype.default`, etc. Either manually or by using `casm settings`, the user may create new directories with custom names such as `bset.occupation`, `bset.chebychev`, `calctype.gga`, `calctype.lda`, etc. to store different choices of basis set, calculation type, etc. These directory names must be prefixed with `"bset."`, `"calctype."`, etc. for CASM to recognize them.
-
-
-The CASM project settings (which can be inspected and modified by `casm settings`) store a list of named cluster expansions as described by one each of `<property>`, `<bset>`, `<calctype>`, `<ref>`, and `<eci>`. A default cluster expansion can be configured which indicates which data from which directories to query by default.
-
-Additional `<variable>` descriptions:
+Additional `<variable>` descriptions include:
 - `<root>`: indicates the CASM project root directory
 - `<title>`: a CASM project is given a `title` in the `prim.json` file used to initialize it
 - `<dof_key>`: name of degrees of freedom (DoF) listed in `prim.json`
 
 
+### Controlling what data is used by default
+
+When a CASM project is initialized with `casm init`, default directories are created with names such as `bset.default`, `calctype.default`, etc.
+
+Either manually or by using `casm settings`, the user may create new directories with custom names such as `bset.occupation`, `bset.chebychev`, `calctype.gga`, `calctype.lda`, etc. to store different choices of basis set, calculation type, etc.
+
+These directory names must be given the appropriate prefix (i.e. `"bset."`, `"calctype."`, etc.) for CASM to recognize them.
+
+The CASM project settings (which can be inspected and modified by `casm settings`) store a list of named cluster expansions specifying which choice of `<property>`, `<bset>`, `<calctype>`, `<ref>`, and `<eci>` are used.
+
+A default cluster expansion can be configured which indicates which data from which directories to query by default.
+
 ---
+
+### CASM project directories
 
 #### CASM project root directory
 

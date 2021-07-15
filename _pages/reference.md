@@ -9,26 +9,29 @@ permalink: /pages/reference/
 
 ## CASM file formats
 
-These are quick links to descriptions of the most commonly used CASM project input and output files. For a complete description of the CASM project directory structure, see [this]({{ "/pages/project_directory_structure" | relative_url }}).
+These are quick links to descriptions of the most commonly used CASM project input and output files.
+
+**Note:** A complete description of the CASM project directory structure with file locations is available [here]({{ "/formats/project_directory_structure" | relative_url }}).
+{: .notice--info}
 
 | Name | Description | Format |
 |-|-|-|
-| [`basis.json`] | Basis set information | [ClexBasis] |
-| [`bspecs.json`] | Basis set specifications | [ClexBasisSpecs] |
+| `basis.json` | Basis set information | [ClexBasis] |
+| `bspecs.json` | Basis set specifications | [ClexBasisSpecs] |
 | `calc.json` | Calculation settings |
 | `chemical_reference.json` | Chemical reference states |
 | `clust.json` | Cluster orbits information |
 | `composition_axes.json` | Composition axes definitions |
-| [`config.json`] | Configuration DoF values | [Configuration] |
+| `config.json` | Configuration DoF values | [Configuration] |
 | `crystal_point_group.json` | Crystal point group information |
 | `dof_space_<dof_type>.json` | DoF-space analysis information |
-| [`eci.json`] | Basis set with effective cluster interaction (ECI) values | [ClexBasis] |
+| `eci.json` | Basis set with effective cluster interaction (ECI) values | [ClexBasis] |
 | `factor_group.json` | Prim factor group information |
 | `lattice_point_group.json` | Lattice point group information |
-| [`prim.json`] | Primitive crystal structure (prim) specifications | [BasicStructure] |
+| `prim.json` | Primitive crystal structure (prim) specifications | [BasicStructure] |
 | `project_settings.json` | Project settings |
-| [`properties.calc.json`] | Structure information with calculated properties |  [SimpleStructure] |
-| [`structure.json`]  | Structure information | [SimpleStructure] |
+| `properties.calc.json` | Structure information with calculated properties |  [SimpleStructure] |
+| `structure.json`  | Structure information | [SimpleStructure] |
 
 
 ## CASM methods
@@ -52,7 +55,7 @@ The descriptions of the methods shown here can also be viewed from the command l
 
 
 [ClexBasis]: {{ "/formats/casm/clex/ClexBasis" | relative_url }}
-[`basis.json`]: {{ "/formats/casm/clex/ClexBasis" | relative_url }}
+[`basis.json`]: {{ "/formats/project_directory_structure#basis-sets-dir" | relative_url }}
 [`eci.json`]: {{ "/formats/casm/clex/ClexBasis" | relative_url }}
 [ClexBasisSpecs]: {{ "/formats/casm/clex/ClexBasisSpecs" | relative_url }}
 [`bspecs.json`]: {{ "/formats/casm/clex/ClexBasisSpecs" | relative_url }}

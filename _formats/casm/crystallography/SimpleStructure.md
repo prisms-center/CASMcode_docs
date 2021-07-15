@@ -5,9 +5,14 @@ permalink: /formats/casm/crystallography/SimpleStructure/
 
 ### Description
 
-A representation of a crystal of molecular and/or atomic occupants, and any additional properties. Both enumerated configurations (as `structure.json` files) and calculation results (as `properties.calc.json` files) may be represented using the SimpleStructure JSON object.
+A representation of a crystal of molecular and/or atomic occupants, and any additional properties.
 
-**Note**: The positions of atoms or molecules in the crystal state is defined by the lattice vectors (`lattice_vectors`) and atom coordinates (`atom_coords`) or molecule coordinates (`mol_coords`). Properties like strain and displacement that are referenced to an ideal state should be interpreted as the strain and displacement that takes the crystal from the ideal state to the state specified by `lattice_vectors` and `atom_coords` or `mol_coords`. The convention used by CASM is that displacements are applied first, and then the displaced coordinates and lattice vectors are strained.
+Both enumerated configurations (as `structure.json` files) and calculation results (as `properties.calc.json` files) may be represented using the SimpleStructure JSON object.
+
+**Note:** Configurations may converted to SimpleStructure and written in CASM projects as `structure.json` files using the `casm query --write-structure` method.
+{: .notice--info}
+
+**Note**: The positions of atoms or molecules in the crystal state is defined by the lattice vectors (`lattice_vectors`) and atom coordinates (`atom_coords`) or molecule coordinates (`mol_coords`). Strain and displacement properties, which are defined in reference to an ideal state, should be interpreted as the strain and displacement that takes the crystal from the ideal state to the state specified by `lattice_vectors` and `atom_coords` or `mol_coords`. The convention used by CASM is that displacements are applied first, and then the displaced coordinates and lattice vectors are strained.
 {: .notice--info}
 
 ### JSON Attributes List

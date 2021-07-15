@@ -5,7 +5,10 @@ permalink: /formats/casm/clex/Configuration/
 
 ### Description
 
-A representation of a single crystal state, defined by the specification of degrees of freedom (DoF) values in a supercell of a particular [BasicStructure] (the "prim"). Configurations may written in CASM projects as `config.json` files.
+A representation of a single crystal state, defined by the specification of degrees of freedom (DoF) values in a supercell of a particular [BasicStructure] (the "prim").
+
+**Note:** Configurations may written in CASM projects as `config.json` files using the `casm query --write-config` method.
+{: .notice--info}
 
 ### JSON Attributes List
 
