@@ -30,6 +30,8 @@ Clex Basis attributes:
 
 Cluster Basis Set Orbit attributes:
 
+| Name | Description | Format |
+|-|-|-|
 | [`cluster_functions`](#cluster-functions) | Basis functions of the prototype cluster DoF values | array of [Cluster Function](#cluster-function-json-object) |
 | [`linear_orbit_index`](#linear-orbit-index) | Linear cluster orbit index | int |
 | [`mult`](#mult) | Number of equivalent clusters in the orbit | int |
@@ -39,6 +41,8 @@ Cluster Basis Set Orbit attributes:
 
 Cluster Function attributes:
 
+| Name | Description | Format |
+|-|-|-|
 | [`\\Phi_{<linear_function_index>}`](#function-formula) | Basis function formula, formatted for Latex | string |
 | [`linear_function_index`](#linear-function-index) | Linear basis function index | int |
 | [`eci`](#eci) | Effective cluster interaction value | number |
@@ -47,6 +51,8 @@ Cluster Function attributes:
 
 Prototype Cluster attributes:
 
+| Name | Description | Format |
+|-|-|-|
 | [`invariant_group`](#invariant-group) | Indices of prim factor group operations that leave the prototype cluster invariant | array of int |
 | [`invariant_group_descriptions`](#invariant-group-descriptions) | Prototype cluster invariant group operation descriptions | array of string |
 | [`max_length`](#max-length) | Maximum distance between sites in the cluster. | number |
@@ -57,6 +63,8 @@ Prototype Cluster attributes:
 
 Site Functions attributes:
 
+| Name | Description | Format |
+|-|-|-|
 | [`asym_unit`](#asym-unit) | Asymmetric unit index for the sublattice | int |
 | [`occ`](#occ) | Occupation site basis functions | dict  |
 | [`<site_dof_key>`](#site-dof) | Continuous DoF site basis functions | dict |

@@ -34,6 +34,8 @@ BasicStructure attributes:
 
 Site attributes:
 
+| Name | Description | Format |
+|-|-|-|
 | [`coordinate`](#site-coordinate) | Site coordinate | array of number |
 | [`occupants`](#site-occupants) | Site allowed occupants | array of string |
 | [`dofs`](#site-dofs) | Continuous site DoF | dict of [DoF](#degrees-of-freedom-dof-json-object)  |
@@ -61,6 +63,8 @@ Molecule attributes:
 
 Atom Component attributes:
 
+| Name | Description | Format |
+|-|-|-|
 | [`name`](#atom-name) | Atom name | string |
 | [`coordinate`](#atom-coordinate) | Atom coordinate, relative to site location | array of number |
 | [`attributes`](#atomic-attributes) | Fixed atomic attributes | dict of [Species Attribute](#species-attribute-json-object) |
@@ -69,7 +73,9 @@ Atom Component attributes:
 
 Species Attribute attributes:
 
-| [`value`](#species-attribute-value) | Species attribute value |
+| Name | Description | Format |
+|-|-|-|
+| [`value`](#species-attribute-value) | Species attribute value | array of number |
 
 
 ### JSON Attributes Description
