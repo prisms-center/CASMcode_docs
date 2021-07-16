@@ -1,11 +1,14 @@
 ---
-title: "IntegralClusterOrbitGenerator"
+title: "Cluster"
 permalink: /formats/casm/clusterography/IntegralClusterOrbitGenerator/
 ---
 
 ### Description
 
-IntegralClusterOrbitGenerator specifies a cluster of sites that will be used to generate an orbit of clusters. It allows specifying if subcluster orbits should also be generated. It is used for the `"orbit_specs"` and `"phenomenal"` options for [ClusterSpecs](ClusterSpecs.md) JSON input.
+This specifies a cluster of sites.
+
+If it is used to generate an orbit of clusters it also allows specifying if subcluster orbits should also be generated.
+
 
 ### JSON Attributes List
 
@@ -64,3 +67,5 @@ Orbit generating cluster input format:
             [ 1, 0, 0, 0 ]],
         "include_subclusters" : true
     }
+
+{% include file_formats_and_locations.md %}

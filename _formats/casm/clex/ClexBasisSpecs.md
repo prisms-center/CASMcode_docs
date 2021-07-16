@@ -1,17 +1,17 @@
 ---
-title: "ClexBasisSpecs (`bspecs.json`)"
+title: "Basis Set Specs"
 permalink: /formats/casm/clex/ClexBasisSpecs/
 ---
 
 ### Description
 
-A cluster expansion basis set is specified by two components, one specifying basis function type and order, and one specifying cluster orbits. In a CASM project it is read from `bspecs.json` files. It is represented by CASM internally using the ClexBasisSpecs class.
+A cluster expansion basis set is specified by two components, one specifying basis function type and order, and one specifying cluster orbits.
 
-For use in a CASM project, the `bspecs.json` file is stored at
-```
-<root>/basis_sets/<bset>/bspecs.json
-```
-where `<bset>` is a directory with name such as `bset.default`, `bset.occupation`, `bset.chebychev`, etc.
+
+#### Project files
+
+This format is used for the [`bspecs.json`] file.
+
 
 ### JSON Attributes List
 
@@ -24,13 +24,13 @@ ClexBasisSpecs attributes:
 
 ### JSON Attributes Description
 
-  - {: #basis-function-specs } `basis_function_specs`: [BasisFunctionSpecs] (required)
+- {: #basis-function-specs } `basis_function_specs`: [BasisFunctionSpecs] (required)
 
-    Specifies the type and order of basis functions. See the [BasisFunctionSpecs] JSON input format.
+  Specifies the type and order of basis functions. See the [BasisFunctionSpecs] JSON input format.
 
-  - {: #cluster-specs } `cluster_specs`:  [ClusterSpecs] (required)
+- {: #cluster-specs } `cluster_specs`:  [ClusterSpecs] (required)
 
-    Specifies the cluster orbits on which basis functions are generated. See the [ClusterSpecs] JSON input format.
+  Specifies the cluster orbits on which basis functions are generated. See the [ClusterSpecs] JSON input format.
 
 
 ### Examples
@@ -88,5 +88,4 @@ ClexBasisSpecs attributes:
 }
 ```
 
-[BasisFunctionSpecs]: ../basis_set/BasisFunctionSpecs.md
-[ClusterSpecs]: ../clusterography/ClusterSpecs.md
+{% include file_formats_and_locations.md %}

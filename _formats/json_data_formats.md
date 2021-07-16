@@ -6,18 +6,34 @@ toc: false
 
 Most CASM input and output data is via JSON formatted files or parameters as described here, organized by libcasm module and data type. These formats may be used as building blocks for input/output of other methods.
 
+`app/`:
+- [Project Settings]
+
 `basis_set/`:
-- [BasisFunctionSpecs]({{ "/formats/casm/basis_set/BasisFunctionSpecs" | relative_url }}) (`bspecs.json`)
+- [Basis Function Specs]
 
 `clex/`:
-- [ClexBasis]({{ "/formats/casm/clex/ClexBasis" | relative_url }})
-- [ClexBasisSpecs]({{ "/formats/casm/clex/ClexBasisSpecs" | relative_url }})
-- [Configuration]({{ "/formats/casm/clex/Configuration" | relative_url }})
+- [Chemical Reference]
+- [Basis Set]
+- [Basis Set Specs]
+- [Composition Axes]
+- [Configuration]
+- [Mapped Properties]
 
 `clusterography/`:
-- [ClusterSpecs]({{ "/formats/casm/clusterography/ClusterSpecs" | relative_url }})
-- [IntegralClusterOrbitGenerator]({{ "/formats/casm/clusterography/IntegralClusterOrbitGenerator" | relative_url }})
+- [Cluster]
+- [Cluster Orbits]
+- [Cluster Specs]
+
 
 `crystallography/`:
-- [BasicStructure]({{ "/formats/casm/crystallography/BasicStructure" | relative_url }}) (`prim.json`)
-- [SimpleStructure]({{ "/formats/casm/crystallography/BasicStructure" | relative_url }}) (`structure.json`, `properties.calc.json`)
+- [Prim]
+- [Structure]
+
+`enumerator/`:
+- [DoF Space]
+
+`symmetry/`:
+- [Symmetry Group]
+
+{% include file_formats_and_locations.md %}

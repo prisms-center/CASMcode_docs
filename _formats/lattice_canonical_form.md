@@ -16,4 +16,4 @@ For lattices without any basis, the appropriate point group is the lattice point
 
 For supercells of a [prim], the appropriate point group is the crystal point group.
 
-[prim]: {{ "/formats/casm/crystallography/BasicStructure" |  relative_url }}
+{% include file_formats_and_locations.md %}

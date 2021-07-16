@@ -1,5 +1,5 @@
 ---
-title: "SimpleStructure (`structure.json`, `properties.calc.json`)"
+title: "Structure"
 permalink: /formats/casm/crystallography/SimpleStructure/
 ---
 
@@ -7,17 +7,20 @@ permalink: /formats/casm/crystallography/SimpleStructure/
 
 A representation of a crystal of molecular and/or atomic occupants, and any additional properties.
 
-Both enumerated configurations (as `structure.json` files) and calculation results (as `properties.calc.json` files) may be represented using the SimpleStructure JSON object.
-
-**Note:** Configurations may converted to SimpleStructure and written in CASM projects as `structure.json` files using the `casm query --write-structure` method.
-{: .notice--info}
+Both enumerated configurations (as `structure.json` files) and calculation results (as `properties.calc.json` files) may be represented using this format.
 
 **Note**: The positions of atoms or molecules in the crystal state is defined by the lattice vectors (`lattice_vectors`) and atom coordinates (`atom_coords`) or molecule coordinates (`mol_coords`). Strain and displacement properties, which are defined in reference to an ideal state, should be interpreted as the strain and displacement that takes the crystal from the ideal state to the state specified by `lattice_vectors` and `atom_coords` or `mol_coords`. The convention used by CASM is that displacements are applied first, and then the displaced coordinates and lattice vectors are strained.
 {: .notice--info}
 
+#### Project files
+
+This format is used for the following standard CASM project files:
+- [`structure.json`][]: These files may be generated for [Configuration] using `casm query --write-structure` method.
+- [`properties.calc.json`][]: Calculation results from supported software packages may be converted to [`properties.calc.json`] files using `casm calc --report`.
+
 ### JSON Attributes List
 
-SimpleStructure attributes:
+Structure attributes:
 
 | Name | Description | Format |
 |-|-|-|
@@ -34,7 +37,7 @@ SimpleStructure attributes:
 
 ### JSON Attributes Description
 
-#### SimpleStructure JSON object
+#### Structure JSON object
 
 - {: #atom-coords } `atom_coords`: array of coordinate (required, `shape=(n_atoms, 3)`)
 
@@ -69,7 +72,7 @@ SimpleStructure attributes:
 
 - {: #lattice-vectors } `lattice_vectors`: 2d array of number, `shape=(3,3)` (required)
 
-  Lattice vectors (as row vectors) for the primitive structure, in Angstroms.
+  Lattice vectors (as row vectors), in Angstroms.
 
   Example:
 
@@ -128,7 +131,7 @@ SimpleStructure attributes:
 
 ### Examples
 
-#### Example 1) SimpleStructure with occupation and energy
+#### Example 1) Structure with occupation and energy
 
     {
       "atom_coords" : [
@@ -151,7 +154,7 @@ SimpleStructure attributes:
       ]
     }
 
-#### Example 2) SimpleStructure with occupation, displacement, and strain
+#### Example 2) Structure with occupation, displacement, and strain
 
     {
       "atom_coords" : [
@@ -186,3 +189,5 @@ SimpleStructure attributes:
 
 [property naming convenctions]: {{ "/formats/dof_and_properties#property-naming" | relative_url }}
 [standard CASM property types]: {{ "/formats/dof_and_properties#properties-list" | relative_url }}
+
+{% include file_formats_and_locations.md %}

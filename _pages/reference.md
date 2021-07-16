@@ -5,9 +5,7 @@ permalink: /pages/reference/
 
 ![image-center]({{ "/assets/images/logo.png" | relative_url }})
 
-# Reference
-
-## CASM file formats
+### CASM file formats
 
 These are quick links to descriptions of the most commonly used CASM project input and output files.
 
@@ -16,25 +14,24 @@ These are quick links to descriptions of the most commonly used CASM project inp
 
 | Name | Description | Format |
 |-|-|-|
-| `basis.json` | Basis set information | [ClexBasis] |
-| `bspecs.json` | Basis set specifications | [ClexBasisSpecs] |
-| `calc.json` | Calculation settings |
-| `chemical_reference.json` | Chemical reference states |
-| `clust.json` | Cluster orbits information |
-| `composition_axes.json` | Composition axes definitions |
+| `basis.json` | Basis set information | [Basis Set] |
+| `bspecs.json` | Basis set specifications | [Basis Set Specs] |
+| `chemical_reference.json` | Chemical reference states | [Chemical Reference] |
+| `clust.json` | Cluster orbits information | [Cluster Orbits] |
+| `composition_axes.json` | Composition axes definitions | [Composition Axes] |
 | `config.json` | Configuration DoF values | [Configuration] |
-| `crystal_point_group.json` | Crystal point group information |
-| `dof_space_<dof_type>.json` | DoF-space analysis information |
-| `eci.json` | Basis set with effective cluster interaction (ECI) values | [ClexBasis] |
-| `factor_group.json` | Prim factor group information |
-| `lattice_point_group.json` | Lattice point group information |
-| `prim.json` | Primitive crystal structure (prim) specifications | [BasicStructure] |
-| `project_settings.json` | Project settings |
-| `properties.calc.json` | Structure information with calculated properties |  [SimpleStructure] |
-| `structure.json`  | Structure information | [SimpleStructure] |
+| `crystal_point_group.json` | Crystal point group information | [Symmetry Group] |
+| `dof_space_<dof_type>.json` | DoF-space analysis information | [DoF Space] |
+| `eci.json` | Basis set with effective cluster interaction (ECI) values | [Basis Set] |
+| `factor_group.json` | Prim factor group information | [Symmetry Group] |
+| `lattice_point_group.json` | Lattice point group information | [Symmetry Group] |
+| `prim.json` | Primitive crystal structure and allowed degrees of freedom (DoF) | [Prim] |
+| `project_settings.json` | Project settings | [Project Settings] |
+| `properties.calc.json` | Structure information with calculated properties |  [Structure] |
+| `structure.json`  | Structure information | [Structure] |
 
 
-## CASM methods
+### CASM methods
 
 The descriptions of the methods shown here can also be viewed from the command line via ``casm <method> --desc``.
 
@@ -44,25 +41,14 @@ The descriptions of the methods shown here can also be viewed from the command l
 | `sym` | Symmetry analysis |
 | etc. | etc. |
 
-## Data and code documentation links
+### Data and code documentation links
 
-- CASM project directory structure [[v1.X]]({{ "/formats/project_directory_structure" | relative_url }})
-- JSON data formats [[v1.X]]({{ "/formats/json_data_formats" | relative_url }})
+- [CASM project directory structure]({{ "/formats/project_directory_structure" | relative_url }})
+- [JSON data formats]({{ "/formats/json_data_formats" | relative_url }})
 - [Degrees of freedom (DoF) and properties]({{ "/formats/dof_and_properties/" | relative_url }})
 - [Lattice canonical form]({{ "/formats/lattice_canonical_form" |  relative_url }})
 - C++ library documentation [[v1.X]](https://prisms-center.github.io/CASMcode_cppdocs/latest/modules.html) [[v0.3]](https://prisms-center.github.io/CASMcode_cppdocs/0.3/modules.html)
 - Python package documentation [[v1.X]](https://prisms-center.github.io/CASMcode_pydocs/latest/index.html) [[v0.3]](https://prisms-center.github.io/CASMcode_pydocs/0.3/index.html)
 
 
-[ClexBasis]: {{ "/formats/casm/clex/ClexBasis" | relative_url }}
-[`basis.json`]: {{ "/formats/project_directory_structure#basis-sets-dir" | relative_url }}
-[`eci.json`]: {{ "/formats/casm/clex/ClexBasis" | relative_url }}
-[ClexBasisSpecs]: {{ "/formats/casm/clex/ClexBasisSpecs" | relative_url }}
-[`bspecs.json`]: {{ "/formats/casm/clex/ClexBasisSpecs" | relative_url }}
-[BasicStructure]: {{ "/formats/casm/crystallography/BasicStructure" |  relative_url }}
-[`prim.json`]: {{ "/formats/casm/crystallography/BasicStructure" |  relative_url }}
-[SimpleStructure]: {{ "/formats/casm/crystallography/SimpleStructure" |  relative_url }}
-[`structure.json`]: {{ "/formats/casm/crystallography/SimpleStructure" |  relative_url }}
-[`properties.calc.json`]: {{ "/formats/casm/crystallography/SimpleStructure" |  relative_url }}
-[Configuration]: {{ "/formats/casm/clex/Configuration/" |  relative_url }}
-[`config.json`]: {{ "/formats/casm/clex/Configuration/" |  relative_url }}
+{% include file_formats_and_locations.md %}

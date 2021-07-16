@@ -13,7 +13,7 @@ To setup a conda environment with all the dependencies necessary for running the
 
 ## Defining the "prim"
 
-These tutorials demonstrate defining the "prim", primitive crystal structure and degrees of freedom (DoF), initializing a CASM project, and checking prim symmetry.
+These tutorials demonstrate defining the primitive crystal structure and degrees of freedom (DoF) (the ["prim"][Prim]), initializing a CASM project, and checking [prim] symmetry.
 
 The tutorial includes examples setting up three types of CASM projects:
 - an occupation cluster expansion

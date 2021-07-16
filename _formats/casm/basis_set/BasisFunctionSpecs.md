@@ -1,15 +1,20 @@
 ---
-title: "BasisFunctionSpecs"
+title: "Basis Function Specs"
 permalink: /formats/casm/basis_set/BasisFunctionSpecs/
 ---
 
 ### Description
 
-Basis function specifications control the type and order of basis functions that CASM generates. In a CASM project it is read from the `basis_function_specs` attribute of `bspecs.json` files. It is represented by CASM internally using the BasisFunctionSpecs class.
+Basis function specifications control the type and order of basis functions that CASM generates.
+
+#### Project files
+
+This format is used for the following standard CASM project files:
+- The `basis_function_specs` attribute of [`bspecs.json`]
 
 ### JSON Attributes List
 
-BasisFunctionSpecs attributes:
+Basis Function Specs attributes:
 
 | Name | Description | Format |
 |-|-|-|
@@ -45,10 +50,10 @@ BasisFunctionSpecs attributes:
       Must be one of:
 
       - "chebychev": For basis functions generated about the random alloy.
-      - "occupation": For basis functions generated about the ordered alloy defined by the first occupant listed for every sublattice in the prim structure.
+      - "occupation": For basis functions generated about the ordered alloy defined by the first occupant listed for every sublattice in the [prim].
       - An array specifying sublat compositions, for "composition" basis functions generated about an average composition speficified for each sublattice.
 
-        Example sublattice composition specification, for a prim structure with four sublattices and two allowed occupants ("A" and "B") on each sublattice:
+        Example sublattice composition specification, for a [prim] with four sublattices and two allowed occupants ("A" and "B") on each sublattice:
 
             [
               { // composition on sublattices 0 and 1, as listed
@@ -69,9 +74,9 @@ BasisFunctionSpecs attributes:
 
     Specifies the maximum polynomial order for site basis functions.
 
-- {: #dofs } `dofs`: array of string (optional, default= all prim dof keys)
+- {: #dofs } `dofs`: array of string (optional, default= all [prim] DoF)
 
-  An array of string of dof type names that should be used to construct basis functions. The default value is all DoF types included in the prim.
+  An array of string of dof type names that should be used to construct basis functions. The default value is all DoF types included in the [prim].
 
 - {: #global-max-poly-order} `global_max_poly_order`: int (optional, default=-1)
 
@@ -117,3 +122,5 @@ BasisFunctionSpecs attributes:
   }
 }
 ```
+
+{% include file_formats_and_locations.md %}

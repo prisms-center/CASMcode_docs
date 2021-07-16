@@ -40,11 +40,7 @@ A particular instance of a DoF or property is labeled with a name string.
 
 #### DoF Naming
 
-DoF must use an exact name.
-
-DoF name strings are used in:
-- [BasicStructure] (the "prim")
-- [Configuration]
+Exact name strings of a supported DoF type must be used for a [prim] or [Configuration].
 
 
 #### Property Naming
@@ -67,8 +63,8 @@ Thus, whenever a particular property name is encountered, the property type can 
 {: .notice--info}
 
 Property name strings are used in:
-- [SimpleStructure]
-- [MappedProperties]
+- [Structure]
+- [Mapped Properties]
 
 
 ### Properties list
@@ -100,7 +96,7 @@ See implementations of [AnisoValTraits] instances for examples. To become a stan
 
 #### Implementing new DoF
 
-In order to implement a new DoF type, CASM must know how to convert between Configuration and SimpleStructure, and must know how to construct, write, and evaluate basis functions for that type. This requires an [AnisoValTraits] instance for the type and also that additional traits information must be provided by implementing a traits class derived from [DoFType::Traits].
+In order to implement a new DoF type, CASM must know how to convert between [Configuration] and [Structure], and must know how to construct, write, and evaluate basis functions for that type. This requires an [AnisoValTraits] instance for the type and also that additional traits information must be provided by implementing a traits class derived from [DoFType::Traits].
 
 Current DoF implementations include:
 - [DisplacementDoFTraits] (`"disp"`)
@@ -112,13 +108,11 @@ After a DoF traits class is implemented, it must be added it to the [DoF traits 
 
 [AnisoValTraits]: https://prisms-center.github.io/CASMcode_cppdocs/latest/class_c_a_s_m_1_1_aniso_val_traits.html
 [AnisoValTraits parsing dictionary]: https://prisms-center.github.io/CASMcode_cppdocs/latest/namespace_c_a_s_m.html#a41ba764cb5d20f103a5d7488f330dfed
-[BasicStructure]: ({{ "/formats/casm/crystallography/BasicStructure" |  relative_url }})
-[Configuration]: ({{ "/formats/casm/crystallography/Configuration" |  relative_url }})
 [DisplacementDoFTraits]: https://prisms-center.github.io/CASMcode_cppdocs/latest/class_c_a_s_m_1_1_do_f__impl_1_1_displacement_do_f_traits.html
 [DoF traits parsing dictionary]: https://prisms-center.github.io/CASMcode_cppdocs/latest/namespace_c_a_s_m.html#ac98d0bd522cf85dc66a6a7fb332b161c
 [DoFType::traits_dict()]: https://prisms-center.github.io/CASMcode_cppdocs/latest/namespace_c_a_s_m_1_1_do_f_type.html#a64cd4554c24561f4ef8f20d72b814fe6
 [OccupationDoFTraits]: https://prisms-center.github.io/CASMcode_cppdocs/latest/class_c_a_s_m_1_1_do_f__impl_1_1_occupation_do_f_traits.html
 [MagSpinDoFTraits]: https://prisms-center.github.io/CASMcode_cppdocs/latest/class_c_a_s_m_1_1_do_f__impl_1_1_mag_spin_do_f_traits.html
-[MappedProperties]: ({{ "/formats/casm/clex/MappedProperties" |  relative_url }})
-[SimpleStructure]: ({{ "/formats/casm/crystallography/SimpleStructure" |  relative_url }})
 [StrainDoFTraits]: https://prisms-center.github.io/CASMcode_cppdocs/latest/class_c_a_s_m_1_1_do_f__impl_1_1_strain_do_f_traits.html
+
+{% include file_formats_and_locations.md %}

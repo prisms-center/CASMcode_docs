@@ -1,17 +1,20 @@
 ---
-title: "BasicStructure (`prim.json`)"
+title: "Prim"
 permalink: /formats/casm/crystallography/BasicStructure/
 ---
 
 ### Description
 
-A primitive crystal structure and allowed degrees of freedom (DoF) (the "prim") specifies lattice vectors, crystal basis sites, occupation DoF, continuous site DoF, and continuous global DoF. In a CASM project it is read from a `prim.json` file. A prim is represented by CASM internally using the BasicStructure class.
+The primitive crystal structure and allowed degrees of freedom (DoF) (the "prim") specifies lattice vectors, crystal basis sites, occupation DoF, continuous site DoF, and continuous global DoF.
 
-A user-generated `prim.json` file is used to initialize a CASM project. When the project is initialized, CASM writes a standardized `prim.json` file to:
-```
-<root>/.casm/prim.json
-```
-where `<root>` is the CASM project root directory. For subsequent project actions, CASM will read the prim structure from `<root>/.casm/prim.json`. It is not recommended to modify the CASM-generated `prim.json` file because that may cause inconsistencies in the project.
+
+#### Project files
+
+This format is used for `prim.json` files.
+
+A user-generated `prim.json` file is used to initialize a CASM project. When the project is initialized, CASM writes a standardized [`prim.json`] file to `<root>/.casm/prim.json`, where `<root>` is the CASM project root directory.
+
+For subsequent project actions, CASM will read the prim from `<root>/.casm/prim.json`, not the user-generated file used to initialize the project. It is not recommended to modify the CASM-generated [`prim.json`] file because that may cause inconsistencies in the project.
 
 ### JSON Attributes List
 
@@ -41,8 +44,8 @@ DoF attributes:
 
 | Name | Description | Format |
 |-|-|-|
-| [`axis_names`](#dof-axis-names) | User defined axis names | array of string |
-| [`basis`](#dof-basis) | User defined DoF basis | 2d array of number |
+| [`axis_names`](#dof-axis-names) | User-specified axis names | array of string |
+| [`basis`](#dof-basis) | User-specified DoF basis | 2d array of number |
 
 ---
 
@@ -114,7 +117,7 @@ Species Attribute attributes:
 
 - {: #lattice-vectors } `lattice_vectors`: 2d array of number, `shape=(3,3)` (required)
 
-  Lattice vectors (as row vectors) for the primitive structure, in Angstroms.
+  Lattice vectors (as row vectors), in Angstroms.
 
   Example:
 
@@ -154,7 +157,7 @@ Species Attribute attributes:
 
 #### Site JSON object
 
-Used to specify the coordinate, allowed occupants, and allowed continuous site DoF for a sublattice of the prim.
+Used to specify the coordinate, allowed occupants, and allowed continuous site DoF for a sublattice in the prim.
 
 - {: #site-coordinate } `coordinate`: array of number, `shape=(3,)` (required)
 
@@ -197,7 +200,7 @@ Standard DoF types included in CASM:
 
 {% include dof_list.md %}
 
-##### User-defined DoF basis
+##### User-specified DoF basis
 
 In many cases, the standard basis is the appropriate choice, but CASM also allows for a user-specified basis in terms of the standard basis. A user-specified basis may fully span the standard basis or only a subspace. Within a `"dofs"` dict, each DoF is given by the key/object pair `"<dofname>" : {...}` where `<dofname>` is the name specifier of a particular DoF type and the associated object specifies non-default options.
 
@@ -279,7 +282,7 @@ Used to define an atom that is a component of a molecule.
 - {: #atom-name } `name`: string
   Name of atomic species.
 
-#### SpeciesAttribute JSON object:
+#### Species Attribute JSON object:
 
 Associates the discrete value of a vector property to an atom or moleule.
 
@@ -472,3 +475,5 @@ Associates the discrete value of a vector property to an atom or moleule.
 ```
 
 [property]: {{ "/formats/dof_and_properties#properties-list" |  relative_url }}
+
+{% include file_formats_and_locations.md %}

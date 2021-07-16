@@ -1,14 +1,16 @@
 ---
-title: "Configuration (`config.json`)"
+title: "Configuration"
 permalink: /formats/casm/clex/Configuration/
 ---
 
 ### Description
 
-A representation of a single crystal state, defined by the specification of degrees of freedom (DoF) values in a supercell of a particular [BasicStructure] (the "prim").
+A representation of a single crystal state, defined by the specification of degrees of freedom (DoF) values in a supercell of a [Prim].
 
-**Note:** Configurations may written in CASM projects as `config.json` files using the `casm query --write-config` method.
-{: .notice--info}
+
+#### Project files
+
+This format is used for the [`config.json`] file, which may be generated using the `casm query --write-config` method.
 
 ### JSON Attributes List
 
@@ -45,15 +47,15 @@ ConfigDoF attributes:
 
   The name of the supercell.
 
-  If the supercell lattice is in [canonical form], the name has the format `"SCELV_A_B_C_D_E_F"`, where `V` is the integer supercell volume (as a multiple of the primitive cell volume), and `"A_B_C_D_E_F"` are integer values of the hermite normal form of the `transformation_matrix_to_supercell` matrix. If the supercell is not in canonical form, the name has the format `"SCELV_A_B_C_D_E_F.G"`, where `G` is the index in the prim factor group of an operation that transforms the supercell lattice vectors in canonical form to the supercell lattice vector in its current form.
+  If the supercell lattice is in [canonical form], the name has the format `"SCELV_A_B_C_D_E_F"`, where `V` is the integer supercell volume (as a multiple of the primitive cell volume), and `"A_B_C_D_E_F"` are integer values of the hermite normal form of the `transformation_matrix_to_supercell` matrix. If the supercell is not in canonical form, the name has the format `"SCELV_A_B_C_D_E_F.G"`, where `G` is the index in the [prim] factor group of an operation that transforms the supercell lattice vectors in canonical form to the supercell lattice vector in its current form.
 
   When reading a Configuration from JSON, CASM determines the supercell from `transformation_matrix_to_supercell` only and `supercell_name` is ignored.
 
 - {: #transformation-matrix-to-supercell } `transformation_matrix_to_supercell`: 2d array of int (required, `shape=(3,3)`)
 
-  The matrix that transforms the [prim] lattice vectors into the supercell lattice vectors, according to $S = P * T$, where $S$ is the supercell lattice vectors as a column vector matrix, $P$ is the prim lattice vectors as a column vector matrix, and $T$ is `transformation_matrix_to_supercell`.
+  The matrix that transforms the [prim] lattice vectors into the supercell lattice vectors, according to $S = P * T$, where $S$ is the supercell lattice vectors as a column vector matrix, $P$ is the [prim] lattice vectors as a column vector matrix, and $T$ is `transformation_matrix_to_supercell`.
 
-  Specifies DoF values for this configuration. Required to include values for all DoF defined in the ["prim"].
+  Specifies DoF values for this configuration. Required to include values for all DoF defined in the [prim].
 
 
 #### ConfigDoF JSON object
@@ -78,7 +80,7 @@ ConfigDoF attributes:
 
   Each row corresponds to a site (in the same order as the [`occ`](#occ) values), and contains the site DoF value as a vector in the [standard basis].
 
-  **Note:** Whether or not a user-specified basis is given in the prim, `local_dofs` values are always written to JSON using the standard basis. When reading a Configuration from JSON, CASM transforms values from the standard basis into the user-specified basis for internal use.
+  **Note:** Whether or not a user-specified basis is given in the [prim], `local_dofs` values are always written to JSON using the standard basis. When reading a Configuration from JSON, CASM transforms values from the standard basis into the user-specified basis for internal use.
   {: .notice--info}
 
   Example: Displacement values in the standard basis, $[d_x, d_y, d_z]$, for a configuration with 4 sites
@@ -98,7 +100,7 @@ ConfigDoF attributes:
 
   The values of the continuous global DoF, represented as a vector in the [standard basis].
 
-  **Note:** Whether or not a user-specified basis is given in the prim, `global_dofs` values are always written to JSON using the standard basis. When reading a Configuration from JSON, CASM transforms values from the standard basis into the user-specified basis for internal use.
+  **Note:** Whether or not a user-specified basis is given in the [prim], `global_dofs` values are always written to JSON using the standard basis. When reading a Configuration from JSON, CASM transforms values from the standard basis into the user-specified basis for internal use.
   {: .notice--info}
 
   Example: Green-Lagrange strain metric values in the [standard basis], $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$, $E=\frac{1}{2}(C-I)$
@@ -154,7 +156,8 @@ ConfigDoF attributes:
       ]
     }
 
-[BasicStructure]: {{ "/formats/casm/crystallography/BasicStructure" |  relative_url }}
-[prim]: {{ "/formats/casm/crystallography/BasicStructure" |  relative_url }}
 [canonical form]: {{ "/formats/lattice_canonical_form" |  relative_url }}
-[standard basis]:  {{ "/formats/casm/crystallography/BasicStructure#degrees-of-freedom-dof-json-object" |  relative_url }}
+[standard basis]:  {{ "/formats/casm/crystallography/BasicStructure#dof-list" |  relative_url }}
+[prim basis]:  {{ "/formats/casm/crystallography/BasicStructure#user-specified-dof-basis" |  relative_url }}
+
+{% include file_formats_and_locations.md %}
