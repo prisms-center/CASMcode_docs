@@ -10,7 +10,7 @@ A degrees of freedom (DoF) space is a subset of the crystal states allowed by a 
 
 #### Defining a DoF space
 
-A DoF space is specified by selecting a DoF type (for example `"disp"`, `"GLstrain"`, or `"occ"`), and, for site DoF, a supercell and set of sites whose DoF are included in the DoF space.
+A DoF space is specified by selecting a [DoF type] (for example `"disp"`, `"GLstrain"`), and, for site DoF, a supercell and set of sites whose DoF are included in the DoF space.
 
 <div>
 **Example:**
@@ -94,7 +94,7 @@ Configuration attributes:
 | [`dof`](#dof) | DoF type | string |
 | [`glossary`](#glossary) | DoF space axes names | array of string |
 | [`identifier`](#identifier) | DoF space identifier | string |
-| [`irreducible_representations`](#irreducible-representations) | Irreducible space decomposition results | [Irrep Decomposition] |
+| [`irreducible_representations`](#irreducible-representations) | Irreducible space decomposition results | [Irrep Decomposition](#irrep-decomposition-json-object) |
 | [`irreducible_wedge`](#irreducible-wedge) | Irreducible wedge of the DoF space | dict |
 | [`sites`](#sites) | Sites included in the DoF space | null or array of int |
 | [`state`](#state) | Configuration state | null or [Configuration state] |
@@ -368,7 +368,8 @@ Example DoF Space files:
 2. Displacement DoF space, selecting 2 of 4 total configuration sites in the L1<sub>2</sub> ordering of a system with an FCC [prim]: [[dof_space_disp_ex1.json]]({{ "/assets/example_files/dof_space_disp_ex1.json" | relative_url }})
 3. Displacement DoF space, including all 4 total configuration sites, and identifying rigid translations ("homogeneous modes"), in the L1<sub>2</sub> ordering of a system with an FCC [prim]: [[dof_space_disp_ex2.json]]({{ "/assets/example_files/dof_space_disp_ex2.json" | relative_url }})
 
-[standard basis]:  {{ "/formats/casm/crystallography/BasicStructure#dof-list" |  relative_url }}
+[DoF type]: {{ "/formats/casm/crystallography/BasicStructure#dof-list" |  relative_url }}
+[standard basis]: {{ "/formats/casm/crystallography/BasicStructure#dof-list" |  relative_url }}
 [prim basis]:  {{ "/formats/casm/crystallography/BasicStructure#user-specified-dof-basis" |  relative_url }}
 [site index]: {{ "/formats/casm/clex/Configuration#occ" |  relative_url }}
 
