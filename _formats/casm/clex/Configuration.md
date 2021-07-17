@@ -32,6 +32,15 @@ ConfigDoF attributes:
 | [`local_dofs`](#local-dofs) | Continuous site DoF values | dict |
 | [`global_dofs`](#global-dofs) | Continuous global DoF values | dict |
 
+---
+
+Configuration state attributes:
+
+| Name | Description | Format |
+|-|-|-|
+| [`configuration`](#state-configuration) | Configuration | [Configuration] |
+| [`sites`](#state-sites) | Selected sites | array of int |
+
 
 ### JSON Attributes Description
 
@@ -55,10 +64,10 @@ ConfigDoF attributes:
 
   The matrix that transforms the [prim] lattice vectors into the supercell lattice vectors, according to $S = P * T$, where $S$ is the supercell lattice vectors as a column vector matrix, $P$ is the [prim] lattice vectors as a column vector matrix, and $T$ is `transformation_matrix_to_supercell`.
 
-  Specifies DoF values for this configuration. Required to include values for all DoF defined in the [prim].
-
 
 #### ConfigDoF JSON object
+
+Specifies DoF values for a configuration. Required to include values for all DoF defined in the [prim].
 
 - {: #occ } `occ`: array of int (required)
 
@@ -110,6 +119,20 @@ ConfigDoF attributes:
           "values" : [ 0.100000000000, 0.100000000000, 0.100000000000, 0.000000000000, 0.000000000000, 0.000000000000 ]
         }
       }
+
+
+#### Configuration State JSON object
+
+A Configuration and set of selected sites, used as an input to several CASM methods.
+
+- {: #state-configuration } `configuration`: [Configuration](#configuration-json-object)
+
+  A [Configuration](#configuration-json-object).
+
+- {: #state-sites } `sites`: array of int
+
+  An array of indices of selected sites, ordered as described for the [`occ`](#occ) values.
+
 
 ### Examples
 

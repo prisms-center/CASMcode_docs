@@ -11,6 +11,7 @@
 [Composition Axes]: {{ "/formats/casm/clex/CompositionAxes" | relative_url }}
 [`composition_axes.json`]: {{ "/formats/project_directory_structure#config-dir" | relative_url }}
 [Configuration]: {{ "/formats/casm/clex/Configuration/" |  relative_url }}
+[Configuration State]: {{ "/formats/casm/clex/Configuration#configuration-state-json-object" |  relative_url }}
 [`config.json`]: {{ "/formats/project_directory_structure#config-dir" |  relative_url }}
 [Mapped Properties]: {{ "/formats/casm/clex/MappedProperties/" |  relative_url }}
 
