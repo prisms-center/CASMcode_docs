@@ -5,7 +5,7 @@ permalink: /formats/casm/enumerator/DoFSpace/
 
 ### Description
 
-A degrees of freedom (DoF) space is a subset of the crystal states allowed by a [Prim].
+A degrees of freedom (DoF) space is a subset of the space of crystal states allowed by a [Prim].
 
 
 #### Defining a DoF space
