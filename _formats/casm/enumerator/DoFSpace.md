@@ -84,7 +84,7 @@ This format is used for [`dof_space_<dof_type>.json`] files. A DoF space symmetr
 
 ### JSON Attribute List
 
-Configuration attributes:
+DoF Space attributes:
 
 | Name | Description | Format |
 |-|-|-|
