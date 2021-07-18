@@ -1,6 +1,8 @@
 [Project Settings]: {{ "/formats/casm/app/ProjectSettings" | relative_url }}
 [`project_settings.json`]: {{ "/formats/project_directory_structure#casm-dir" | relative_url }}
 
+[Basis Function Specs]: {{ "/formats/casm/basis_set/BasisFunctionSpecs" | relative_url }}
+
 [Chemical Reference]: {{ "/formats/casm/clex/ChemicalReference" | relative_url }}
 [`chemical_reference.json`]: {{ "/formats/project_directory_structure#chemical-reference-dir" | relative_url }}
 [Basis Set]: {{ "/formats/casm/clex/ClexBasis" | relative_url }}

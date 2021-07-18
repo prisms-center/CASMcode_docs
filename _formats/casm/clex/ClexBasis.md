@@ -21,7 +21,7 @@ Clex Basis attributes:
 
 | Name | Description | Format |
 |-|-|-|
-| [`bspecs`](#bspecs) | Basis set specifications | [ClexBasisSpecs] |
+| [`bspecs`](#bspecs) | Basis set specifications | [Basis Set Specs] |
 | [`orbits`](#orbits) | Cluster orbits and basis set functions | array of [Cluster Basis Set Orbit](#cluster-basis-set-orbit-json-object) |
 | [`prim`](#prim) | Primitive crystal structure and DoF | [Prim] |
 | [`site_functions`](#site-functions) | Description of site functions at each sublattice | array of [Site Functions](#site-functions-json-object) |
@@ -35,7 +35,7 @@ Cluster Basis Set Orbit attributes:
 | [`cluster_functions`](#cluster-functions) | Basis functions of the prototype cluster DoF values | array of [Cluster Function](#cluster-function-json-object) |
 | [`linear_orbit_index`](#linear-orbit-index) | Linear cluster orbit index | int |
 | [`mult`](#mult) | Number of equivalent clusters in the orbit | int |
-| [`prototype`](#prototype) | Representation of the prototype cluster | [Prototype Cluster](#prototype-cluster-json-object) |
+| [`prototype`](#prototype) | Representation of the prototype cluster | [Prototype Cluster] |
 
 ---
 
@@ -73,9 +73,9 @@ Site Functions attributes:
 
 ### JSON Attributes Description
 
-#### ClexBasis JSON object
+#### Basis Set JSON object
 
-- {: #bspecs } `bspecs`: [BasisFunctionSpecs]
+- {: #bspecs } `bspecs`: [Basis Function Specs]
 
   A copy of the basis set specifications (`bspecs.json`) used to generate the basis set.
 
@@ -106,7 +106,7 @@ Site Functions attributes:
 
   Cluster multiplicity, the number of symmetrically equivalent clusters in the orbit.
 
-- {: #prototype} `prototype`: [Prototype Cluster](#prototype-cluster-json-object)
+- {: #prototype} `prototype`: [Prototype Cluster]
 
   Information about one cluster (the "prototype") in the orbit of symmetrically equivalent clusters.
 
@@ -135,48 +135,6 @@ Site Functions attributes:
 
   Basis function coefficient value. Not printed in `basis.json`. This is an optional value in the `eci.json` file. Not including the `eci` attribute indicates the coefficient value is zero and the corresponding basis functions do not need to be evaluated for property prediction.
 
-
-#### Prototype cluster JSON object
-
-- {: #invariant-group} `invariant_group`: array of int
-
-  Indices (begins with 0) of symmetry operations in the [prim] factor group which leave the prototype cluster invariant (up to lattice vector translations).
-
-- {: #invariant-group-descriptions} `invariant_group_descriptions`: array of string
-
-  Descriptions of the invariant group operations, following the conventions of the International Tables for Crystallography, and using the fractional representation for coordinates and vectors.
-
-  Example:
-
-      "invariant_group_descriptions" : [
-        "1",
-        "2 x, 0.5, -x",
-        "2 0, y, 0",
-        "2 x, 0.5-x, x",
-        "m x, y, x",
-        "m 2*x, 0.5-x+y, -2*y",
-        "m x, y, -x",
-        "-1 0.0000000 0.5000000 0.0000000"
-      ]
-
-- {: #max-length} `max_length`: number
-
-  Maximum distance between sites in the cluster.
-
-- {: #min-length} `min_length`: number
-
-  Minimum distance between sites in the cluster.
-
-- {: #sites } `sites`: array of integral site coordinates
-
-  Sites are represented using integral site coordinates `[b, i, j, k]`, where b=sublattice index, and i,j,k are lattice vector indices.
-
-  Example:
-
-      "sites" : [
-        [ 0, 0, 0, 0 ],
-        [ 0, 0, 1, 0 ]
-      ]
 
 #### Site functions JSON object
 
@@ -249,5 +207,7 @@ Site Functions attributes:
 
 Sublattice index.
 
+
+[Prototype Cluster]: {{ "/formats/casm/clusterography/ClusterOrbits/#prototype-cluster-json-object" | relative_url }}
 
 {% include file_formats_and_locations.md %}
