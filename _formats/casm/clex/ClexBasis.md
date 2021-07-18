@@ -17,7 +17,7 @@ This format is used for the following standard CASM project files:
 
 ### JSON Attributes List
 
-Clex Basis attributes:
+Basis Set attributes:
 
 | Name | Description | Format |
 |-|-|-|
@@ -111,7 +111,7 @@ Site Functions attributes:
   Information about one cluster (the "prototype") in the orbit of symmetrically equivalent clusters.
 
 
-#### Cluster function JSON object
+#### Cluster Function JSON object
 
 - {: #function-formula} `\\Phi_{<linear_function_index>}`: string
 
