@@ -73,10 +73,14 @@ Specifies DoF values for a configuration. Required to include values for all DoF
 
   Occupation DoF values are represented by an array of integers, of size equal to the number of sites in the supercell, and sorted by sublattice. The integer value is the index into the [occupants list] of the sublattice the site is a part of.
 
-  Example: Occupation values for a configuration of in a volume 8 supercell of a prim with 2 basis sites
+  <div>
+  **Example:** Occupation values for a configuration of in a volume 8 supercell of a prim with 2 basis sites
 
       //     |<- sublattice 0 ----->| <- sublattice 1 ----->]
       "occ": [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0]
+
+  </div>
+  {: .notice--info }
 
    Within the block of a particular sublattice, values are ordered by the same unit cell ordering.
 
@@ -92,7 +96,8 @@ Specifies DoF values for a configuration. Required to include values for all DoF
   **Note:** Whether or not a user-specified basis is given in the [prim], `local_dofs` values are always written to JSON using the standard basis. When reading a Configuration from JSON, CASM transforms values from the standard basis into the user-specified basis for internal use.
   {: .notice--info}
 
-  Example: Displacement values in the standard basis, $[d_x, d_y, d_z]$, for a configuration with 4 sites
+  <div>
+  **Example:** Displacement values in the standard basis, $[d_x, d_y, d_z]$, for a configuration with 4 sites
 
       "local_dofs" : {
         "disp" : {
@@ -105,6 +110,9 @@ Specifies DoF values for a configuration. Required to include values for all DoF
         }
       }
 
+  </div>
+  {: .notice--info }
+
 - {: #global-dofs } `global_dofs`: dict
 
   The values of the continuous global DoF, represented as a vector in the [standard basis].
@@ -112,7 +120,8 @@ Specifies DoF values for a configuration. Required to include values for all DoF
   **Note:** Whether or not a user-specified basis is given in the [prim], `global_dofs` values are always written to JSON using the standard basis. When reading a Configuration from JSON, CASM transforms values from the standard basis into the user-specified basis for internal use.
   {: .notice--info}
 
-  Example: Green-Lagrange strain metric values in the [standard basis], $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$, $E=\frac{1}{2}(C-I)$
+  <div>
+  **Example:** Green-Lagrange strain metric values in the [standard basis], $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$, $E=\frac{1}{2}(C-I)$
 
       "global_dofs" : {
         "GLstrain" : {
@@ -120,6 +129,8 @@ Specifies DoF values for a configuration. Required to include values for all DoF
         }
       }
 
+  </div>
+  {: .notice--info }
 
 #### Configuration State JSON object
 

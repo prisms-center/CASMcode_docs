@@ -53,7 +53,8 @@ Structure attributes:
 
   The names `atom_dofs`, `atom_vals`, and `atom_values` are accepted as aliases for `atom_properties`.
 
-  Example: Atomic displacements for a structure with 2 atoms
+  <div>
+  **Example:** Atomic displacements for a structure with 2 atoms
 
       "atom_properties": {
         "disp": {
@@ -63,6 +64,9 @@ Structure attributes:
           ]
         }
       }
+
+  </div>
+  {: .notice--info }
 
 - {: #coord-mode } `coord_mode`: string (required)
 
@@ -74,13 +78,17 @@ Structure attributes:
 
   Lattice vectors (as row vectors), in Angstroms.
 
-  Example:
+  <div>
+  **Example:**
 
       "lattice_vectors": [
         [ 4.0, 0.0, 0.0], // lattice vector 1
         [ 0.0, 4.0, 0.0], // lattice vector 2
         [ 0.0, 0.0, 4.0], // lattice vector 3
       ]
+
+  </div>
+  {: .notice--info }
 
 - {: #mol-coords } `mol_coords`: array of coordinate (required, `shape=(n_molecules, 3)`)
 
@@ -96,7 +104,8 @@ Structure attributes:
 
   The names `mol_dofs`, `mol_vals`, and `mol_values` are accepted as aliases for `mol_properties`.
 
-  Example: Molecular displacements for a structure with 2 molecules
+  <div>
+  **Example:** Molecular displacements for a structure with 2 molecules
 
       "mol_properties": {
         "disp": {
@@ -107,13 +116,17 @@ Structure attributes:
         }
       }
 
+  </div>
+  {: .notice--info }
+
 - {: #global-properties } `global_properties`: dict (optional)
 
   Values of properties associated with the entire crystal. Property names are expected to follow the [property naming convenctions] for [standard CASM property types]. Values are input as a scalar or vector. Vector dimensions should match the standard basis dimension of the property type.
 
   The names `global_dofs`, `global_vals`, and `global_values` are accepted as aliases for `global_properties`.
 
-  Example: Crystal with calculated energy
+  <div>
+  **Example:** Crystal with calculated energy
 
       "global_properties": {
         "energy": {
@@ -121,13 +134,20 @@ Structure attributes:
         }
       }
 
-  Example: Crystal with calculated strain
+  </div>
+  {: .notice--info }
+
+  <div>
+  **Example:** Crystal with calculated strain
 
       "global_properties": {
         "Ustrain": {
           "value": [0.1, 0.1, 0.1, 0.0, 0.0, 0.0]
         }
       }
+
+  </div>
+  {: .notice--info }
 
 ### Examples
 

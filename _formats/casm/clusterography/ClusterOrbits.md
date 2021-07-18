@@ -92,7 +92,8 @@ Prototype Cluster attributes:
 
   Descriptions of the invariant group operations, following the conventions of the International Tables for Crystallography, and using the fractional representation for coordinates and vectors.
 
-  Example:
+  <div>
+  **Example:**
 
       "invariant_group_descriptions" : [
         "1",
@@ -104,6 +105,9 @@ Prototype Cluster attributes:
         "m x, y, -x",
         "-1 0.0000000 0.5000000 0.0000000"
       ]
+
+  </div>
+  {: .notice--info }
 
 - {: #max-length} `max_length`: number
 
@@ -117,12 +121,15 @@ Prototype Cluster attributes:
 
   Sites are represented using integral site coordinates `[b, i, j, k]`, where b=sublattice index, and i,j,k are lattice vector indices.
 
-  Example:
+  <div>
+  **Example:**
 
       "sites" : [
         [ 0, 0, 0, 0 ],
         [ 0, 0, 1, 0 ]
       ]
 
+  </div>
+  {: .notice--info }
 
 {% include file_formats_and_locations.md %}

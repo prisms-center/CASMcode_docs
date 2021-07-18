@@ -86,7 +86,8 @@ Basis Function Specs attributes:
 
   By default, for a given cluster orbit, polynomials of order up to the cluster size are created. Higher order polynomials can be requested either on a per-orbit-branch or global basis. The most specific level specified is used. Orbit branches are specified using the string value of the cluster size as a key.
 
-  Example:
+  <div>
+  **Example:**
 
       "orbit_branch_max_poly_order": {
           "4": 7    // use maximum polynomial order == 7,
@@ -94,6 +95,9 @@ Basis Function Specs attributes:
       },
       "global_max_poly_order": 3, // use max(3, cluster size),
       ...                         // for all other orbits
+
+  </div>
+  {: .notice--info }
 
 - {: #param-pack-type } `param_pack_type`: string (optional, default="default")
 

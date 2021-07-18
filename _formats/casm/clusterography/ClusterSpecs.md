@@ -81,12 +81,16 @@ Note on the cluster orbit generation method:
 
   Cluster generation is truncated by specifying the maximum distance between sites in a cluster for each orbit branch (i.e. 2-site, 3-site, etc. clusters). The null cluster orbit and the 1-site clusters are always included.
 
-  Example:
+  <div>
+  **Example:**
 
       "orbit_branch_specs": {
           "2": { "max_length": 10.0 },
           "3": { "max_length": 8.0 }
       }
+
+  </div>
+  {: .notice--info }
 
 - {: #periodic-orbit-specs } `orbit_specs`: array of [IntegralClusterOrbitGenerator](IntegralClusterOrbitGenerator.md) (optional, default=[])
 
@@ -105,13 +109,17 @@ Note on the cluster orbit generation method:
 
   All sites within `cutoff_radius` distance of any site in the phenomenal cluster are considered candidates for inclusion in clusters of a particular orbit branch. Cluster generation is truncated by specifying the maximum distance between sites in a cluster for each orbit branch. The `max_length` parameter is not necessary for 1-site clusters and ignored if present. The null cluster orbit is always included.
 
-  Example:
+  <div>
+  **Example:**
 
       "orbit_branch_specs": {
           "1": { "cutoff_radius": 6.0 },
           "2": { "max_length": 9.0, "cutoff_radius": 6.0 },
           "3": { "max_length": 8.0, "cutoff_radius": 6.0 }
       }
+
+  </div>
+  {: .notice--info }
 
 - {: #local-orbit-specs } `orbit_specs`: array of [IntegralClusterOrbitGenerator](IntegralClusterOrbitGenerator.md) (optional, default=[])
 
@@ -121,7 +129,8 @@ Note on the cluster orbit generation method:
 
   The "phenomenal" cluster about which local clusters are generated. See the [IntegralClusterOrbitGenerator](IntegralClusterOrbitGenerator.md) JSON input format for cluster input (`"include_subclusters"` is not allowed).
 
-  Example:
+  <div>
+  **Example:**
 
       {
           "coordinate_mode" : "Integral",
@@ -130,6 +139,8 @@ Note on the cluster orbit generation method:
               [ 0, 1, 0, 0 ]]
       }
 
+  </div>
+  {: .notice--info }
 
 ### Examples
 

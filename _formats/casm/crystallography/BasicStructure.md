@@ -86,8 +86,6 @@ Species Attribute attributes:
 
   An array of [Site](#site-json-object) objects that specifies the coordinate, allowed occupants, and allowed continuous site DoF for each sublattice of the crystal. The size of the `basis` array defines the number of sublattices in the crystal (`n_sublattice`). Elsewhere, the variables `sublattice_index` or `b` (in the "integral site coordinate" convention), are used to indicate a particular sublattice.
 
-  Example:
-
 - {: #coordinate-mode } `coordinate_mode`: string (required)
 
   Coordinate mode for basis sites. One of:                         
@@ -102,13 +100,18 @@ Species Attribute attributes:
 
   A dictionary specifying the types of continuous global DoF and their basis. For more details on the allowed global DoF types and specifiying the standard or user-specified basis, see [DoF](#degrees-of-freedom-dof-json-object).
 
-  Example: Strain DoF, using the Hencky strain metric, with standard basis:
+  <div>
+  **Example:** Strain DoF, using the Hencky strain metric, with standard basis:
 
       "dofs": {
         "Hstrain" : {}
       }
 
-  Example: Strain DoF, using the Hencky strain metric, with user-specified basis:
+  </div>
+  {: .notice--info }
+
+  <div>
+  **Example:** Strain DoF, using the Hencky strain metric, with user-specified basis:
 
       "dofs": {
         "Hstrain" : {
@@ -121,11 +124,15 @@ Species Attribute attributes:
         }
       }
 
+  </div>
+  {: .notice--info }
+
 - {: #lattice-vectors } `lattice_vectors`: 2d array of number, `shape=(3,3)` (required)
 
   Lattice vectors (as row vectors), in Angstroms.
 
-  Example:
+  <div>
+  **Example:**
 
       "lattice_vectors": [
         [ 4.0, 0.0, 0.0], // lattice vector 1
@@ -133,11 +140,15 @@ Species Attribute attributes:
         [ 0.0, 0.0, 4.0], // lattice vector 3
       ]
 
+  </div>
+  {: .notice--info }
+
 - {: #species } `species`: dict (optional, `default={}`)
 
   A dictionary used to define fixed attributes of any species listed as an allowed occupant in `"basis/<sublattice_index>/occupants"` that is not a single isotropic atom. Allows for specifying fixed attributes of an atom, such as magnetic spin, or selective dynamics flags, defining molecules, and specifying allowed molecular orientations and fixed molecular attributes. See ["Molecule JSON object" format](#molecule-json-object).
 
-  Example: Specifying selective dynamics by species type
+  <div>
+  **Example:** Specifying selective dynamics by species type
 
       "species" : {
         "H": {
@@ -155,6 +166,9 @@ Species Attribute attributes:
           }
         }
       }
+
+  </div>
+  {: .notice--info }
 
 - {: #title } `title`: string (required)
 
@@ -177,13 +191,18 @@ Used to specify the coordinate, allowed occupants, and allowed continuous site D
 
   A dictionary specifying the types of continuous site DoF allowed on this site and their basis. For more details on the allowed site DoF types and specifiying the standard or user-specified basis, see [DoF](#degrees-of-freedom-dof-json-object).
 
-  Example: Atomic displacement, using standard basis
+  <div>
+  **Example:** Atomic displacement, using standard basis
 
       "dofs": {
         "disp" : {}
       }
 
-  Example: Atomic displacement DoF, with user-specified basis:
+  </div>
+  {: .notice--info }
+
+  <div>
+  **Example:** Atomic displacement DoF, with user-specified basis:
 
       "dofs": {
         "disp": {
@@ -194,6 +213,9 @@ Used to specify the coordinate, allowed occupants, and allowed continuous site D
           ]
         }
       }
+
+  </div>
+  {: .notice--info }
 
 
 #### Degrees of freedom (DoF) JSON object
@@ -218,7 +240,8 @@ In many cases, the standard basis is the appropriate choice, but CASM also allow
 
   A row-vector matrix defining the user-specified "prim basis" for a site or global DoF in terms of the "standard basis". The default value of `basis` is the "standard basis", which is the identity matrix of shape `(standard_dim, standard_dim)`.
 
-Example: Atomic displacement DoF with user-specified basis:
+<div>
+**Example:** Atomic displacement DoF with user-specified basis:
 
     "disp" : {
       "axis_names" : ["d1", "d2"],
@@ -228,7 +251,11 @@ Example: Atomic displacement DoF with user-specified basis:
       ]
     }
 
-Example: Strain DoF, using the Hencky strain metric, with user-specified basis:
+</div>
+{: .notice--info }
+
+<div>
+**Example:** Strain DoF, using the Hencky strain metric, with user-specified basis:
 
     "Hstrain" : {
       "axis_names": ["e_1", "e_2", "e_3"],
@@ -238,6 +265,10 @@ Example: Strain DoF, using the Hencky strain metric, with user-specified basis:
         [0.0, 0.0, 1.0, 0.0, 0.0, 0.0]
       ]
     }
+
+</div>
+{: .notice--info }
+
 
 #### Molecule JSON object
 
@@ -252,13 +283,17 @@ atoms, or species with attributes such as a magnetic spin or selective dynamics 
 
   Additonal fixed attributes of the molecule as a whole, such as magnetic spin or selective dynamics flags. The name of each attribute must be a CASM-supported [property] type. The dimension of the `value` array must match the standard dimension of the [property] type.
 
-  Example:
+  <div>
+  **Example:**
 
       "attributes": {
         "selectivedynamics": {
           "value": [1, 1, 1]
         }
       }
+
+  </div>
+  {: .notice--info }
 
 - {: #molecule-chemical-name } `name`: string (optional)
 
@@ -277,13 +312,17 @@ Used to define an atom that is a component of a molecule.
 
   Additonal fixed attributes of the atom, such as magnetic moment or selective dynamics flags. The name of each attribute must be a CASM-supported [property] type. The dimension of the `value` array must match the standard dimension of the [property] type.
 
-  Example:
+  <div>
+  **Example:**
 
       "attributes": {
         "selectivedynamics": {
           "value": [1, 1, 1]
         }
       }
+
+  </div>
+  {: .notice--info }
 
 - {: #atom-name } `name`: string
   Name of atomic species.

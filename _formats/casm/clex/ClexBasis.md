@@ -117,9 +117,13 @@ Site Functions attributes:
 
   Basis function formula, formatted for Latex. This is the formula for the basis function evaluated from site DoF values on the prototype cluster sites and global DoF values. The complete basis set also includes symmetrically the equivalent basis functions for each cluster in the orbit.
 
-  Example:
+  <div>
+  **Example:**
 
       "\\Phi_{24}" : "\\sqrt{1/2}(e_1\\phi_{0,0}(s_{0})\\phi_{0,0}(s_{1})+e_3\\phi_{0,0}(s_{0})\\phi_{0,0}(s_{1}))"
+
+  </div>
+  {: .notice--info }
 
   In this example:
   - ``\\phi_{b,i}`` are site basis functions, where `b` is a sublattice index and `i` is a function index at that site
@@ -146,7 +150,8 @@ Site Functions attributes:
 
   Specifies the value of occupation site basis functions as a function of which occupant is at the site. The discrete site basis functions are named ``\\phi_{b,i}``, where `b` is the sublattice index and `i` is an index over site basis functions on this sublattice.
 
-  Example: Discrete site basis functions, for a ternary system, using the `"occupation"` basis
+  <div>
+  **Example:** Discrete site basis functions, for a ternary system, using the `"occupation"` basis
 
       "occ" : {
         "basis" : {
@@ -163,7 +168,11 @@ Site Functions attributes:
         }
       }
 
-  Example: Discrete site basis functions, for a ternary system, using the `"chebychev"` basis
+  </div>
+  {: .notice--info }
+
+  <div>
+  **Example:** Discrete site basis functions, for a ternary system, using the `"chebychev"` basis
 
       "occ" : {
         "basis" : {
@@ -180,11 +189,15 @@ Site Functions attributes:
         }
       }
 
+  </div>
+  {: .notice--info }
+
 - {: #site-dof } `<site_dof_key>`: dict
 
   Specifies the value of continuous site DoF basis functions as a function of the vector components, using the standard or user-specified axis names. The `<site_dof_key>` is the site DoF type as specified in the [prim] [`dofs`]({{ "/formats/crystallography/BasicStructure#site-dofs" | relative_url}}) dict for this sublattice. The continuous site basis functions are named ``var_{b}_{i}``, where `b` is the sublattice index and `i` is an index over continuous site basis functions of this type on this sublattice.
 
-  Example: Atomic displacement site basis functions, using standard basis
+  <div>
+  **Example:** Atomic displacement site basis functions, using standard basis
 
       "disp" : {
         "basis" : {
@@ -194,7 +207,11 @@ Site Functions attributes:
         }
       }
 
-  Example: Atomic displacement site basis functions, using user-specified basis in a 2d subspace
+  </div>
+  {: .notice--info }
+
+  <div>
+  **Example:** Atomic displacement site basis functions, using user-specified basis in a 2d subspace
 
       "disp" : {
         "basis" : {
@@ -202,6 +219,9 @@ Site Functions attributes:
           "var_{0}_{1}" : "d2_{0}"
         }
       }
+
+  </div>
+  {: .notice--info }
 
 - {: #sublat } `sublat`: int
 
