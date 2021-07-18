@@ -171,7 +171,7 @@ Used to specify the coordinate, allowed occupants, and allowed continuous site D
 
 - {: #site-occupants } `occupants`: array of string (optional, `default=["UNKNOWN"]`)
 
-  A list of the possible occupant species that may reside at each site. The names are case sensitive, and "Va" is reserved for vacancies. If not specified, an `"UNKNOWN"` occupant species is created.
+  A list of the possible occupant species that may reside at each site. The names are case sensitive, and `"Va"` is reserved for vacancies. If not specified, an `"UNKNOWN"` occupant species is created.
 
 - {: #site-dofs } `dofs`: dict (optional, `default={}`):   
 
