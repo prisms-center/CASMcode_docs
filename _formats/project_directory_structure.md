@@ -236,7 +236,7 @@ Contents:
 
 | Name | Description | Format |
 |-|-|-|
-| `chemical_reference.json` | Chemical reference states |  |
+| `chemical_reference.json` | Chemical reference states | [Chemical Reference] |
 
 
 {% include file_formats_and_locations.md %}
