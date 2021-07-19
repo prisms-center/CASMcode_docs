@@ -3,6 +3,7 @@
 | `"cost"` | Cost function value | Global | $[C]$ | |
 | `"disp"`<sup>[[1]](#prop-note-1)</sup> | Atomic displacement | Site | $[d_x, d_y, d_z]$ | |
 | `"energy"` | Energy | Global | $[E]$ | |
+| `"force"` | Force | Site | $[f_x, f_y, f_z]$ | |
 | `"Cmagspin"` | Collinear magnetic spin | Site | $[m]$ | |
 | `"Cunitmagspin"` | Collinear magnetic spin, constrained to unit length | Site | $[m]$ | |
 | `"NCmagspin"` | Non-collinear magnetic spin, without spin-orbit coupling | Site |  $[s_x, s_y, s_z]$ | |
