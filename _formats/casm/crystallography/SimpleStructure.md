@@ -27,7 +27,7 @@ Structure attributes:
 | [`atom_coords`](#atom-coords) | Atom coordinates | array of coordinate |
 | [`atom_type`](#atom-type) | Atom type names | array of string |
 | [`atom_properties`](#atom-properties) | Atom properties | dict |
-| [`coord_mode`](#coord-mode) | Coordinate type | string |
+| [`coordinate_mode`](#coord-mode) | Coordinate type | string |
 | [`lattice_vectors`](#lattice-vectors) | Lattice vectors | 2d array of number |
 | [`mol_coords`](#mol-coords) | Molecule coordinates | array of coordinate |
 | [`mol_type`](#mol-type) | Molecule type names | array of string |
@@ -51,8 +51,6 @@ Structure attributes:
 
   Values of properties associated with particular atoms. Property names are expected to follow the [property naming convenctions] for [standard CASM property types]. Values are input as arrays of vectors, one vector for each atom. Vector dimensions should match the standard basis dimension of the property type.
 
-  The names `atom_dofs`, `atom_vals`, and `atom_values` are accepted as aliases for `atom_properties`.
-
   <div>
   **Example:** Atomic displacements for a structure with 2 atoms
 
@@ -68,7 +66,7 @@ Structure attributes:
   </div>
   {: .notice--info }
 
-- {: #coord-mode } `coord_mode`: string (required)
+- {: #coord-mode } `coordinate_mode`: string (required)
 
   Coordinate mode for `atom_coords` and `mol_coords`. One of:
   - "Fractional" or "Direct",                                  
@@ -102,8 +100,6 @@ Structure attributes:
 
   Values of properties associated with particular molecules. Property names are expected to follow the [property naming convenctions] for [standard CASM property types]. Values are input as arrays of vectors, one vector for each molecule. Vector dimensions should match the standard basis dimension of the property type.
 
-  The names `mol_dofs`, `mol_vals`, and `mol_values` are accepted as aliases for `mol_properties`.
-
   <div>
   **Example:** Molecular displacements for a structure with 2 molecules
 
@@ -122,8 +118,6 @@ Structure attributes:
 - {: #global-properties } `global_properties`: dict (optional)
 
   Values of properties associated with the entire crystal. Property names are expected to follow the [property naming convenctions] for [standard CASM property types]. Values are input as a scalar or vector. Vector dimensions should match the standard basis dimension of the property type.
-
-  The names `global_dofs`, `global_vals`, and `global_values` are accepted as aliases for `global_properties`.
 
   <div>
   **Example:** Crystal with calculated energy
@@ -161,7 +155,7 @@ Structure attributes:
         [ 1.754750223661, 1.754750223661, 0.000000000000 ]
       ],
       "atom_type" : [ "C", "B", "B", "A" ],
-      "coord_mode" : "Cartesian",
+      "coordinate_mode" : "Cartesian",
       "global_properties" : {
         "energy" : {
           "value" : 17.003
@@ -194,7 +188,7 @@ Structure attributes:
         }
       },
       "atom_type" : [ "C", "B", "B", "A" ],
-      "coord_mode" : "Cartesian",
+      "coordinate_mode" : "Cartesian",
       "global_properties" : {
         "GLstrain" : {
           "value" : [ 0.000000000000, 0.000000000000, 0.000000000000, 0.000000000000, 0.000000000000, 0.000000000000 ]

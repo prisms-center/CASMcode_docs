@@ -56,7 +56,7 @@ Molecule attributes:
 | Name | Description | Format |
 |-|-|-|
 | [`atoms`](#molecule-atoms) | List of atoms that comprise a molecule | array of [Atom Component](#atom-component-json-object) |
-| [`properties`](#molecular-properties) | Fixed molecular properties | dict of [Species Attribute](#species-attribute-json-object)  |
+| [`properties`](#molecular-properties) | Fixed molecular properties | dict of [Species Property](#species-property-json-object)  |
 | [`name`](#molecule-chemical-name) | Chemical name | string |
 
 ---
@@ -67,15 +67,15 @@ Atom Component attributes:
 |-|-|-|
 | [`name`](#atom-name) | Atom name | string |
 | [`coordinate`](#atom-coordinate) | Atom coordinate, relative to site location | array of number |
-| [`properties`](#atomic-properties) | Fixed atomic properties | dict of [Species Attribute](#species-attribute-json-object) |
+| [`properties`](#atomic-properties) | Fixed atomic properties | dict of [Species Property](#species-property-json-object) |
 
 ---
 
-Species Attribute attributes:
+Species Property attributes:
 
 | Name | Description | Format |
 |-|-|-|
-| [`value`](#species-attribute-value) | Species attribute value | array of number |
+| [`value`](#species-property-value) | Species attribute value | array of number |
 
 
 ### JSON Attributes Description
@@ -282,7 +282,7 @@ atoms, or species with properties such as a magnetic spin or selective dynamics 
 
   Defines each atomic component of a multiple atom occupant. May be excluded for single-atom molecules.
 
-- {: #molecular-properties } `properties`: dict of [Species Attribute](#species-attribute-json-object) (optional)
+- {: #molecular-properties } `properties`: dict of [Species Property](#species-property-json-object) (optional)
 
   Additonal fixed properties of the molecule as a whole, such as magnetic spin or selective dynamics flags. The name of each attribute must be a CASM-supported [property] type. The dimension of the `value` array must match the standard dimension of the [property] type.
 
@@ -314,7 +314,7 @@ Used to define an atom that is a component of a molecule.
 
   Position of the atom, relative to the basis site at which it is placed. Coordinate mode is same as rest of `prim.json`.
 
-- {: #atomic-properties } `properties`: dict of [Species Attribute](#species-attribute-json-object) (optional)
+- {: #atomic-properties } `properties`: dict of [Species Property](#species-property-json-object) (optional)
 
   Additonal fixed properties of the atom, such as magnetic moment or selective dynamics flags. The name of each attribute must be a CASM-supported [property] type. The dimension of the `value` array must match the standard dimension of the [property] type.
 
@@ -333,11 +333,11 @@ Used to define an atom that is a component of a molecule.
 - {: #atom-name } `name`: string
   Name of atomic species.
 
-#### Species Attribute JSON object:
+#### Species Property JSON object:
 
 Associates the discrete value of a vector property to an atom or moleule.
 
-- {: #species-attribute-value } `value`: array of number
+- {: #species-property-value } `value`: array of number
 
   The dimension of the `value` array must match the standard dimension of the CASM-supported [property] type whose name is the key for this object. See [Example 6](#example-6).
 
