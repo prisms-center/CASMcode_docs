@@ -28,7 +28,7 @@ Structure attributes:
 | [`atom_type`](#atom-type) | Atom type names | array of string |
 | [`atom_properties`](#atom-properties) | Atom properties | dict |
 | [`coord_mode`](#coord-mode) | Coordinate type | string |
-| [`lattice_vectors`](#lattice) | Lattice vectors | 2d array of number |
+| [`lattice_vectors`](#lattice-vectors) | Lattice vectors | 2d array of number |
 | [`mol_coords`](#mol-coords) | Molecule coordinates | array of coordinate |
 | [`mol_type`](#mol-type) | Molecule type names | array of string |
 | [`mol_properties`](#mol-properties) | Molecule properties | dict |

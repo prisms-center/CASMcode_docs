@@ -27,7 +27,7 @@ BasicStructure attributes:
 | [`description`](#description) | Project description | string |
 | [`dofs`](#global-dofs) | Continuous global DoF  | dict of [DoF](#degrees-of-freedom-dof-json-object) |
 | [`lattice_vectors`](#lattice-vectors) | Lattice vectors | 2d array of number |
-| [`species`](#species) | Fixed atom attributes and molecule definitions | dict of [Molecule](#molecule-json-object) |
+| [`species`](#species) | Fixed atom properties and molecule definitions | dict of [Molecule](#molecule-json-object) |
 | [`title`](#title) | Project title | string |
 
 ---
@@ -56,7 +56,7 @@ Molecule attributes:
 | Name | Description | Format |
 |-|-|-|
 | [`atoms`](#molecule-atoms) | List of atoms that comprise a molecule | array of [Atom Component](#atom-component-json-object) |
-| [`attributes`](#molecular-attributes) | Fixed molecular attributes | dict of [Species Attribute](#species-attribute-json-object)  |
+| [`properties`](#molecular-properties) | Fixed molecular properties | dict of [Species Attribute](#species-attribute-json-object)  |
 | [`name`](#molecule-chemical-name) | Chemical name | string |
 
 ---
@@ -67,7 +67,7 @@ Atom Component attributes:
 |-|-|-|
 | [`name`](#atom-name) | Atom name | string |
 | [`coordinate`](#atom-coordinate) | Atom coordinate, relative to site location | array of number |
-| [`attributes`](#atomic-attributes) | Fixed atomic attributes | dict of [Species Attribute](#species-attribute-json-object) |
+| [`properties`](#atomic-properties) | Fixed atomic properties | dict of [Species Attribute](#species-attribute-json-object) |
 
 ---
 
@@ -145,21 +145,21 @@ Species Attribute attributes:
 
 - {: #species } `species`: dict (optional, `default={}`)
 
-  A dictionary used to define fixed attributes of any species listed as an allowed occupant in `"basis/<sublattice_index>/occupants"` that is not a single isotropic atom. Allows for specifying fixed attributes of an atom, such as magnetic spin, or selective dynamics flags, defining molecules, and specifying allowed molecular orientations and fixed molecular attributes. See ["Molecule JSON object" format](#molecule-json-object).
+  A dictionary used to define fixed properties of any species listed as an allowed occupant in `"basis/<sublattice_index>/occupants"` that is not a single isotropic atom. Allows for specifying fixed properties of an atom, such as magnetic spin, or selective dynamics flags, defining molecules, and specifying allowed molecular orientations and fixed molecular properties. See ["Molecule JSON object" format](#molecule-json-object).
 
   <div>
   **Example:** Specifying selective dynamics by species type
 
       "species" : {
         "H": {
-          "attributes": {
+          "properties": {
             "selectivedynamics": {
               "value": [1, 1, 1]
             }
           }
         },
         "Zr": {
-          "attributes": {
+          "properties": {
             "selectivedynamics": {
               "value": [0, 0, 0]
             }
@@ -272,21 +272,24 @@ In many cases, the standard basis is the appropriate choice, but CASM also allow
 
 #### Molecule JSON object
 
+**Warning:** Use of multi-atom molecular species should be considered an experimental development that is not supported by all CASM methods and not fully tested. Users should take extra care to check results.
+{: .notice--warning }
+
 Used to define species that are comprised of multiple atoms, off-centered
-atoms, or species with attributes such as a magnetic spin or selective dynamics flags.
+atoms, or species with properties such as a magnetic spin or selective dynamics flags.
 
 - {: #molecule-atoms } `atoms`: array of [Atom Component](#atom-component-json-object) (optional)
 
   Defines each atomic component of a multiple atom occupant. May be excluded for single-atom molecules.
 
-- {: #molecular-attributes } `attributes`: dict of [Species Attribute](#species-attribute-json-object) (optional)
+- {: #molecular-properties } `properties`: dict of [Species Attribute](#species-attribute-json-object) (optional)
 
-  Additonal fixed attributes of the molecule as a whole, such as magnetic spin or selective dynamics flags. The name of each attribute must be a CASM-supported [property] type. The dimension of the `value` array must match the standard dimension of the [property] type.
+  Additonal fixed properties of the molecule as a whole, such as magnetic spin or selective dynamics flags. The name of each attribute must be a CASM-supported [property] type. The dimension of the `value` array must match the standard dimension of the [property] type.
 
   <div>
   **Example:**
 
-      "attributes": {
+      "properties": {
         "selectivedynamics": {
           "value": [1, 1, 1]
         }
@@ -302,20 +305,23 @@ atoms, or species with attributes such as a magnetic spin or selective dynamics 
 
 #### Atom Component JSON object:
 
+**Warning:** Use of multi-atom molecular species should be considered an experimental development that is not supported by all CASM methods and not fully tested. Users should take extra care to check results.
+{: .notice--warning }
+
 Used to define an atom that is a component of a molecule.
 
 - {: #atom-coordinate } `coordinate`: size 3 array of number
 
   Position of the atom, relative to the basis site at which it is placed. Coordinate mode is same as rest of `prim.json`.
 
-- {: #atomic-attributes } `attributes`: dict of [Species Attribute](#species-attribute-json-object) (optional)
+- {: #atomic-properties } `properties`: dict of [Species Attribute](#species-attribute-json-object) (optional)
 
-  Additonal fixed attributes of the atom, such as magnetic moment or selective dynamics flags. The name of each attribute must be a CASM-supported [property] type. The dimension of the `value` array must match the standard dimension of the [property] type.
+  Additonal fixed properties of the atom, such as magnetic moment or selective dynamics flags. The name of each attribute must be a CASM-supported [property] type. The dimension of the `value` array must match the standard dimension of the [property] type.
 
   <div>
   **Example:**
 
-      "attributes": {
+      "properties": {
         "selectivedynamics": {
           "value": [1, 1, 1]
         }
@@ -491,14 +497,14 @@ Associates the discrete value of a vector property to an atom or moleule.
   ],
   "species" : {
     "H": {
-      "attributes": {
+      "properties": {
         "selectivedynamics": {
           "value": [1, 1, 1]
         }
       }
     },
     "Zr": {
-      "attributes": {
+      "properties": {
         "selectivedynamics": {
           "value": [0, 0, 0]
         }
