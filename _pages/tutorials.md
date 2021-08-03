@@ -5,11 +5,10 @@ permalink: /pages/tutorials/
 
 ![image-center]({{ "/assets/images/logo.png" | relative_url }})
 
-# Tutorials
 
-This section provides links to CASM tutorials written using Jupyter notebooks. Some tutorials are written to demonstrate using the CASM command line interface (CLI) `ccasm` and some are written to demonstrate using the CASM Python package `casm-python`. Notebooks can be downloaded and run locally to try using CASM and static versions showing results can be viewed online.
+This section provides links to CASM tutorials written using [Jupyter](https://jupyter.org) notebooks. Some tutorials are written to demonstrate using the CASM command line interface (CLI) `ccasm` and some are written to demonstrate using the CASM Python package `casm-python`. Notebooks can be downloaded and run locally to try using CASM and static versions showing results can be viewed online.
 
-To setup a conda environment with all the dependencies necessary for running the tutorials, see [this]({{ "/tutorials/tutorial_env" | relative_url }}) page.
+To setup a conda environment with all the dependencies necessary for running the tutorials, see [this]({{ "/pages/tutorials/tutorial_env" | relative_url }}) page.
 
 ## Defining the "prim"
 
@@ -30,3 +29,5 @@ These tutorials provide an introduction to supercells and configurations and dem
 
 ### Introduction to configurations and supercells, including supercell enumeration
 - CLI: [view online]({{ "/_tutorials/Supercell_Enumeration_bash.html" | relative_url}}), [download]({{ "/_tutorials/Supercell_Enumeration_bash.ipynb" | relative_url}})
+
+{% include file_formats_and_locations.md %}

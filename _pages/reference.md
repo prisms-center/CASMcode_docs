@@ -5,7 +5,7 @@ permalink: /pages/reference/
 
 ![image-center]({{ "/assets/images/logo.png" | relative_url }})
 
-### CASM file formats
+## CASM file formats
 
 These are quick links to descriptions of the most commonly used CASM project input and output files.
 
@@ -31,7 +31,7 @@ These are quick links to descriptions of the most commonly used CASM project inp
 | `structure.json`  | Structure information | [Structure] |
 
 
-### CASM methods
+## CASM methods
 
 The descriptions of the methods shown here can also be viewed from the command line via ``casm <method> --desc``.
 
@@ -41,7 +41,7 @@ The descriptions of the methods shown here can also be viewed from the command l
 | `sym` | Symmetry analysis |
 | etc. | etc. |
 
-### Data and code documentation links
+## Data and code documentation links
 
 - [CASM project directory structure]({{ "/formats/project_directory_structure" | relative_url }})
 - [JSON data formats]({{ "/formats/json_data_formats" | relative_url }})
