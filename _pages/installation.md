@@ -48,6 +48,23 @@ To remove the CASM conda environment:
 
 To install dependencies for the CASM [tutorials]({{ "/pages/tutorials/" | relative_url }}), see [this]({{ "/pages/tutorials/tutorial_env" | relative_url }}) page.
 
+## Install using Docker
+
+A CASM docker image is available. To use this image, first install Docker with the instructions found [here](https://docs.docker.com/engine/install/). A brief introduction to Docker and its usage may be found at this [link](https://docs.docker.com/get-started/overview/).
+
+Once Docker is installed, the CASM Docker image can be pulled with:
+
+    docker pull casmcode/casm
+
+Once the CASM image is on your computer it can be invoked by using:
+
+    docker run --rm -it -v <data_folder>:/root/ \
+        casmcode/casm bash
+
+The value `<data_folder>` should be replaced with the path to folder on your computer that will be mounted as volume to the docker container. Any changes you make to it from inside the container will persist on your computer and be available outside the container.
+
+For more details, including suggested configuration, see the CASM Docker page [here](https://hub.docker.com/r/casmcode/casm-base).
+
 ## Install from source
 
 See CASM installation instructions [here](https://github.com/prisms-center/CASMcode/blob/1.X/INSTALL.md).
