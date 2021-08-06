@@ -10,7 +10,7 @@
     [ -0.000000000000, -0.000000000000, 0.000000000000, 0.000000000000, -0.000000000000, 1.000000000000 ]
   ],
   "dof" : "Hstrain",
-  "glossary" : [ "Exx", "Eyy", "Ezz", "sqrt(2)Exz", "sqrt(2)Eyz", "sqrt(2)Exy" ],
+  "glossary" : [ "Exx", "Eyy", "Ezz", "sqrt(2)Eyz", "sqrt(2)Exz", "sqrt(2)Exy" ],
   "identifier" : "SCEL1_1_1_1_0_0_0",
   "irreducible_representations" : {
     "adapted_axes" : {

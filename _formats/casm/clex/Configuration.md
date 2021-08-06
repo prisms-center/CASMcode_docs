@@ -121,7 +121,7 @@ Specifies DoF values for a configuration. Required to include values for all DoF
   {: .notice--info}
 
   <div>
-  **Example:** Green-Lagrange strain metric values in the [standard basis], $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{xz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xy}]$, $E=\frac{1}{2}(C-I)$
+  **Example:** Green-Lagrange strain metric values in the [standard basis], $[E_{xx}, E_{yy}, E_{zz}, \sqrt(2)E_{yz}, \sqrt(2)E_{xz}, \sqrt(2)E_{xy}]$, $E=\frac{1}{2}(C-I)$
 
       "global_dofs" : {
         "GLstrain" : {
