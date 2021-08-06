@@ -27,7 +27,8 @@ The tutorial includes examples setting up three types of CASM projects:
 
 These tutorials provide an introduction to supercells and configurations and demonstrate several methods to enumerate them, depending on the type of DoF.
 
-### Introduction to configurations and supercells, including supercell enumeration
-- CLI: [view online]({{ "/_tutorials/Supercell_Enumeration_bash.html" | relative_url}}), [download]({{ "/_tutorials/Supercell_Enumeration_bash.ipynb" | relative_url}})
+### Enumerating, Selecting, and Querying Supercells
+
+- CLI: [view online]({{ "/pages/tutorials/Supercell_Enumeration_bash/" | relative_url}}), [download]({{ "/_tutorials/Supercell_Enumeration_bash.ipynb" | relative_url}})
 
 {% include file_formats_and_locations.md %}

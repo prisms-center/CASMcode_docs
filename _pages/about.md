@@ -1,6 +1,6 @@
 ---
 title: ""
-permalink: /pages/about/
+permalink: /
 ---
 
 ![image-center]({{ "/assets/images/logo.png" | relative_url }})

@@ -31,16 +31,6 @@ These are quick links to descriptions of the most commonly used CASM project inp
 | `structure.json`  | Structure information | [Structure] |
 
 
-## CASM methods
-
-The descriptions of the methods shown here can also be viewed from the command line via ``casm <method> --desc``.
-
-| Name | Description |
-|-|-|
-| `init` | Initialize new projects |
-| `sym` | Symmetry analysis |
-| etc. | etc. |
-
 ## Data and code documentation links
 
 - [CASM project directory structure]({{ "/formats/project_directory_structure" | relative_url }})

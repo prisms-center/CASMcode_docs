@@ -1,7 +1,7 @@
 # navbar
 main:
   - title: "About"
-    url: /pages/about/
+    url: /
   - title: "Installation"
     url: /pages/installation/
   - title: "Tutorials"
@@ -13,7 +13,7 @@ main:
 # sidebar
 using:
   - title: About
-    url: /pages/about/
+    url: /
     children:
       - title: "Acknowledgements"
         url: /pages/about/#acknowledgements
@@ -32,6 +32,8 @@ using:
     children:
       - title: "Install using conda"
         url: /pages/installation#install-using-conda
+      - title: "Install using Docker"
+        url: /pages/installation#install-using-docker
       - title: "Install from source"
         url: /pages/installation#install-from-source
   - title: Tutorials
@@ -40,14 +42,12 @@ using:
       - title: "Defining the \"prim\""
         url: /pages/tutorials/#defining-the-prim
       - title: "Enumerating configurations"
-        url: /pages/tutorials/#basis-set-construction
+        url: /pages/tutorials/#enumerating-configurations
   - title: Reference
     url: /pages/reference/
     children:
       - title: "CASM project file formats"
         url: /pages/reference/#casm-project-file-formats
-      - title: "CASM methods"
-        url: /pages/reference/#cli-methods
       - title: "Data and code documentation links"
         url: /pages/reference/#data-and-code-documentation-links
 
