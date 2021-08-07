@@ -13,19 +13,11 @@ _Note: CASM is available for macOS and Linux_
 
 The recommended method for obtaining CASM is to install the ``casm-cpp`` conda package available online from [anaconda.org](https://anaconda.org/prisms-center). Conda is a package and environment management system that works on Windows, macOS, and Linux. For help installing and using conda, see the [Conda user guide](https://docs.conda.io/projects/conda/en/latest/user-guide/index.html) and [installation page](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html). We recommend using the Miniconda installation.
 
-To create a new conda environment for CASM named `"casm_1.X"`:
+To install the latest version of CASM:
 
-    conda create -n casm_1.X python=3
-
-To activate the CASM environment:
-
-    conda activate casm_1.X
-
-To install CASM 1.X into the current conda environment:
-
-    conda install --override-channels \
-      -c prisms-center -c defaults -c conda-forge \
-      python=3 casm-cpp
+    conda create -n casm \
+      --override-channels -c prisms-center -c conda-forge \
+      casm-cpp python=3
 
 This will create a conda environment named `casm` in which the following are installed:
 
@@ -33,7 +25,11 @@ This will create a conda environment named `casm` in which the following are ins
 - The `libcasm` and `libccasm` shared libraries.
 - The ``ccasm`` command line program.
 
-The ``casm-python`` Python package is a collection of Python packages that provide a Python interface to the CASM libraries, implement wrappers to fitting methods and DFT software, and provide other tools for plotting and analysis. It can be installed using:
+To use CASM, activate the CASM environment:
+
+    conda activate casm
+
+The ``casm-python`` Python package is a collection of Python packages that provide a Python interface to the CASM libraries, implement wrappers to fitting methods and DFT software, and provide other tools for plotting and analysis. From inside the `casm` conda environment, it can be installed using:
 
     pip install casm-python
 
@@ -42,9 +38,13 @@ This will install the `casm-python` package and the `casm` command line program,
 {: .notice--info }
 **Note:** Currently, the CASM VASP wrapper is updated for CASM 1.X. An updated Quantum ESPRESSO wrapper for CASM 1.X will be available in the near future along with a method for converting between additional structure file formats.
 
-To remove the CASM conda environment:
+To deactivate the CASM environment when done using CASM:
 
-    conda remove --name casm_1.X --all
+    conda deactivate
+
+To remove the `casm` conda environment:
+
+    conda remove --name casm --all
 
 To install dependencies for the CASM [tutorials]({{ "/pages/tutorials/" | relative_url }}), see [this]({{ "/pages/tutorials/tutorial_env" | relative_url }}) page.
 
