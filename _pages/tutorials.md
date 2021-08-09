@@ -12,15 +12,14 @@ To setup a conda environment with all the dependencies necessary for running the
 
 ## Defining the "prim"
 
-These tutorials demonstrate defining the primitive crystal structure and degrees of freedom (DoF) (the ["prim"][Prim]), initializing a CASM project, and checking [prim] symmetry.
+This tutorial demonstrates defining the primitive crystal structure and degrees of freedom (DoF) (the ["prim"][Prim]), initializing a CASM project, and checking [prim] symmetry.
 
-The tutorial includes examples setting up three types of CASM projects:
-- an occupation cluster expansion
+The tutorial includes examples defining a prim for three types of CASM projects:
+- an configurational cluster expansion
 - a strain polynomial effective Hamiltonian
 - a coupled strain-displacement cluster expansion effective Hamiltonian.
 
-- CLI: [view online]({{ "/_tutorials/Project_Initialization_bash" | relative_url }}), [download]({{ "/_tutorials/Project_Initialization_bash.ipynb" | relative_url}})
-- Python: [view online]({{ "/_tutorials/Project_Initialization.html" | relative_url}}), [download]({{ "/_tutorials/Project_Initialization.ipynb" | relative_url}})
+- CLI: [view online]({{ "/pages/tutorials/Project_Initialization_bash/" | relative_url }}), [download]({{ "/_tutorials/Project_Initialization_bash.ipynb" | relative_url}})
 
 
 ## Enumerating configurations
@@ -30,5 +29,20 @@ These tutorials provide an introduction to supercells and configurations and dem
 ### Enumerating, Selecting, and Querying Supercells
 
 - CLI: [view online]({{ "/pages/tutorials/Supercell_Enumeration_bash/" | relative_url}}), [download]({{ "/_tutorials/Supercell_Enumeration_bash.ipynb" | relative_url}})
+
+### Viewing Configurations With `casm view` and VESTA
+
+- Python: [view online]({{ "/pages/tutorials/Viewing_Configurations_With_VESTA/" | relative_url}}), [download]({{ "/_tutorials/Viewing_Configurations_With_VESTA.ipynb" | relative_url}})
+
+## Constructing effective Hamiltonians
+
+### Configurational Cluster Expansion Formulation
+
+For an introduction the the cluster expansion see:
+- [Configurational cluster expansion formulation]({{ "/pages/tutorials/Occupation_Cluster_Expansion/" | relative_url}})
+
+### Occupation Basis Set Construction
+
+- CLI: [view online]({{ "/pages/tutorials/Occupation_Basis_Set_Construction/" | relative_url}}), [download]({{ "/_tutorials/Occupation_Basis_Set_Construction.ipynb" | relative_url}})
 
 {% include file_formats_and_locations.md %}

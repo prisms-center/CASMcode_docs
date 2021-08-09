@@ -19,18 +19,18 @@ ClexBasisSpecs attributes:
 
 | Name | Description | Format |
 |-|-|-|
-| [`basis_function_specs`](#basis-function-specs) | Basis function specifications | [BasisFunctionSpecs] |
-| [`cluster_specs`](#cluster-specs) | Cluster orbit specifications | [ClusterSpecs] |
+| [`basis_function_specs`](#basis-function-specs) | Basis function specifications | [Basis Function Specs] |
+| [`cluster_specs`](#cluster-specs) | Cluster orbit specifications | [Cluster Specs] |
 
 ### JSON Attributes Description
 
-- {: #basis-function-specs } `basis_function_specs`: [BasisFunctionSpecs] (required)
+- {: #basis-function-specs } `basis_function_specs`: [Basis Function Specs] (required)
 
-  Specifies the type and order of basis functions. See the [BasisFunctionSpecs] JSON input format.
+  Specifies the type and order of basis functions. See the [Basis Function Specs] JSON input format.
 
-- {: #cluster-specs } `cluster_specs`:  [ClusterSpecs] (required)
+- {: #cluster-specs } `cluster_specs`:  [Cluster Specs] (required)
 
-  Specifies the cluster orbits on which basis functions are generated. See the [ClusterSpecs] JSON input format.
+  Specifies the cluster orbits on which basis functions are generated. See the [Cluster Specs] JSON input format.
 
 
 ### Examples
