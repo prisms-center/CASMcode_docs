@@ -45,4 +45,8 @@ For an introduction the the cluster expansion see:
 
 - CLI: [view online]({{ "/pages/tutorials/Occupation_Basis_Set_Construction/" | relative_url}}), [download]({{ "/_tutorials/Occupation_Basis_Set_Construction.ipynb" | relative_url}})
 
+## Phase diagram construction example
+
+- [PRISMS Workshop 2021 example](https://raw.githubusercontent.com/prisms-center/CASMcode_tutorials/main/v1.2/projects/ZrO.tgz)
+
 {% include file_formats_and_locations.md %}
