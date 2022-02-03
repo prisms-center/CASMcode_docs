@@ -17,7 +17,10 @@ To install the latest version of CASM:
 
     conda create -n casm \
       --override-channels -c prisms-center -c conda-forge \
-      casm-cpp python=3
+      casm-cpp=1.2.0 python=3
+
+_Note: Include the version number to ensure the latest version is installed. The latest version is ``casm-cpp=1.2.0``._
+{: .notice--info}
 
 This will create a conda environment named `casm` in which the following are installed:
 
@@ -42,11 +45,24 @@ To deactivate the CASM environment when done using CASM:
 
     conda deactivate
 
-To remove the `casm` conda environment:
+### Other common commands
 
-    conda remove --name casm --all
+- To remove the `casm` conda environment:
 
-To install dependencies for the CASM [tutorials]({{ "/pages/tutorials/" | relative_url }}), see [this]({{ "/pages/tutorials/tutorial_env" | relative_url }}) page.
+      conda remove --name casm --all
+
+- To update to the latest version of ``casm-cpp`` (from the activated conda environment):
+
+      conda update \
+        --override-channels -c prisms-center -c conda-forge \
+        casm-cpp=1.2.0
+
+- To update to the latest version of ``casm-python`` (from the activated conda environment):
+
+      pip install -U casm-python
+
+- To install dependencies for the CASM [tutorials]({{ "/pages/tutorials/" | relative_url }}), see [this]({{ "/pages/tutorials/tutorial_env" | relative_url }}) page.
+
 
 ## Install using Docker
 
