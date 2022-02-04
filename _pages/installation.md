@@ -53,7 +53,7 @@ To deactivate the CASM environment when done using CASM:
 
 - To update to the latest version of ``casm-cpp`` (from the activated conda environment):
 
-      conda update casm-cpp
+      conda update --override-channels -c prisms-center -c conda-forge casm-cpp
 
 - To update to the latest version of ``casm-python`` (from the activated conda environment):
 
