@@ -37,8 +37,9 @@ Site attributes:
 | Name | Description | Format |
 |-|-|-|
 | [`coordinate`](#site-coordinate) | Site coordinate | array of number |
-| [`occupants`](#site-occupants) | Site allowed occupants | array of string |
 | [`dofs`](#site-dofs) | Continuous site DoF | dict of [DoF](#degrees-of-freedom-dof-json-object)  |
+| [`label`](#site-label) | Distinguish otherwise identical sites | int |
+| [`occupants`](#site-occupants) | Site allowed occupants | array of string |
 
 ---
 
@@ -182,6 +183,10 @@ Used to specify the coordinate, allowed occupants, and allowed continuous site D
 - {: #site-coordinate } `coordinate`: array of number, `shape=(3,)` (required)
 
   Coordinate of the basis site with units as specified by the `coordinate_mode` parameter. The default tolerance for checking symmetry is 1e-5, so basis site coordinates should include 6 significant digits or more.
+
+- {: #site-label } `label`: int (optional)
+
+  An integer, greater than or equal to zero, that if provided distinguishes otherwise identical sites.
 
 - {: #site-occupants } `occupants`: array of string (optional, `default=["UNKNOWN"]`)
 
