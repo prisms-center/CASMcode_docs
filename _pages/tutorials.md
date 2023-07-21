@@ -3,8 +3,7 @@ title: ""
 permalink: /pages/tutorials/
 ---
 
-![image-center]({{ "/assets/images/logo.svg" | relative_url }})
-
+<img alt="Shows the CASM logo" src="{{ "/assets/images/logo.svg" | relative_url }}" width="600" />
 
 This section provides links to CASM tutorials written using [Jupyter](https://jupyter.org) notebooks. Some tutorials are written to demonstrate using the CASM command line interface (CLI) `ccasm` and some are written to demonstrate using the CASM Python package `casm-python`. Notebooks can be downloaded and run locally to try using CASM and static versions showing results can be viewed online.
 

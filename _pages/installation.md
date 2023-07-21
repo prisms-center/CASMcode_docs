@@ -3,8 +3,7 @@ title: ""
 permalink: /pages/installation/
 ---
 
-![image-center]({{ "/assets/images/logo.svg" | relative_url }})
-
+<img alt="Shows the CASM logo" src="{{ "/assets/images/logo.svg" | relative_url }}" width="600" />
 
 _Note: CASM is available for macOS and Linux_
 {: .notice--info}
