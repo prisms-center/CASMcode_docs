@@ -3,7 +3,7 @@ title: ""
 permalink: /pages/reference/
 ---
 
-![image-center]({{ "/assets/images/logo.png" | relative_url }})
+![image-center]({{ "/assets/images/logo.svg" | relative_url }})
 
 ## CASM file formats
 

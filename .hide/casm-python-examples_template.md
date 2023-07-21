@@ -2,7 +2,7 @@
 layout: default
 ---
 
-[![CASM Logo]({{ site.baseurl }}/assets/logo.png)](https://prisms-center.github.io/CASMcode_docs/)
+[![CASM Logo]({{ site.baseurl }}/assets/logo.svg)](https://prisms-center.github.io/CASMcode_docs/)
 
 ***
 ## [CASM Python package examples]({{ site.baseurl }}/pages/casm-python-examples.html) - PUT_PYTHON_EXAMPLE_TITLE_HERE

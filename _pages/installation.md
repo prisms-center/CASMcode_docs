@@ -3,7 +3,7 @@ title: ""
 permalink: /pages/installation/
 ---
 
-![image-center]({{ "/assets/images/logo.png" | relative_url }})
+![image-center]({{ "/assets/images/logo.svg" | relative_url }})
 
 
 _Note: CASM is available for macOS and Linux_

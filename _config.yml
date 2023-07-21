@@ -10,9 +10,8 @@ minimal_mistakes_skin: "default"
 markdown: kramdown
 kramdown:
   parse_block_html: true
-teaser: /assets/images/logo.png
-logo: /assets/images/small_logo.png
-favicon: /assets/favicon.ico
+teaser: /assets/images/logo.svg
+logo: /assets/images/favicon_io/android-chrome-192x192.png
 
 plugins:
   - jekyll-relative-links

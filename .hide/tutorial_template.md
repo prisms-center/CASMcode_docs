@@ -2,7 +2,7 @@
 layout: default
 ---
 
-[![CASM Logo]({{ site.baseurl }}/assets/logo.png)](https://prisms-center.github.io/CASMcode_docs/)
+[![CASM Logo]({{ site.baseurl }}/assets/logo.svg)](https://prisms-center.github.io/CASMcode_docs/)
 
 ***
 ## [CASM Tutorials]({{ site.baseurl }}/pages/tutorials.html) - PUT_TUTORIAL_TITLE_HERE

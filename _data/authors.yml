@@ -3,7 +3,7 @@
 CASM:
   name        : "CASM"
   bio         : "First-principles statistical mechanical software for the study of multi-component crystalline solids"
-  image      : "/assets/images/logo.png"
+  image      : "/assets/images/logo.svg"
   links:
     - label: "GitHub"
       url: "https://github.com/prisms-center/CASMcode"

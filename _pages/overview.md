@@ -3,7 +3,7 @@ title: ""
 permalink: /pages/overview/
 ---
 
-![image-center]({{ "/assets/images/logo.png" | relative_url }})
+![image-center]({{ "/assets/images/logo.svg" | relative_url }})
 
 # Overview
 
