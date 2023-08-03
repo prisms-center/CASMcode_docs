@@ -27,8 +27,8 @@ The public version of CASM supports:
 CASM is developed by the [Van der Ven group](https://labs.materials.ucsb.edu/vanderven/anton/), originally at the University of Michigan and currently at the University of California Santa Barbara.
 
 - **Lead developers**:  John C. Thomas and Brian Puchala
-- **Developers**:  John Goiri and Anirudh Natarajan
-- **Other contributors**: Min-Hua Chen, Jonathon Bechtel, Max Radin, Elizabeth Decolvenaere, Anna Belak, Liang Tian, Naga Sri Harsha Gunda, Julija Vinckeviciute, Sanjeev Kolli, and Sesha Sai Behara.
+- **Developers**:  John Goiri, Anirudh Natarajan, Sesha Sai Behara, Jonas Kaufman
+- **Other contributors**: Min-Hua Chen, Jonathon Bechtel, Max Radin, Elizabeth Decolvenaere, Anna Belak, Liang Tian, Naga Sri Harsha Gunda, Julija Vinckeviciute, Sanjeev Kolli
 
 The development of CASM was made possible with support from:
 - The U.S. Department of Energy, Office of Basic Energy Sciences, Division of Materials Sciences and Engineering under Award #DE-SC0008637 that funds the PRedictive Integrated Structural Materials Science (PRISMS) Center at University of Michigan.
@@ -46,9 +46,7 @@ CASM is released under the GNU Lesser General Public License (LGPL).
 
 ## Contributing
 
-Collaboration is welcome and new features can be incorporated by forking the repository on GitHub, creating a new feature, and submitting pull requests. If you are interested in developing features that involve a significant time investment we encourage you to first contact the CASM development team at <casm-developers@lists.engr.ucsb.edu>.
-
-For a particular major version number, the ``ccasm`` program interface, including file input and output formats, will remain stable and backwards compatible. The CASM library ``libcasm`` is less stable and may have some breaking changes without changing the major version number.
+Collaboration is welcome and new features can be incorporated by forking a CASM repository on GitHub, creating a new feature, and submitting pull requests. If you are interested in developing features that involve a significant time investment we encourage you to first contact the CASM development team at <casm-developers@lists.engr.ucsb.edu>.
 
 ## Citing CASM
 

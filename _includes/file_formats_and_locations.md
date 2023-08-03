@@ -35,6 +35,7 @@
 [`dof_space_<dof_type>.json`]: {{ "/formats/project_directory_structure#dofspace-dir" | relative_url }}
 
 [Symmetry Group]: {{ "/formats/casm/symmetry/SymGroup" | relative_url }}
+[Symmetry Operation Info]: {{ "/formats/casm/symmetry/SymGroup#symmetry-operation-information-json-object" | relative_url }}
 [`crystal_point_group.json`]: {{ "/formats/project_directory_structure#symmetry-dir" | relative_url }}
 [`factor_group.json`]: {{ "/formats/project_directory_structure#symmetry-dir" | relative_url }}
 [`lattice_point_group.json`]: {{ "/formats/project_directory_structure#symmetry-dir" | relative_url }}
