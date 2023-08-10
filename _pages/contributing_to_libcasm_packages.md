@@ -38,7 +38,7 @@ The repository for each libcasm distribution packages is organized as follows:
 
 ### Installation layout
 
-When the project is built and installed, components are added to the Python installation location (i.e. `<python package prefix> = <something>/lib/pythonX.Y/sites-packages/`) in the `libcasm/` folder at the following locations:
+When the project is built and installed, components are added to the Python installation location (i.e. `<python package prefix> = <something>/lib/pythonX.Y/site-packages/`) in the `libcasm/` folder at the following locations:
 
 `<python package prefix>/libcasm/`:
 
@@ -75,7 +75,7 @@ Installation of libcasm distribution packages from source requires standard comp
   conda activate casm
   ```
 
-If installing from a git repository, make sure any submodules are checkout out with:
+If installing from a git repository, make sure any submodules are checked out with:
 
     git submodule update --init --recursive
 
@@ -96,11 +96,21 @@ Install documentation requirements:
 
     pip install -r doc_requirements.txt
 
-Install the CASM package first, then build and open the documentation:
+Clone [CASMcode_pydocs](https://github.com/prisms-center/CASMcode_pydocs), then set an environment variable indicating where to store the docs:
+
+    mkdir <path-to-pydocs>/docs/libcasm
+    export LIBCASM_PYDOCS=<path-to-pydocs>/docs/libcasm
+
+
+Install the libcasm package first, then build and open the documentation:
 
     cd python/doc
-    sphinx-build -b html . _build/html
-    open _build/html/index.html
+    # In the following, replace:
+    # - <package> with the distribution package name
+    # - <vers> with the major.minor version number
+    # Example: <package>=xtal, <vers>=2.0
+    sphinx-build -b html . $LIBCASM_PYDOCS/<package>/<vers>/
+    open $LIBCASM_PYDOCS/<package>/<vers>/index.html
 
 
 ## Testing
@@ -137,6 +147,10 @@ Then, to make and install CASM C++ components in the `<python package prefix>/li
     mkdir build_cxx_only
     cd build_cxx_only
 
+    # Set the CASM prefix. This will give:
+    #   <something>/lib/pythonX.Y/sites-packages/libcasm
+    export CASM_PREFIX=$(python -c 'import site; print(site.getsitepackages()[0])')/libcasm
+
     # Some configuration options:
     #
     # For C++ only CASM installation add:
@@ -155,6 +169,11 @@ C++ unit tests can be built after C++ components are installed as in the previou
 
     mkdir build_cxx_test
     cd build_cxx_test
+
+    # Set the CASM prefix. This will give:
+    #   <something>/lib/pythonX.Y/sites-packages/libcasm
+    export CASM_PREFIX=$(python -c 'import site; print(site.getsitepackages()[0])')/libcasm
+
     # Some configuration options:
     #
     # For C++ only CASM installation add:
@@ -174,11 +193,13 @@ To uninstall a C++ only installation, use the `install_manifest.txt` file genera
     cd build_cxx_only
     xargs rm < install_manifest.txt
 
+
 ### Installing pybind11 and pure Python components
 
 Use the `python/setup.py` file for editable install of the pure Python components:
 
     cd python
+    
     # Set the CASM prefix. This will give:
     #   <something>/lib/pythonX.Y/sites-packages/libcasm
     export CASM_PREFIX=$(python -c 'import site; print(site.getsitepackages()[0])')/libcasm
@@ -212,39 +233,7 @@ When built together using pip, all C++ and Python components of a distribution p
     pip uninstall <distname>
 
 
-## Formatting and style
-
-To install formatting requirements, do:
-
-    pip install -r dev_requirements.txt
-
-
-### Python linting
-
-For Python code linting, use [ruff](https://beta.ruff.rs/docs/). Do:
-
-    ruff check --fix python/
-
-
-### Python formatting
-
-For Python code formatting, use [black](https://black.readthedocs.io). Do:
-
-    black python/
-
-### Python docstring style
-
-- When in doubt, refer to [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html), [pandas](https://pandas.pydata.org/docs/development/contributing_documentation.html), or [scikit-learn](https://scikit-learn.org/dev/developers/contributing.html#documentation).
-- When referring to constructor arguments or function variables in docstring text, use the convention ``` `variable` ```, so variables appear italicized because (i.e. The *variable* is important).
-- When describing that a variable has a particular value or how it is used in a code snippet, then use either inline code (```variable=True```) or a code block:
-
-  ```
-  .. code-block:: Python
-
-      variable = 6
-  ```
-- Make use of ```.. rubric:: Special Methods``` to create a section in a class docstring to document any special members of a class, such as comparison operators (`<`, `<=`, `>`, `>=`, etc.) or overloaded operators (`*`, `+`, `+=`, `-`, `-=`, etc.).
-
+## C++ development
 
 ### C++ formatting
 
@@ -259,9 +248,14 @@ For C++ code formatting, use clang-format with `-style=google`. Use the `stylize
     git diff --cached
     git commit -m "Added new feature X"
 
-If C++ files have been added or removed from `include/`, `src/`, or `tests/`, then `CMakeLists.txt` should be updated from the `CMakeLists.txt.in` template using:
+
+### Adding or removing C++ files
+
+When files are added or removed from `include/`, `src/`, or `tests/`, the `CMakeLists.txt` and `tests/CMakeList.txt` files must be updated. This can be done in an automated fashion using a script to copy the `CMakeLists.txt.in` and `tests/CMakeList.txt.in` templates and populate them with the current project files:
 
     python make_CMakeLists.py
+
+The files to be included in source distributions are specified by the `MANIFEST.in` file using path pattern matching. This should rarely need to be changed.
 
 
 ### C++ style
@@ -271,34 +265,16 @@ If C++ files have been added or removed from `include/`, `src/`, or `tests/`, th
 - Fit in to the existing style for a particular file
 
 
-## Adding tests
+### Adding C++ tests
 
-Python:
-- Add Python tests for `libcasm.<subpackage>` in `python/tests/<subpackage>`, using pytest.
-- If data files are needed for testing, they can be placed in `python/tests/<subpackage>/data/`.
-- To access data files use the `shared_datadir` fixture available from the [`pytest-datadir`](https://pypi.org/project/pytest-datadir/) plugin.
-- To create temporary testing directories for reading and writing files, use the [`tmpdir` and `tmpdir_factory`](https://docs.pytest.org/en/7.4.x/how-to/tmp_path.html#the-tmpdir-and-tmpdir-factory-fixtures) fixtures available from pytest.
-- For tests that involve an expensive setup process, such as compiling Clexulators, a session-length shared datadir can be constructed once and re-used as done [here](https://github.com/prisms-center/CASMcode_clexulator/blob/main/python/tests/clexulator/conftest.py) in CASMcode_clexulator.
-- Expensive tests can also be set to run optionally using flags as demonstrated in CASMcode_clexulator.
-
-C++:
 - Add C++ library tests in `tests/unit/<module>`, with the naming convention `<something>_test.cpp`, using googletest.
 - If data files are needed for testing, they can be placed in `tests/unit/<module>/data/`.
 - To access data files and create temporary testing directories for reading and writing files, use the methods available in `tests/unit/testdir.hh`.
 - If a new module is added, (i.e. a new `casm/<module>`) then new unit tests should be added under `tests/unit/<module/` and `tests/CMakeLists.txt.in` and `make_CMakeLists.py` must be updated to add the new unit tests.
-- To run only C++ library tests, follow the example for building only the C++ library.
+- To run only C++ library tests, follow the instructions for building only the C++ library and tests as part of an editable installation.
 
 
-## Adding or removing files
-
-When files are added or removed from the project, the `CMakeLists.txt` and `tests/CMakeList.txt` files must be updated. This can be done in an automated fashion using a script to copy the `CMakeLists.txt.in` and `tests/CMakeList.txt.in` templates and populate them with the current project files:
-
-    python make_CMakeLists.py
-
-The files to be included in source distributions are specified by the `MANIFEST.in` file using path pattern matching. This should rarely need to be changed.
-
-
-## Using CASM C++ libraries
+### Using CASM C++ libraries in external packages
 
 A `__main__.py` file added to the libcasm.casmglobal package allows finding the CASM installation location for use by other packages.
 
@@ -309,3 +285,8 @@ To find the installation location (i.e. `<python package prefix>/libcasm`) use:
 As an example using this with CMake to configure and build a program using CASM C++ libraries see:
 - [tests/CMakeLists.txt.in](https://github.com/prisms-center/CASMcode_crystallography/blob/main/tests/CMakeLists.txt.in): The unit tests provide an example of configuring a program to link with CASM C++ libraries `libcasm_global` and `libcasm_crystallography`.
 - [CMakeLists.txt.in](https://github.com/prisms-center/CASMcode_crystallography/blob/main/CMakeLists.txt.in): The main configuration file provides an example of configuring a C++ library to link with `libcasm_global` and update the default installation prefix to be in the same location as other CASM tools. It also demonstrates how to configure a Python extension module built with pybind11 to link with CASM C++ libraries.
+
+
+## Python development
+
+Follow the Python development guidelines [here]({{ "/pages/contributing_to_casm_packages/#python-development" | relative_url }}).

@@ -56,11 +56,21 @@ Install documentation requirements:
 
     pip install -r doc_requirements.txt
 
-Install the CASM package first, then build and open the documentation:
+Clone [CASMcode_pydocs](https://github.com/prisms-center/CASMcode_pydocs), then set an environment variable indicating where to store the docs:
 
-    cd doc
-    sphinx-build -b html . _build/html
-    open _build/html/index.html
+    mkdir <path-to-pydocs>/docs/casm
+    export LIBCASM_PYDOCS=<path-to-pydocs>/docs/casm
+
+
+Install the casm package first, then build and open the documentation:
+
+    cd python/doc
+    # In the following, replace:
+    # - <package> with the distribution package name
+    # - <vers> with the major.minor version number
+    # Example: <package>=xtal, <vers>=2.0
+    sphinx-build -b html . $CASM_PYDOCS/<package>/<vers>/
+    open $CASM_PYDOCS/<package>/<vers>/index.html
 
 
 ## Testing
@@ -78,11 +88,50 @@ As an example of running a specific test, do:
     pytest -rsap tests/<filepath>::<function_name>
 
 
-## Linting, formatting, and style
+## Python development
 
-Follow the Python linting, formatting, and style guidelines [here](({{ "/pages/libcasm_packages_overview/#formatting-and-style" | relative_url }}).
+**Note** The following guidelines apply to casm packages v2+.
+{: .notice--warning}
+
+To install formatting requirements, do:
+
+    pip install -r dev_requirements.txt
 
 
-## Adding tests
+### Python linting
 
-Follow the Python test guidelines [here](({{ "/pages/libcasm_packages_overview/#adding-tests" | relative_url }}).
+For Python code linting, use [ruff](https://beta.ruff.rs/docs/). Do:
+
+    ruff check --fix python/
+
+
+### Python formatting
+
+For Python code formatting, use [black](https://black.readthedocs.io). Do:
+
+    black python/
+
+### Python docstring style
+
+- When in doubt, refer to [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html), [pandas](https://pandas.pydata.org/docs/development/contributing_documentation.html), or [scikit-learn](https://scikit-learn.org/dev/developers/contributing.html#documentation).
+- When referring to constructor arguments or function variables in docstring text, use the convention ``` `variable` ```, so variables appear italicized because (i.e. The *variable* is important).
+- When describing that a variable has a particular value or how it is used in a code snippet, then use either inline code (```variable=True```) or a code block:
+
+  ```
+  .. code-block:: Python
+
+      variable = 6
+  ```
+- Make use of ```.. rubric:: Special Methods``` to create a section in a class docstring to document any special members of a class, such as comparison operators (`<`, `<=`, `>`, `>=`, etc.) or overloaded operators (`*`, `+`, `+=`, `-`, `-=`, etc.).
+
+
+### Adding tests
+
+- Add Python tests for `casm.<subpackage>` in `python/tests/<subpackage>`, using pytest.
+- If data files are needed for testing, they can be placed in `python/tests/<subpackage>/data/`.
+- To access data files use the `shared_datadir` fixture available from the [`pytest-datadir`](https://pypi.org/project/pytest-datadir/) plugin.
+- To create temporary testing directories for reading and writing files, use the [`tmpdir` and `tmpdir_factory`](https://docs.pytest.org/en/7.4.x/how-to/tmp_path.html#the-tmpdir-and-tmpdir-factory-fixtures) fixtures available from pytest.
+- For tests that involve an expensive setup process, such as compiling Clexulators, a session-length shared datadir can be constructed once and re-used as done [here](https://github.com/prisms-center/CASMcode_clexulator/blob/main/python/tests/clexulator/conftest.py) in CASMcode_clexulator.
+- Expensive tests can also be set to run optionally using flags as demonstrated in CASMcode_clexulator.
+
+
