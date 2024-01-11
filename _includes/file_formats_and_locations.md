@@ -28,8 +28,8 @@
 [BasicStructure]: {{ "/formats/casm/crystallography/BasicStructure" |  relative_url }}
 [`prim.json`]: {{ "/formats/project_directory_structure#casm-dir" |  relative_url }}
 [Structure]: {{ "/formats/casm/crystallography/SimpleStructure" |  relative_url }}
-[`structure.json`]: {{ ""/formats/project_directory_structure#config-dir" |  relative_url }}
-[`properties.calc.json`]: {{ ""/formats/project_directory_structure#calc-results-dir" |  relative_url }}
+[`structure.json`]: {{ "/formats/project_directory_structure#config-dir" |  relative_url }}
+[`properties.calc.json`]: {{ "/formats/project_directory_structure#calc-results-dir" |  relative_url }}
 
 [DoF Space]:  {{ "/formats/casm/enumerator/DoFSpace" |  relative_url }}
 [`dof_space_<dof_type>.json`]: {{ "/formats/project_directory_structure#dofspace-dir" | relative_url }}
