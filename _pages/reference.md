@@ -41,24 +41,19 @@ These are quick links to descriptions of the most commonly used CASM project inp
 - [Lattice canonical form]({{ "/formats/lattice_canonical_form" |  relative_url }})
 
 
-### `casm` Python Packages
+### CASM Python packages
 
-The `casm` namespace is used to distribute CASM Python packages (i.e. casm-python) that have pure Python implementations, though they may have `libcasm` package dependencies.
-- [casm Packages Overview](https://prisms-center.github.io/CASMcode_pydocs/casm/overview/latest/)
-- [Contributing to casm packages]({{ "/pages/contributing_to_casm_packages/" | relative_url }})
-
-
-### `libcasm` Python Packages
-
-The `libcasm` namespace is used to distribute CASM Python packages (i.e. libcasm-global, libcasm-xtal, etc.) that rely in some part on a C++ implementation.
-- [libcasm Packages Overview](https://prisms-center.github.io/CASMcode_pydocs/libcasm/overview/latest/)
-- [Contributing to libcasm packages]({{ "/pages/contributing_to_libcasm_packages/" | relative_url }})
+- [CASM v1 Packages Overview](https://prisms-center.github.io/CASMcode_pydocs/overview/1.0/)
 
 
 ## CASM v2+ transition
 
-For CASM v2+, the large existing distributions [CASMcode](https://github.com/prisms-center/CASMcode) (for C++ code) and [CASMpython](https://github.com/prisms-center/CASMpython) are split into smaller distributions focused on particular topics. They are organized into two namespaces: `libcasm`, for packages that include C++ implementations, and `casm`, for pure Python packages.
+For CASM v2+, the large existing distributions [CASMcode](https://github.com/prisms-center/CASMcode) (for C++ code) and [CASMpython](https://github.com/prisms-center/CASMpython) (for Python code) are split into smaller distributions focused on particular topics. They are organized into two namespaces: `libcasm`, for packages that include C++ implementations, and `casm`, for pure Python packages.
 
 Python [namespace packages](https://packaging.python.org/en/latest/guides/packaging-namespace-packages/) allow distributing subpackages seperately so a project may be split into smaller more focused efforts. For example, the CASM structure mapping package (libcasm.mapping) and the CASM cluster expansion Monte Carlo package (libcasm.clexmonte) can be developed and distributed separately. Each distribution package installs one or more Python namespace packages into the particular namespace.
+
+- [CASM v2+ Packages Overview](https://prisms-center.github.io/CASMcode_pydocs/overview/latest/)
+- [Contributing to libcasm packages]({{ "/pages/contributing_to_libcasm_packages/" | relative_url }})
+- [Contributing to casm packages]({{ "/pages/contributing_to_casm_packages/" | relative_url }})
 
 {% include file_formats_and_locations.md %}
